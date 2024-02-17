@@ -1,4 +1,5 @@
 
+import AcheivementTestData from '../libs/dummyData/acheivementTestData.json';
 import Timeline from "@/components/Timeline/timeline"
 
 export default function Home() {
@@ -9,11 +10,11 @@ export default function Home() {
         <p className="text-base mt-2">Visually track your technical skills and career progression</p>
       </div>
       <div className="flex flex-row">
-        <div className="w-3/4">
+        <div className="w-2/3">
           <h2 className="text-center text-2xl">Celebrate the Journey</h2>
-          <Timeline />
+          <Timeline data={AcheivementTestData} />
         </div>
-        <div className="w-1/4">
+        <div className="w-1/3">
           <h2 className="text-center text-xl">Passion &  Sacrifice</h2>
         </div>
       </div>
