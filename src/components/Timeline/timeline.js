@@ -8,7 +8,7 @@ const Timeline = ({data}) => {
             <div className="md:hidden flex flex-col items-center justify-center">
                 {
                     data.map( (entry, index) => {
-                        return <Acheivement key={`entry-${index}`} content={entry} />
+                        return <Acheivement key={`entry-${index}`} content={entry} colorId={index % 2} />
                     })
                 }
             </div>
@@ -17,7 +17,7 @@ const Timeline = ({data}) => {
                     {
                         data.map( (entry, index) => {
                             if(index % 2 === 0) {
-                                return <Acheivement key={`entry-${index}`} content={entry} />
+                                return <Acheivement key={`entry-${index}`} content={entry} colorId={index % 2} />
                             }
                         })
                     }                    
@@ -26,7 +26,7 @@ const Timeline = ({data}) => {
                 {
                         data.map( (entry, index) => {
                             if(index % 2 !== 0) {
-                                return <Acheivement key={`entry-${index}`} content={entry} />
+                                return <Acheivement key={`entry-${index}`} content={entry} colorId={index % 2} />
                             }
                         })
                     }  
