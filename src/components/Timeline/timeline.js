@@ -14,8 +14,15 @@ const Acheivement = ({content, position}) => {
 const Timeline = ({data}) => {
     return (
         <section>
-            <p className="text-center text-xl font-bold">Timeline</p>
-            <div className="flex flex-row">
+            <p className="text-center text-xl font-bold mb-4 md:mb-0">Timeline</p>
+            <div className="md:hidden flex flex-col items-center justify-center">
+                {
+                    data.map( (entry, index) => {
+                        return <Acheivement key={`entry-${index}`} content={entry} />
+                    })
+                }
+            </div>
+            <div className="hidden md:flex md:flex-row">
                 <div className="w-2/4 p-4 border-r-2 border-dotted border-black flex flex-col items-center">
                     {
                         data.map( (entry, index) => {
