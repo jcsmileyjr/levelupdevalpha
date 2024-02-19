@@ -28,6 +28,7 @@ export default function Home() {
             <h2 className="text-center text-2xl lg:text-xl text-black font-bold ">Passion &  Sacrifice</h2>
             <button className='p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen'>Log In</button>
             <button className='p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen'>Sign Up</button>
+             <p className='text-center text-red-700 mt-4 text-sm'>Psst!!! Work in Progress, buttons doesn't work yet.</p>
           </div>
         </div>
       </div>
