@@ -23,8 +23,8 @@ export default function Home() {
         </div>
 
         {/* Login and Sign up Section */}
-        <div className="w-full lg:w-1/3 lg-6 lg:mt-0">
-          <div className='flex flex-col bg-babygreen rounded-lg p-12'>
+        <div className="w-full lg:w-1/3 lg-6 lg:mt-0 sm:flex sm:items-center sm:justify-center lg:block">
+          <div className='flex flex-col bg-babygreen rounded-lg p-12 sm:w-2/4 lg:w-full'>
             <h2 className="text-center text-2xl lg:text-xl text-black font-bold ">Passion &  Sacrifice</h2>
             <button className='p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen'>Log In</button>
             <button className='p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen'>Sign Up</button>
