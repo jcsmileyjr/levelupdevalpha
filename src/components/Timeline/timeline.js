@@ -29,7 +29,9 @@ const Timeline = ({data}) => {
                     {
                         data.map( (entry, index) => {
                             {/* If array index is an even number, apply specific background color (colorId) */}
-                            return <Acheivement key={`entry-${index}`} content={entry} colorId={index % 2} />
+                            if(index % 2 === 0) {
+                                return <Acheivement key={`entry-${index}`} content={entry} colorId={index % 2} />
+                            }
                         })
                     }                    
                 </div>
@@ -37,7 +39,9 @@ const Timeline = ({data}) => {
                     {
                         data.map( (entry, index) => {
                             {/* Apply specific background color based on colorId being a 0 (even) or 1 (odd) */}
-                            return <Acheivement key={`entry-${index}`} content={entry} colorId={index % 2} />
+                            if(index % 2 !== 0) {
+                                return <Acheivement key={`entry-${index}`} content={entry} colorId={index % 2} />
+                            }
                         })
                     }  
                 </div>
