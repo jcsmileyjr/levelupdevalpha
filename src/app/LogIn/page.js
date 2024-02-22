@@ -1,4 +1,15 @@
 
+/**
+ * Login page
+ * TODO - function (check email) that checks email to see if its formatted correctly.
+ * If bad format, return error. If good, continues
+ * TODO - Create dummy players array of player object [email, name]
+ * TODO - function (check email) connects with dummydata, check if email is in array, return true/false. 
+ * If true, return name of person to localStorage
+ * TODO - Create starter Progress page. If checkEmail function is true, moves player to Progress page
+ * TODO - Error functionality that responds to checkEmail function. 
+ * @returns 
+ */
 const LogIn = () => {
     return (
         <main className="flex min-h-screen flex-col p-4">
