@@ -25,7 +25,7 @@ const Timeline = ({data}) => {
 
             {/* Desktop View */}
             <div className="hidden md:flex md:flex-row">
-                <div className="w-2/4 p-4 border-r-2 border-dotted border-black flex flex-col items-center">
+                <div className="w-2/4 p-6 border-r-2 border-dotted border-black flex flex-col items-center lg:pl-0">
                     {
                         data.map( (entry, index) => {
                             {/* If array index is an even number, apply specific background color (colorId) */}
@@ -35,7 +35,7 @@ const Timeline = ({data}) => {
                         })
                     }                    
                 </div>
-                <div className="w-2/4 p-4 mt-28 flex flex-col items-center">
+                <div className="w-2/4 p-6 pl-6 mt-28 flex flex-col items-center lg:pr-0">
                     {
                         data.map( (entry, index) => {
                             {/* Apply specific background color based on colorId being a 0 (even) or 1 (odd) */}
