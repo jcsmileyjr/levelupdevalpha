@@ -8,14 +8,14 @@
  */
 const Acheivement = ({content, colorId, position}) => {
     return (
-        <div className="flex flex-col md:flex-row justify-center items-center">
+        <div className={`flex flex-col md:flex-row gap-4 items-center w-full ${position === 'right'? 'justify-start' : 'justify-end '}`}>
             <div className= {`min-w-64 w-64 min-h-56 p-8 rounded-full flex flex-col items-center mb-8 ${colorId === 1 ? 'bg-babygreen' : 'bg-babyblue'}`} >
                 <h3 className="font-bold text-xl text-center">{content.title}</h3>
                 <p className="m-2">{content.description}</p>
                 <p className="text-primaryGreen font-bold md:hidden">{content.date} </p>
             </div>
-            <div className={`hidden md:flex md:relative ${position === 'right'? 'order-first' : ''}`}>
-                <p className={`md:absolute text-primaryGreen font-bold ${position === "left"?' md:left-4 lg:left-2 xl:left-10 bottom-2': ' md:right-2 lg:right-2 xl:right-10 bottom-2'} `}>{content.date} </p>
+            <div className={`hidden md:flex ${position === 'right'? 'order-first' : ''}`}>
+                <p className={`text-primaryGreen font-bold `}>{content.date} </p>
             </div>
         </div>
     );
