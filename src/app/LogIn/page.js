@@ -1,5 +1,6 @@
 "use client"
 import {useState} from 'react';
+import { useRouter } from 'next/navigation';
 import LoginDummyData from '../../libs/dummyData/loginTestData.json';
 
 /**
@@ -8,14 +9,16 @@ import LoginDummyData from '../../libs/dummyData/loginTestData.json';
  * If bad format, return error. If good, continues
  * DONE - Create dummy players array of player object [email, name]
  * 
- * DONE: Update the form to not submit, unless there is data in the input
+ * DONE - Update the form to not submit, unless there is data in the input
  * DONE - function (check email) connects with dummydata, check if email is in array, return true/false. 
  * If true, return name of person to localStorage
- * TODO - Create starter Progress page. If checkEmail function is true, moves player to Progress page
+ * DONE - Create starter Progress page. If checkEmail function is true, moves player to Progress page
  * TODO - Error functionality that responds to checkEmail function. 
  * @returns 
  */
 const LogIn = () => {
+    const router = useRouter() //  Use to relocate user to another page
+
     const [email, setEmail] = useState(""); // user entered email address
     const [emailFormatError, setEmailFormatError] = useState(false); // User input validation feedback
     const [invalidLogin, setInvalidLogin] = useState(false); // User login submission validation feedback
@@ -45,7 +48,7 @@ const LogIn = () => {
             setInvalidLogin(false);
 
             if(getUserProfile(email)) {
-                console.log("Go to Progress page")
+                router.push('/Progress')
             } else {
                 setInvalidLogin(true);
             }
