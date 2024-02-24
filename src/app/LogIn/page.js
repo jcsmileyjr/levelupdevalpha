@@ -8,15 +8,6 @@ import LoginPromoData from '../../libs/dummyData/loginPromoData.json';
 
 /**
  * Login page
- * DONE - function (check email) that checks email to see if its formatted correctly.
- * If bad format, return error. If good, continues
- * DONE - Create dummy players array of player object [email, name]
- * 
- * DONE - Update the form to not submit, unless there is data in the input
- * DONE - function (check email) connects with dummydata, check if email is in array, return true/false. 
- * If true, return name of person to localStorage
- * DONE - Create starter Progress page. If checkEmail function is true, moves player to Progress page
- * DONE - Error functionality that responds to checkEmail function. 
  * @returns 
  */
 const LogIn = () => {
@@ -39,6 +30,7 @@ const LogIn = () => {
         } else {
             return true;
         }
+        console.log("getUserProfile()")
     }
     
     // Check user input to see if meet email guidlines & submit content to API for true/false return
@@ -55,10 +47,12 @@ const LogIn = () => {
                 setInvalidLogin(true);
             }
         }
+        console.log("submitLogInCredential()")
     }
 
     // Enable and Disable the submit button
     const enableSubmission = () => {
+        console.log("enableSubmission()")
         if(email.length > 0) {
             return false;
         } else {
