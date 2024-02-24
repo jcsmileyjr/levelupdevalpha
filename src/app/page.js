@@ -1,4 +1,4 @@
-
+import Link from 'next/link'
 import AcheivementTestData from '../libs/dummyData/acheivementTestData.json'; // Dummy acheivement data
 import Timeline from "@/components/Timeline/timeline" // component to display Timeline
 
@@ -27,8 +27,8 @@ export default function Home() {
         <section className="w-full lg:w-1/3 lg-6 lg:mt-0 sm:flex sm:items-center sm:justify-center lg:block">
           <div className='flex flex-col bg-babygreen rounded-lg p-12 sm:w-2/4 lg:w-full'>
             <h2 className="text-center text-2xl lg:text-xl text-black font-bold ">Passion &  Sacrifice</h2>
-            <button className='p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen'>Log In</button>
-            <button className='p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen'>Sign Up</button>
+            <Link href="/LogIn" aria-label='Click to go to Log in page' className='p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen text-center'>Log In</Link>
+            <button aria-label='Click to go to Sign up page' className='p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen'>Sign Up</button>
              <p className='text-center text-red-700 mt-4 text-sm'>Psst!!! Work in Progress, buttons doesn&apos;t work yet.</p>
           </div>
         </section>
