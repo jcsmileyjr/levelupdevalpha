@@ -72,8 +72,8 @@ const LogIn = () => {
                 {/*Landing page link */}
                 <Link className='font-bold underline text-primaryGreen' href="/">Level Up Dev - Log-in</Link>
             </section>
-            <div className="flex flex-col lg:flex-row mt-8">
-                <form className="flex flex-col flex-1 w-2/4 m-auto lg:m-0 lg:w-1/3 lg-6 lg:mt-0">
+            <div className="flex flex-col lg:flex-row mt-8 gap-4">
+                <form className="flex flex-col flex-1 w-full m-auto lg:m-0 sm:w-2/4 lg:w-1/3 lg-6 lg:mt-0 bg-babygreen min-h-64 h-2/3 p-4 lg:p-8 pb-8">
                     {/* Email input field */}
                     <label htmlFor='loginInputField' className="font-bold text-gray-700 text-2xl my-2">Email</label>
                     <input id="loginInputField" name="loginInputField" onChange={(e) => setEmail(e.target.value) } className="p-2 border border-primaryGreen bg-white text-xl rounded-lg" type="email"></input>
