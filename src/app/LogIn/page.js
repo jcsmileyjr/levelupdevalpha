@@ -13,7 +13,7 @@ import LoginDummyData from '../../libs/dummyData/loginTestData.json';
  * DONE - function (check email) connects with dummydata, check if email is in array, return true/false. 
  * If true, return name of person to localStorage
  * DONE - Create starter Progress page. If checkEmail function is true, moves player to Progress page
- * TODO - Error functionality that responds to checkEmail function. 
+ * DONE - Error functionality that responds to checkEmail function. 
  * @returns 
  */
 const LogIn = () => {
@@ -40,12 +40,11 @@ const LogIn = () => {
     
     // Check user input to see if meet email guidlines & submit content to API for true/false return
     const submitLogInCredential = () => {
+        setInvalidLogin(false);
         if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false) {
             setEmailFormatError(true);
-            return;
         } else {
             setEmailFormatError(false);
-            setInvalidLogin(false);
 
             if(getUserProfile(email)) {
                 router.push('/Progress')
@@ -70,14 +69,22 @@ const LogIn = () => {
                 <p className="font-bold underline text-primaryGreen">Level Up Dev - Log-in</p>
             </section>
             <div className="flex justify-center items-center mt-12">
-                <section className="flex flex-row justify-center px-8 w-full sm:w-2/4 h-2/3 min-h-56 max-w-96 bg-babygreen">
+                <section className="flex flex-row justify-center px-8 w-full sm:w-2/4 h-2/3 pb-8 min-h-64 max-w-96 bg-babygreen">
                     <div className="flex-1"></div>
                     <form className="flex flex-col flex-1">
+                        {/* Email input field */}
                         <label htmlFor='loginInputField' className="font-bold text-primaryGreen text-2xl my-2">Email</label>
                         <input id="loginInputField" name="loginInputField" onChange={(e) => setEmail(e.target.value) } className="p-2 border border-primaryGreen bg-white text-xl rounded-lg" type="email"></input>
-                        <p className={`${emailFormatError?'visible' : 'invisible'}`}>Not a valid email format</p>
-                        <p className={`${invalidLogin?'visible' : 'invisible'}`}>Invalid email address</p>
-                        <button disabled={enableSubmission()} aria-label='Click to submit email for log in submission' type="submit" onClick={() => submitLogInCredential()} className="p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" type="button">Log In</button>
+                        
+                        {/*Error messages */}
+                        <p className={`${emailFormatError || invalidLogin? 'hidden':'block'} my-4`}></p>
+                        <p className={`${emailFormatError?'block' : 'hidden'} my-2 text-sm text-red-700`}>Not a valid email format</p>
+                        <p className={`${invalidLogin?'block' : 'hidden'} my-2 text-sm text-red-700`}>Invalid email address</p>
+                        
+                        {/*Submit button */}
+                        <button disabled={enableSubmission()} aria-label='Click to submit email for log in submission' type="submit" onClick={() => submitLogInCredential()} className="p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" type="button">Log In</button>
+                        
+                        <p className={` text-center text-red-700 mt-4 text-sm`}>Psst!!! Work in Progress, use abc@gmail.com for now.</p>
                     </form >
                     <div className="flex-1"></div>
                 </section>
