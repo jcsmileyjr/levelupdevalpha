@@ -1,8 +1,10 @@
 "use client"
 import {useState} from 'react';
 import { useRouter } from 'next/navigation';
+import Timeline from '@/components/Timeline/timeline';
 import Link from 'next/link';
 import LoginDummyData from '../../libs/dummyData/loginTestData.json';
+import LoginPromoData from '../../libs/dummyData/loginPromoData.json';
 
 /**
  * Login page
@@ -70,28 +72,30 @@ const LogIn = () => {
                 {/*Landing page link */}
                 <Link className='font-bold underline text-primaryGreen' href="/">Level Up Dev - Log-in</Link>
             </section>
-            <div className="flex justify-center items-center mt-12">
-                <section className="flex flex-row justify-center px-8 w-full sm:w-2/4 h-2/3 pb-8 min-h-64 max-w-96 bg-babygreen">
-                    <div className="flex-1"></div>
-                    <form className="flex flex-col flex-1 pt-4">
-                        {/* Email input field */}
-                        <label htmlFor='loginInputField' className="font-bold text-gray-700 text-2xl my-2">Email</label>
-                        <input id="loginInputField" name="loginInputField" onChange={(e) => setEmail(e.target.value) } className="p-2 border border-primaryGreen bg-white text-xl rounded-lg" type="email"></input>
-                        
-                        {/*Error messages */}
-                        <p className={`${emailFormatError || invalidLogin? 'hidden':'block'} my-4`}></p>
-                        <p className={`${emailFormatError?'block' : 'hidden'} my-2 text-sm text-red-700`}>Not a valid email format</p>
-                        <p className={`${invalidLogin?'block' : 'hidden'} my-2 text-sm text-red-700`}>Invalid email address</p>
-                        
-                        {/*Submit button */}
-                        <button disabled={enableSubmission()} aria-label='Click to submit email for log in submission' type="submit" onClick={() => submitLogInCredential()} className="p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" >Log In</button>
-                        
-                        <p className={` text-center text-gray-700 mt-4 text-sm`}>Psst!!! Work in Progress, use abc@gmail.com for now.</p>
+            <div className="flex flex-col lg:flex-row mt-8">
+                <form className="flex flex-col flex-1 w-2/4 m-auto lg:m-0 lg:w-1/3 lg-6 lg:mt-0">
+                    {/* Email input field */}
+                    <label htmlFor='loginInputField' className="font-bold text-gray-700 text-2xl my-2">Email</label>
+                    <input id="loginInputField" name="loginInputField" onChange={(e) => setEmail(e.target.value) } className="p-2 border border-primaryGreen bg-white text-xl rounded-lg" type="email"></input>
+                    
+                    {/*Error messages */}
+                    <p className={`${emailFormatError || invalidLogin? 'hidden':'block'} my-4`}></p>
+                    <p className={`${emailFormatError?'block' : 'hidden'} my-2 text-sm text-red-700`}>Not a valid email format</p>
+                    <p className={`${invalidLogin?'block' : 'hidden'} my-2 text-sm text-red-700`}>Invalid email address</p>
+                    
+                    {/*Submit button */}
+                    <button disabled={enableSubmission()} aria-label='Click to submit email for log in submission' type="submit" onClick={() => submitLogInCredential()} className="p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" >Log In</button>
+                    
+                    <p className={` text-center text-gray-700 mt-4 text-sm`}>Psst!!! Work in Progress, use abc@gmail.com for now.</p>
 
-                        {/*Sign up link */}
-                        <p className='text-center text-sm text-primaryGreen mt-8 font-bold'>Sign Up &#40;WIP&#41;</p>
-                    </form >
-                    <div className="flex-1"></div>
+                    {/*Sign up link */}
+                    <p className='text-center text-sm text-primaryGreen mt-8 font-bold'>Sign Up &#40;WIP&#41;</p>
+                </form >
+
+                {/* Presentation Timeline Display */}
+                <section className="w-full order-last mt-6 lg:mt-0 lg:w-2/3">
+                    <h2 className="text-center text-2xl text-primaryGreen font-bold">Visual see all your Acheivements</h2>
+                    <Timeline data={LoginPromoData} />
                 </section>
             </div>
         </main>
