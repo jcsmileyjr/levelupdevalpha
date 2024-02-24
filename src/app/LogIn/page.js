@@ -1,7 +1,8 @@
-
+"use client"
+import {useState} from 'react';
 /**
  * Login page
- * TODO - function (check email) that checks email to see if its formatted correctly.
+ * DONE - function (check email) that checks email to see if its formatted correctly.
  * If bad format, return error. If good, continues
  * TODO - Create dummy players array of player object [email, name]
  * TODO - function (check email) connects with dummydata, check if email is in array, return true/false. 
@@ -11,6 +12,22 @@
  * @returns 
  */
 const LogIn = () => {
+    const [email, setEmail] = useState(""); // user entered email address
+    const [emailError, setEmailError] = useState(false);
+
+    /**
+     * Check user input to see if meet email guidlines & submits content to API for true/false return
+     */
+    const checkEmail = () => {
+        if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false) {
+            setEmailError(true);
+            return;
+        } else {
+            setEmailError(false)
+        }
+        //console.log("checkEmail() works: ", /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email));
+    }
+
     return (
         <main className="flex min-h-screen flex-col p-4">
             <section>
@@ -21,8 +38,9 @@ const LogIn = () => {
                     <div className="flex-1"></div>
                     <div className="flex flex-col flex-1">
                         <label className="font-bold text-primaryGreen text-2xl my-2">Email</label>
-                        <input className="p-2 border border-primaryGreen bg-white text-xl rounded-lg" type="email"></input>
-                        <button className="p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" type="button">Log In</button>
+                        <input onChange={(e) => setEmail(e.target.value) } className="p-2 border border-primaryGreen bg-white text-xl rounded-lg" type="email"></input>
+                        <p className={`${emailError?'visible' : 'invisible'}`}>Not a valid email format</p>
+                        <button onClick={() => checkEmail()} className="p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" type="button">Log In</button>
                     </div >
                     <div className="flex-1"></div>
                 </section>
