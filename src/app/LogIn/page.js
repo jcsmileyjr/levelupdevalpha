@@ -74,7 +74,7 @@ const LogIn = () => {
                     <div className="flex-1"></div>
                     <form className="flex flex-col flex-1 pt-4">
                         {/* Email input field */}
-                        <label htmlFor='loginInputField' className="font-bold text-primaryGreen text-2xl my-2">Email</label>
+                        <label htmlFor='loginInputField' className="font-bold text-gray-700 text-2xl my-2">Email</label>
                         <input id="loginInputField" name="loginInputField" onChange={(e) => setEmail(e.target.value) } className="p-2 border border-primaryGreen bg-white text-xl rounded-lg" type="email"></input>
                         
                         {/*Error messages */}
@@ -85,7 +85,7 @@ const LogIn = () => {
                         {/*Submit button */}
                         <button disabled={enableSubmission()} aria-label='Click to submit email for log in submission' type="submit" onClick={() => submitLogInCredential()} className="p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" >Log In</button>
                         
-                        <p className={` text-center text-red-700 mt-4 text-sm`}>Psst!!! Work in Progress, use abc@gmail.com for now.</p>
+                        <p className={` text-center text-gray-700 mt-4 text-sm`}>Psst!!! Work in Progress, use abc@gmail.com for now.</p>
 
 
                         <p className='text-center text-sm text-primaryGreen mt-8 font-bold'>Sign Up &#40;WIP&#41;</p>
