@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 import AcheivementTestData from '../libs/dummyData/acheivementTestData.json'; // Dummy acheivement data
 import Timeline from "@/components/Timeline/timeline" // component to display Timeline
 

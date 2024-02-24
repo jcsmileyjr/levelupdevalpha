@@ -1,6 +1,7 @@
 "use client"
 import {useState} from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import LoginDummyData from '../../libs/dummyData/loginTestData.json';
 
 /**
@@ -66,12 +67,12 @@ const LogIn = () => {
     return (
         <main className="flex min-h-screen flex-col p-4">
             <section>
-                <p className="font-bold underline text-primaryGreen">Level Up Dev - Log-in</p>
+                <Link className='font-bold underline text-primaryGreen' href="/">Level Up Dev - Log-in</Link>
             </section>
             <div className="flex justify-center items-center mt-12">
                 <section className="flex flex-row justify-center px-8 w-full sm:w-2/4 h-2/3 pb-8 min-h-64 max-w-96 bg-babygreen">
                     <div className="flex-1"></div>
-                    <form className="flex flex-col flex-1">
+                    <form className="flex flex-col flex-1 pt-4">
                         {/* Email input field */}
                         <label htmlFor='loginInputField' className="font-bold text-primaryGreen text-2xl my-2">Email</label>
                         <input id="loginInputField" name="loginInputField" onChange={(e) => setEmail(e.target.value) } className="p-2 border border-primaryGreen bg-white text-xl rounded-lg" type="email"></input>
@@ -82,9 +83,12 @@ const LogIn = () => {
                         <p className={`${invalidLogin?'block' : 'hidden'} my-2 text-sm text-red-700`}>Invalid email address</p>
                         
                         {/*Submit button */}
-                        <button disabled={enableSubmission()} aria-label='Click to submit email for log in submission' type="submit" onClick={() => submitLogInCredential()} className="p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" type="button">Log In</button>
+                        <button disabled={enableSubmission()} aria-label='Click to submit email for log in submission' type="submit" onClick={() => submitLogInCredential()} className="p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" >Log In</button>
                         
                         <p className={` text-center text-red-700 mt-4 text-sm`}>Psst!!! Work in Progress, use abc@gmail.com for now.</p>
+
+
+                        <p className='text-center text-sm text-primaryGreen mt-8 font-bold'>Sign Up &#40;WIP&#41;</p>
                     </form >
                     <div className="flex-1"></div>
                 </section>
