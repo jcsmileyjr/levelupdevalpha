@@ -30,11 +30,11 @@ const LogIn = () => {
         } else {
             return true;
         }
-        console.log("getUserProfile()")
     }
     
     // Check user input to see if meet email guidlines & submit content to API for true/false return
-    const submitLogInCredential = () => {
+    const submitLogInCredential = (event) => {
+        event.preventDefault();
         setInvalidLogin(false);
         if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false) {
             setEmailFormatError(true);
@@ -47,12 +47,10 @@ const LogIn = () => {
                 setInvalidLogin(true);
             }
         }
-        console.log("submitLogInCredential()")
     }
 
     // Enable and Disable the submit button
     const enableSubmission = () => {
-        console.log("enableSubmission()")
         if(email.length > 0) {
             return false;
         } else {
@@ -78,7 +76,7 @@ const LogIn = () => {
                     <p className={`${invalidLogin?'block' : 'hidden'} my-2 text-sm text-red-700`}>Invalid email address</p>
                     
                     {/*Submit button */}
-                    <button disabled={enableSubmission()} aria-label='Click to submit email for log in submission' type="submit" onClick={() => submitLogInCredential()} className="p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" >Log In</button>
+                    <button disabled={enableSubmission()} aria-label='Click to submit email for log in submission' type="submit" onClick={(e) => submitLogInCredential(e)} className="p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" >Log In</button>
                     
                     <p className={` text-center text-gray-700 mt-4 text-sm`}>Psst!!! Work in Progress, use abc@gmail.com for now.</p>
 
