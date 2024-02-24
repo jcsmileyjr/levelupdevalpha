@@ -8,7 +8,7 @@ import LoginDummyData from '../../libs/dummyData/loginTestData.json';
  * If bad format, return error. If good, continues
  * DONE - Create dummy players array of player object [email, name]
  * 
- * TODO: Update the form to not submit, unless there is data in the input
+ * DONE: Update the form to not submit, unless there is data in the input
  * DONE - function (check email) connects with dummydata, check if email is in array, return true/false. 
  * If true, return name of person to localStorage
  * TODO - Create starter Progress page. If checkEmail function is true, moves player to Progress page
@@ -35,9 +35,7 @@ const LogIn = () => {
         }
     }
     
-    /**
-     * Check user input to see if meet email guidlines & submit content to API for true/false return
-     */
+    // Check user input to see if meet email guidlines & submit content to API for true/false return
     const submitLogInCredential = () => {
         if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false) {
             setEmailFormatError(true);
@@ -54,6 +52,15 @@ const LogIn = () => {
         }
     }
 
+    // Enable and Disable the submit button
+    const enableSubmission = () => {
+        if(email.length > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     return (
         <main className="flex min-h-screen flex-col p-4">
             <section>
@@ -67,7 +74,7 @@ const LogIn = () => {
                         <input id="loginInputField" name="loginInputField" onChange={(e) => setEmail(e.target.value) } className="p-2 border border-primaryGreen bg-white text-xl rounded-lg" type="email"></input>
                         <p className={`${emailFormatError?'visible' : 'invisible'}`}>Not a valid email format</p>
                         <p className={`${invalidLogin?'visible' : 'invisible'}`}>Invalid email address</p>
-                        <button aria-label='Click to submit email for log in submission' type="submit" onClick={() => submitLogInCredential()} className="p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" type="button">Log In</button>
+                        <button disabled={enableSubmission()} aria-label='Click to submit email for log in submission' type="submit" onClick={() => submitLogInCredential()} className="p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" type="button">Log In</button>
                     </form >
                     <div className="flex-1"></div>
                 </section>
