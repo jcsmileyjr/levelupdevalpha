@@ -1,10 +1,12 @@
 "use client"
 import {useState} from 'react';
+import LoginDummyData from '../../libs/dummyData/loginTestData.json';
+
 /**
  * Login page
  * DONE - function (check email) that checks email to see if its formatted correctly.
  * If bad format, return error. If good, continues
- * TODO - Create dummy players array of player object [email, name]
+ * DONE - Create dummy players array of player object [email, name]
  * TODO - function (check email) connects with dummydata, check if email is in array, return true/false. 
  * If true, return name of person to localStorage
  * TODO - Create starter Progress page. If checkEmail function is true, moves player to Progress page
@@ -14,7 +16,7 @@ import {useState} from 'react';
 const LogIn = () => {
     const [email, setEmail] = useState(""); // user entered email address
     const [emailError, setEmailError] = useState(false);
-
+    
     /**
      * Check user input to see if meet email guidlines & submits content to API for true/false return
      */
