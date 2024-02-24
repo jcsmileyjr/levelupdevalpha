@@ -67,6 +67,7 @@ const LogIn = () => {
     return (
         <main className="flex min-h-screen flex-col p-4">
             <section>
+                {/*Landing page link */}
                 <Link className='font-bold underline text-primaryGreen' href="/">Level Up Dev - Log-in</Link>
             </section>
             <div className="flex justify-center items-center mt-12">
@@ -87,7 +88,7 @@ const LogIn = () => {
                         
                         <p className={` text-center text-gray-700 mt-4 text-sm`}>Psst!!! Work in Progress, use abc@gmail.com for now.</p>
 
-
+                        {/*Sign up link */}
                         <p className='text-center text-sm text-primaryGreen mt-8 font-bold'>Sign Up &#40;WIP&#41;</p>
                     </form >
                     <div className="flex-1"></div>
