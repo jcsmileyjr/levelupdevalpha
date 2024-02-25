@@ -18,5 +18,26 @@
         "title" : "1st Job: Full Stack Java Developer", 
         "description" : "Party Party Party", 
         "date" : ""
+    },
+
+    {
+        "title" : "Node", 
+        "description" : "Excepteur sint occaecat cupidatat non proident", 
+        "date" : "4/23"
+    },
+    {
+        "title" : "Express", 
+        "description" : "Excepteur sint occaecat cupidatat non proident", 
+        "date" : "5/23"
+    },
+    {
+        "title" : "Nextjs", 
+        "description" : "Excepteur sint occaecat cupidatat non proident", 
+        "date" : "7/23"
+    },
+    {
+        "title" : "React", 
+        "description" : "Excepteur sint occaecat cupidatat non proident", 
+        "date" : "6/23"
     }
 ]

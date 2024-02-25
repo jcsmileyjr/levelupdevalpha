@@ -13,7 +13,7 @@ const Competency = ({title, content}) => {
     })
 
     return (
-        <section>
+        <section className=''>
             <div className='flex flex-row justify-between items-center'>
                 <h2 className=''>{title}</h2>
                 <Link className='underline' href={`/${title}`}>Go to the {title} Page</Link>
@@ -29,9 +29,9 @@ const Competency = ({title, content}) => {
                         }
                     </div>
                 </div>
-                <div className='flex-1 border-l-2 border-solid border-black pl-4'>
+                <div className='flex flex-col flex-1 border-l-2 border-solid border-black pl-4 '>
                     <p className='underline text-base text-gray-700 font-bold text-center my-4'>List of your Achievements</p>
-                    <div className='flex flex-col flex-wrap'>
+                    <div className='flex flex-col basis-3/6 flex-wrap max-h-40'>
                         {
                             acheived.map( item => (
                                 <p>{item.title}</p>
