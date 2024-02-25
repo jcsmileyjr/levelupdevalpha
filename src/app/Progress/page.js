@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Timeline from '@/components/Timeline/timeline';
+import Competency from '@/components/Competency/competency';
 import AcheivementTestData from '../../libs/dummyData/acheivementTestData';
+import SkillsData from '../../libs/dummyData/skillsTestData.json';
 
 const Progress = () => {
     return (
@@ -10,12 +12,12 @@ const Progress = () => {
                 <Link className='font-bold underline text-primaryGreen text-base' href="/">Level Up Dev - Progress</Link>
                 <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreen font-bold text-base bg-white rounded-lg' href="/">Sign out</Link>
             </section>
-            <div className='flex flex-col lg:flex-row '>
-                <div className='w-2/4 mt-6 lg:mt-0 lg:w-2/4'>
-                    competency
+            <div className='flex flex-col xl:flex-row gap-8'>
+                <div className='w-full mt-6 sm:self-center xl:self-auto md:w-11/12 xl:mt-0 xl:w-2/4'>
+                    <Competency title='Skills' content={SkillsData} />
                 </div>
                 {/* Presentation Timeline Display */}
-                <section className="w-full order-last mt-6 lg:mt-0 lg:w-2/4">
+                <section className="w-full order-last mt-6 lg:mt-0 xl:w-2/4">
                     <h2 className="text-center text-2xl text-primaryGreen font-bold">Timeline of achievements</h2>
                     <Timeline data={AcheivementTestData} />
                 </section>
