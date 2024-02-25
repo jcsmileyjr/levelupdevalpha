@@ -1,21 +1,24 @@
 import Link from 'next/link';
 import Timeline from '@/components/Timeline/timeline';
 import Competency from '@/components/Competency/competency';
-import AcheivementTestData from '../../libs/dummyData/acheivementTestData';
+//import AcheivementTestData from '../../libs/dummyData/acheivementTestData';
 import SkillsData from '../../libs/dummyData/skillsTestData.json';
 import ProjectsData from '../../libs/dummyData/projectsTestData.json';
 
 /**
- * TODO - combined all arrays into a single array
- * TODO - Exclude all objects without an date
- * TODO - Sort all objects by date
- * TODO - Return
+ *  Function
  */
 const getTimeLineData = () => {
-    
+    const combinedRawData = SkillsData.concat(ProjectsData);
+    const acheivedProgressData = combinedRawData.filter((progress) => {return progress.orderBy > 0});
+    const sortedProgressData = acheivedProgressData.sort((a, b) => {return a.orderBy - b.orderBy});
+    console.log("data: ", sortedProgressData);
+    return sortedProgressData
 }
 
 const Progress = () => {
+    let AcheivementTestData = getTimeLineData();
+
     return (
         <main className="flex min-h-screen flex-col p-4">
             <section className="flex justify-between items-center">
