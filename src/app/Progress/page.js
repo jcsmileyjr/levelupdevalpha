@@ -5,6 +5,16 @@ import AcheivementTestData from '../../libs/dummyData/acheivementTestData';
 import SkillsData from '../../libs/dummyData/skillsTestData.json';
 import ProjectsData from '../../libs/dummyData/projectsTestData.json';
 
+/**
+ * TODO - combined all arrays into a single array
+ * TODO - Exclude all objects without an date
+ * TODO - Sort all objects by date
+ * TODO - Return
+ */
+const getTimeLineData = () => {
+    
+}
+
 const Progress = () => {
     return (
         <main className="flex min-h-screen flex-col p-4">

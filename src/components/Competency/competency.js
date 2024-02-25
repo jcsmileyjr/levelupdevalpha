@@ -21,8 +21,8 @@ const Competency = ({title, content}) => {
                     <p className='underline text-base text-gray-700 font-bold text-center my-4'>List of {title} You want</p>
                     <div className='flex flex-row flex-wrap'>
                         {
-                            wants.map( item => (
-                                <p className='mb-2 basis-3/6'>{item.title}</p>
+                            wants.map( (item, index) => (
+                                <p key={`item-${index}`} className='mb-2 basis-3/6'>{item.title}</p>
                             ))
                         }
                     </div>
@@ -31,8 +31,8 @@ const Competency = ({title, content}) => {
                     <p className='underline text-base text-gray-700 font-bold text-center my-4'>List of your Achievements</p>
                     <div className='flex flex-row flex-wrap'>
                         {
-                            acheived.map( item => (
-                                <p className='mb-2 basis-3/6'>{item.title}</p>
+                            acheived.map( (item, index) => (
+                                <p key={`item-${index}`} className='mb-2 basis-3/6'>{item.title}</p>
                             ))
                         }
                     </div>

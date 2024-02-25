@@ -2,37 +2,44 @@
     {
         "title" : "TailwindCSS", 
         "description" : "Allowed me to quickly style  the Tic Tac Toe project. Prepartion for Chingu.", 
-        "date" : "2/23"
+        "date" : "2/23",
+        "orderBy": 223
     },
     {
         "title" : "Java", 
         "description" : "Backend language that will allow me to be a Full Stack developer. ", 
-        "date" : ""
+        "date" : "",
+        "orderBy": 0
     },
     {
         "title" : "1st Job: Full Stack Java Developer", 
         "description" : "Party Party Party", 
-        "date" : ""
+        "date" : "",
+        "orderBy": 0
     },
 
     {
         "title" : "Node", 
         "description" : "Excepteur sint occaecat cupidatat non proident", 
-        "date" : "4/23"
+        "date" : "4/23",
+        "orderBy": 423
     },
     {
         "title" : "Express", 
         "description" : "Excepteur sint occaecat cupidatat non proident", 
-        "date" : "5/23"
+        "date" : "5/23",
+        "orderBy": 523
     },
     {
         "title" : "Nextjs", 
         "description" : "Excepteur sint occaecat cupidatat non proident", 
-        "date" : "7/23"
+        "date" : "7/23",
+        "orderBy": 723
     },
     {
         "title" : "React", 
         "description" : "Excepteur sint occaecat cupidatat non proident", 
-        "date" : "6/23"
+        "date" : "6/23",
+        "orderBy": 623
     }
 ]
