@@ -15,6 +15,9 @@ const Progress = () => {
             <div className='flex flex-col xl:flex-row gap-8'>
                 <div className='w-full mt-6 sm:self-center xl:self-auto md:w-11/12 xl:mt-0 xl:w-2/4'>
                     <Competency title='Skills' content={SkillsData} />
+                    <Competency title='Projects' content={SkillsData} />
+                    <Competency title='Titles' content={SkillsData} />
+                    <Competency title='Experiences' content={SkillsData} />
                 </div>
                 {/* Presentation Timeline Display */}
                 <section className="w-full order-last mt-6 lg:mt-0 xl:w-2/4">

@@ -3,9 +3,7 @@ import Link from 'next/link';
 const Competency = ({title, content}) => {
 
     const wants = content.filter((data) => {
-        if(data.date === "") {
-            return data;
-        }
+        if(data.date === "") return data
     })
 
     const acheived = content.filter((data) => {
@@ -13,10 +11,10 @@ const Competency = ({title, content}) => {
     })
 
     return (
-        <section className=''>
-            <div className='flex flex-row justify-between items-center'>
-                <h2 className=''>{title}</h2>
-                <Link className='underline' href={`/${title}`}>Go to the {title} Page</Link>
+        <section className='mb-8'>
+            <div className='flex flex-row justify-between items-center mb-2'>
+                <h2 className='text-2xl font-bold text-primaryGreen'>{title}</h2>
+                <Link className='underline text-base text-gray-700 font-bold' href={`/${title}`}>Go to the {title} Page</Link>
             </div>
             <div className='bg-babygreen flex flex-row pb-4 px-4'>
                 <div className='flex-1 border-r-2 border-solid border-black '>
