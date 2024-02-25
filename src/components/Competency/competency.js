@@ -21,20 +21,20 @@ const Competency = ({title, content}) => {
             <div className='bg-babygreen flex flex-row pb-4 px-4'>
                 <div className='flex-1 border-r-2 border-solid border-black '>
                     <p className='underline text-base text-gray-700 font-bold text-center my-4'>List of {title} You want</p>
-                    <div className='flex flex-col flex-wrap'>
+                    <div className='flex flex-row flex-wrap'>
                         {
                             wants.map( item => (
-                                <p>{item.title}</p>
+                                <p className='mb-2 basis-3/6'>{item.title}</p>
                             ))
                         }
                     </div>
                 </div>
                 <div className='flex flex-col flex-1 border-l-2 border-solid border-black pl-4 '>
                     <p className='underline text-base text-gray-700 font-bold text-center my-4'>List of your Achievements</p>
-                    <div className='flex flex-col basis-3/6 flex-wrap max-h-40'>
+                    <div className='flex flex-row flex-wrap'>
                         {
                             acheived.map( item => (
-                                <p>{item.title}</p>
+                                <p className='mb-2 basis-3/6'>{item.title}</p>
                             ))
                         }
                     </div>
