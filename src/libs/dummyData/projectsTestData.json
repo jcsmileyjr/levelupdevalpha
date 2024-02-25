@@ -1,0 +1,26 @@
+[
+    {
+        "title" : "TODO app", 
+        "description" : "Basic CRUD app with HTML, CSS, & JavaScript to list action items.", 
+        "date" : "1/23",
+        "orderBy": 123
+    },
+    {
+        "title" : "Chingu Virtual Team Project", 
+        "description" : "6 week virtual team project where I styled the website.", 
+        "date" : "3/23",
+        "orderBy": 323
+    },
+    {
+        "title" : "TicTacToe Game", 
+        "description" : "Deployed React app to play a kids game", 
+        "date" : "5/23",
+        "orderBy": 523
+    },
+    {
+        "title" : "Office Swear Jar", 
+        "description" : "Deployed Next.js app linked to a Spring Boot backend that allows an office of employees to track who owes money for swearing.", 
+        "date" : "",
+        "orderBy": 0
+    }
+]
