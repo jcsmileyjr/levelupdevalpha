@@ -15,7 +15,7 @@ export default function Home() {
         <p className="text-base mt-2">Visually track your technical skills and career progression</p>
       </section>
 
-      <div className="flex flex-col lg:flex-row mt-8">
+      <div className="flex flex-col lg:flex-row mt-8 gap-6">
                 
         {/* Presentation Timeline Display */}
         <section className="w-full order-last mt-6 lg:mt-0 lg:order-first lg:w-2/3">
