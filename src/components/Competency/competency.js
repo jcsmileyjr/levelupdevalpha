@@ -24,7 +24,7 @@ const Competency = ({title, content}) => {
             {/* Displays title of the Competency */}
             <div className='flex flex-row justify-between items-center mb-2'>
                 <h2 className='text-2xl font-bold text-primaryGreen'>{title}</h2>
-                <Link className='underline text-base text-gray-700 font-bold' href={`/${title}`}>Go to the {title} Page</Link>
+                <Link className='underline text-base text-gray-700 font-bold' href={`/Action/${title}`}>Go to the {title} Page</Link>
             </div>
             <div className='bg-babygreen flex flex-row pb-4 px-4'>
                 {/* Display the "Want" section */}
