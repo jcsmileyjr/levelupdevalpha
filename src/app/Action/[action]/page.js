@@ -33,8 +33,8 @@ const Action = ({params: {action}}) => {
     return (
         <main className="flex min-h-screen flex-col p-4">
             <section className="flex justify-between items-center mb-6">
-                {/*Landing page links */}
-                <Link className='font-bold underline text-primaryGreen text-base' href="/">Level Up Dev - {action}</Link>
+                {/*navigation */}
+                <Link className='font-bold underline text-primaryGreen text-base' href="/Progress">Go to Progress Page</Link>
                 <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreen font-bold text-base bg-white rounded-lg' href="/">Sign out</Link>
             </section>
             <div className='flex flex-col lg:flex-row gap-6'>
