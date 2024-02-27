@@ -21,7 +21,7 @@ const Action = ({params: {action}}) => {
     const data = getData(action);
     return (
         <main className="flex min-h-screen flex-col p-4">
-            <section className="flex justify-between items-center">
+            <section className="flex justify-between items-center mb-6">
                 {/*Landing page links */}
                 <Link className='font-bold underline text-primaryGreen text-base' href="/">Level Up Dev - {action}</Link>
                 <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreen font-bold text-base bg-white rounded-lg' href="/">Sign out</Link>
@@ -58,14 +58,28 @@ const Action = ({params: {action}}) => {
                 </section>
 
                 {/* Confirm that a skill has been acomplishsed */}
-                <section className='flex-1'>
-                    <div className='bg-babygreen rounded-lg '>
-                        <h1 className='font-bold underline text-2xl text-primaryGreen'>Confirmed Skilled Learned</h1>
+                <section className='flex-1 flex flex-col gap-6 justify-between'>
+                    <div className='flex flex-col sm:items-center bg-babygreen rounded-lg px-12 sm:pl-0 pb-6 px-4 flex-1'>
+                        <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Confirmed Skilled Learned</h1>
 
+                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputReason'>Find Skill</label>
+                        <div className='mb-6 w-full sm:w-2/4'>
+                            <textarea id="inputReason" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></textarea>
+                            <p>40 character count limit</p>
+                            <p className='w-full mt-2'><span className='font-bold'>Definition:</span> Ready to place on your resume, competency to develop production-ready software, and have built something that can be used by others with it.</p>
+                        </div>
+                        <button type="submit" className='p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
                     </div>                
-                    <div className='bg-babygreen rounded-lg '>
-                        
-                    </div>                    
+                    <div className=' bg-babygreen rounded-lg min-h-40'>
+                        <h2 className='text-center font-bold underline text-2xl text-primaryGreen my-6'>List of your Achievements</h2>
+                        <div className='flex flex-row flex-wrap px-12 sm:px-6'>
+                            {
+                                data.map( (item, index) => (
+                                    <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12'>{item.title}</p>
+                                ))
+                            }
+                        </div>
+                    </div>                   
                 </section>
             </div>
         </main>
