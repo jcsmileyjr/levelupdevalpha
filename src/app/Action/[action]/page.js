@@ -73,9 +73,15 @@ const Action = ({params: {action}}) => {
                     <div className='flex flex-col sm:items-center bg-babygreen rounded-lg px-12 sm:pl-0 pb-6 px-4 flex-1'>
                         <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Confirmed Skilled Learned</h1>
 
-                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputReason'>Find Skill</label>
+                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectReason'>Find Skill</label>
                         <div className='mb-6 w-full sm:w-2/4'>
-                            <textarea id="inputReason" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></textarea>
+                            <select id="selectReason" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'>
+                                {
+                                    wants.map((item, index) => (
+                                        <option id={`${item}-${index}`}>{item.title}</option>
+                                    ))
+                                }
+                            </select>
                             <p>40 character count limit</p>
                             <p className='w-full mt-2'><span className='font-bold'>Definition:</span> Ready to place on your resume, competency to develop production-ready software, and have built something that can be used by others with it.</p>
                         </div>
