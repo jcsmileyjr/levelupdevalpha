@@ -12,13 +12,6 @@
         "orderBy": 0
     },
     {
-        "title" : "1st Job: Full Stack Java Developer", 
-        "description" : "Party Party Party", 
-        "date" : "",
-        "orderBy": 0
-    },
-
-    {
         "title" : "Node", 
         "description" : "Excepteur sint occaecat cupidatat non proident", 
         "date" : "4/23",
