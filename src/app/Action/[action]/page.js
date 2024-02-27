@@ -78,7 +78,7 @@ const Action = ({params: {action}}) => {
                             <select id="selectReason" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'>
                                 {
                                     wants.map((item, index) => (
-                                        <option id={`${item}-${index}`}>{item.title}</option>
+                                        <option key={`${item}-${index}`}>{item.title}</option>
                                     ))
                                 }
                             </select>
