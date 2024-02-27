@@ -24,12 +24,12 @@ const Competency = ({title, content}) => {
             {/* Displays title of the Competency */}
             <div className='flex flex-row justify-between items-center mb-2'>
                 <h2 className='text-2xl font-bold text-primaryGreen'>{title}</h2>
-                <Link className='underline text-base text-gray-700 font-bold' href={`/${title}`}>Go to the {title} Page</Link>
+                <Link className='underline text-base text-gray-700 font-bold' href={`/Action/${title}`}>Go to the {title} Page</Link>
             </div>
-            <div className='bg-babygreen flex flex-row pb-4 px-4'>
+            <div className='bg-babygreen rounded-lg flex flex-row pb-4 px-4'>
                 {/* Display the "Want" section */}
                 <div className='flex-1 border-r-2 border-solid border-black '>
-                    <p className='underline text-base text-gray-700 font-bold text-center my-4'>List of {title} You want</p>
+                    <p className='underline text-xl text-gray-700 font-bold text-center my-4'>List of {title} You want</p>
                     <div className='flex flex-row flex-wrap'>
                         {
                             wants.map( (item, index) => (
