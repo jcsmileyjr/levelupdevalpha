@@ -29,28 +29,28 @@ const Action = ({params: {action}}) => {
             <div className='flex flex-col lg:flex-row gap-6'>
                 {/* Adding new skills to the Wants category */}
                 <section className='flex-1 flex flex-col gap-6'>
-                    <form id="createAction" className='flex flex-col items-center bg-babygreen pb-6 px-4'>
-                        <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center px-4 sm:px-0'>Decide what SKILL you want to have</h1>
+                    <form id="createAction" className='flex flex-col sm:items-center bg-babygreen rounded-lg px-12 sm:pl-0 pb-6 px-4'>
+                        <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Decide what SKILL you want to have</h1>
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputTitle'>Title</label>
-                        <div className='mb-6 w-2/4'>
+                        <div className='mb-6 w-full sm:w-2/4'>
                             <input id="inputTitle" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></input>
                             <p className='text-gray-700 text-base'>20 character count limit</p>
                         </div>
 
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputReason'>Reason</label>
-                        <div className='mb-6 w-2/4'>
+                        <div className='mb-6 w-full sm:w-2/4'>
                             <textarea id="inputReason" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></textarea>
                             <p>40 character count limit</p>
                             <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 20 words or less, why do you want to learn this skill? How will it impact your career journey?</p>
                         </div>
-                        <button type="submit" className='p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen w-1/4'>ADD</button>
+                        <button type="submit" className='p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
                     </form>
-                    <div className=' bg-babygreen min-h-40'>
+                    <div className=' bg-babygreen rounded-lg min-h-40'>
                         <h2 className='text-center font-bold underline text-2xl text-primaryGreen my-6'>List  of skills You Want </h2>
-                        <div className='flex flex-row flex-wrap px-6'>
+                        <div className='flex flex-row flex-wrap px-12 sm:px-6'>
                             {
                                 data.map( (item, index) => (
-                                    <p key={`item-${index}`} className='mb-2 basis-3/12'>{item.title}</p>
+                                    <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12'>{item.title}</p>
                                 ))
                             }
                         </div>
@@ -59,11 +59,11 @@ const Action = ({params: {action}}) => {
 
                 {/* Confirm that a skill has been acomplishsed */}
                 <section className='flex-1'>
-                    <div className='bg-babygreen '>
+                    <div className='bg-babygreen rounded-lg '>
                         <h1 className='font-bold underline text-2xl text-primaryGreen'>Confirmed Skilled Learned</h1>
 
                     </div>                
-                    <div className='bg-babygreen '>
+                    <div className='bg-babygreen rounded-lg '>
                         
                     </div>                    
                 </section>
