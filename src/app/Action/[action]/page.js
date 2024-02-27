@@ -18,7 +18,18 @@ const getData = (type) => {
  * @returns http://localhost:3000/Action/skills
  */
 const Action = ({params: {action}}) => {
-    const data = getData(action);
+    const content = getData(action);
+
+    // Filters the array of objects for any that hasn't been achieved.
+    const wants = content.filter((data) => {
+        if(data.date === "") return data
+    })
+
+    // Filter the array of objects for any that has been acheived.
+    const acheived = content.filter((data) => {
+        if(data.date.length > 0) return data;
+    })
+    
     return (
         <main className="flex min-h-screen flex-col p-4">
             <section className="flex justify-between items-center mb-6">
@@ -49,7 +60,7 @@ const Action = ({params: {action}}) => {
                         <h2 className='text-center font-bold underline text-2xl text-primaryGreen my-6'>List  of skills You Want </h2>
                         <div className='flex flex-row flex-wrap px-12 sm:px-6'>
                             {
-                                data.map( (item, index) => (
+                                wants.map( (item, index) => (
                                     <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12'>{item.title}</p>
                                 ))
                             }
@@ -74,7 +85,7 @@ const Action = ({params: {action}}) => {
                         <h2 className='text-center font-bold underline text-2xl text-primaryGreen my-6'>List of your Achievements</h2>
                         <div className='flex flex-row flex-wrap px-12 sm:px-6'>
                             {
-                                data.map( (item, index) => (
+                                acheived.map( (item, index) => (
                                     <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12'>{item.title}</p>
                                 ))
                             }
