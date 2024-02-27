@@ -12,7 +12,7 @@ import ExperiencesData from '../../libs/dummyData/experiencesTestData.json';
  *  Function to combine, filter, and sort raw data into a timeline
  */
 const getTimeLineData = () => {
-    const combinedRawData = SkillsData.concat(ProjectsData);
+    const combinedRawData = SkillsData.concat(ProjectsData, TitlesData, ExperiencesData);
     const acheivedProgressData = combinedRawData.filter((progress) => {return progress.orderBy > 0});
     const sortedProgressData = acheivedProgressData.sort((a, b) => {return a.orderBy - b.orderBy});
     return sortedProgressData
