@@ -28,8 +28,7 @@ export default function Home() {
           <div className='flex flex-col bg-babygreen rounded-lg p-12 sm:w-2/4 lg:w-full'>
             <h2 className="text-center text-2xl lg:text-xl text-black font-bold ">Passion &  Sacrifice</h2>
             <Link href="/LogIn" aria-label='Click to go to Log in page' className='p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen text-center'>Log In</Link>
-            <button aria-label='Click to go to Sign up page' className='p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen'>Sign Up</button>
-             <p className='text-center text-red-700 mt-4 text-sm'>Psst!!! Work in Progress, buttons doesn&apos;t work yet.</p>
+            <Link href="/SignUp" aria-label='Click to go to the Sign up page' className='p-2 mt-4 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen text-center'>Sign Up</Link>
           </div>
         </section>
       </div>

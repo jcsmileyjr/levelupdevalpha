@@ -81,7 +81,7 @@ const LogIn = () => {
                     <p className={` text-center text-gray-700 mt-4 text-sm`}>Psst!!! Work in Progress, use abc@gmail.com for now.</p>
 
                     {/*Sign up link */}
-                    <p className='text-center text-sm text-primaryGreen mt-8 font-bold'>Sign Up &#40;WIP&#41;</p>
+                    <Link href={"/SignUp"} className='text-center text-base text-primaryGreen mt-8 font-bold'>Sign Up</Link>
                 </form >
 
                 {/* Presentation Timeline Display */}
