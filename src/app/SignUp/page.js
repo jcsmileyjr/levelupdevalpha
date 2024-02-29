@@ -10,9 +10,27 @@ const SignUp = () => {
 
     const [email, setEmail] = useState(""); // user entered email address
     const [name, setName] = useState("") // user enter first name
+    const [emailFormatError, setEmailFormatError] = useState(false); // User input validation feedback
+    const [nameFormatError, setNameFormatError] = useState(false) // User name validation feedback
 
     const createUserProfile = (event) => {
+        let pass = true;
         event.preventDefault();
+        if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false) {
+            setEmailFormatError(true);
+            pass = false;
+        } 
+        if(name === "") {
+            setNameFormatError(true);
+            pass = false;
+        } 
+
+        if (pass) {
+            console.log("User Profile is good")
+            router.push('/Progress');
+        } else {
+            console.log("Errors")
+        }
         console.log(`User Profile: ${email} for ${name}`)
     }
 
