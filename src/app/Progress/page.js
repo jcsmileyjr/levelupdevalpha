@@ -37,10 +37,10 @@ const Progress = () => {
             </section>
             <div className='flex flex-col xl:flex-row gap-16'>
                 <div className='w-full mt-6 sm:self-center xl:self-auto md:w-11/12 xl:mt-0 xl:w-2/4'>
-                    <Competency title='Skills' content={userProfile.SkillsData} />
-                    <Competency title='Projects' content={userProfile.ProjectsData} />
-                    <Competency title='Titles' content={userProfile.TitlesData} />
-                    <Competency title='Experiences' content={userProfile.ExperiencesData} />
+                    {userProfile.SkillsData && <Competency title='Skills' content={userProfile.SkillsData} />}
+                    {userProfile.ProjectsData && <Competency title='Projects' content={userProfile.ProjectsData} />}                    
+                    {userProfile.TitlesData && <Competency title='Titles' content={userProfile.TitlesData} />}                    
+                    {userProfile.ExperiencesData && <Competency title='Experiences' content={userProfile.ExperiencesData} />}
                 </div>
                 {/* Presentation Timeline Display */}
                 <section className="w-full order-last mt-6 lg:mt-0 xl:w-2/4">
