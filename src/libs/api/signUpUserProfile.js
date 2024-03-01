@@ -20,7 +20,7 @@ const signUpUserProfile = async (userEmail, name) => {
     let foundIndex = userProfiles.findIndex((data) => {
         return data.email === userEmail;
     });
-
+console.log("foundIndex is ", foundIndex)
     // If the email isn't found, then create new profile and return true. If it is found, then return false. 
     if (foundIndex === -1) {
         const newUserProfile = {
