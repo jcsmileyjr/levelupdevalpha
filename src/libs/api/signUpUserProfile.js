@@ -21,13 +21,10 @@ const signUpUserProfile = async (userEmail, name) => {
     if (foundIndex === -1) {
         const newUserProfile = {"email" : userEmail, "name" : name};
         localStorage.setItem("levelupdev-profile", JSON.stringify(newUserProfile));
-        console.log("Good email submission");
         return true;
     } else {
-        console.log("Bad email submission: ", userProfiles[foundIndex]);
         return false;
     }
-    //console.log("Test object return: ", test);
 }
 
 export {signUpUserProfile};
