@@ -19,7 +19,14 @@ const signUpUserProfile = async (userEmail, name) => {
 
     // If the email isn't found, then create new profile and return true. If it is found, then return false. 
     if (foundIndex === -1) {
-        const newUserProfile = {"email" : userEmail, "name" : name};
+        const newUserProfile = {
+            "email" : userEmail, 
+            "name" : name, 
+            "TitlesData" : [],
+            "SkillsData" : [], 
+            "ProjectsData" : [], 
+            "ExperiencesData" : [], 
+        };
         localStorage.setItem("levelupdev-profile", JSON.stringify(newUserProfile));
         return true;
     } else {
