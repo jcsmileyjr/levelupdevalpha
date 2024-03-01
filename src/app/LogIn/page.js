@@ -1,7 +1,6 @@
 "use client"
 import {useState} from 'react';
 import { useRouter } from 'next/navigation';
-import getAllUserProfiles from '@/libs/api/getAllUserProfiles';
 import {logInUserProfile} from '../../libs/api/logInUserProfile.js';
 import Timeline from '@/components/Timeline/timeline';
 import Link from 'next/link';

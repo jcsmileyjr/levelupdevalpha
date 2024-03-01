@@ -9,7 +9,7 @@ import getAllUserProfiles from './getAllUserProfiles';
 const logInUserProfile = async (email) => {
     let userProfiles = await getAllUserProfiles();
     let submission = userProfiles.find( (user) => user.email === email);
-console.log("submission: ", submission)
+
     if(submission === undefined) {
         return false;
     } else {

@@ -33,7 +33,7 @@ const signUpUserProfile = async (userEmail, name) => {
             "ProjectsData" : ProjectsData, 
             "ExperiencesData" : ExperiencesData, 
         };
-        console.log("profile", newUserProfile)
+        
         localStorage.setItem("levelupdev-profile", JSON.stringify(newUserProfile));
         return true;
     } else {
