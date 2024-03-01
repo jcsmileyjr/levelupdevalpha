@@ -1,18 +1,62 @@
 [
     {
         "email" : "abc@gmail.com",
-        "name"  : "JC Smiley"
-    },
-    {
-        "email" : "123@gmail.com",
-        "name"  : "JC Smiley"
-    },
-    {
-        "email" : "xyz@gmail.com",
-        "name"  : "JC Smiley"
-    },
-    {
-        "email" : "789@gmail.com",
-        "name"  : "JC Smiley"
+        "name"  : "JC",
+        "TitlesData" : [
+            {
+                "title" : "Multiple Tech Talk Speaker", 
+                "description" : "Give tech talks at Memphis Technical Foundation and Code Connector events", 
+                "date" : "5/23",
+                "orderBy": 523
+            },
+            {
+                "title" : "Brand Ambassador for React", 
+                "description" : "Excepteur sint occaecat cupidatat non proident", 
+                "date" : "",
+                "orderBy": 0
+            }
+        ],
+        "SkillsData" : [
+            {
+                "title" : "TailwindCSS", 
+                "description" : "Allowed me to quickly style  the Tic Tac Toe project. Prepartion for Chingu.", 
+                "date" : "2/23",
+                "orderBy": 223
+            },
+            {
+                "title" : "Java", 
+                "description" : "Backend language that will allow me to be a Full Stack developer. ", 
+                "date" : "",
+                "orderBy": 0
+            }
+        ], 
+        "ProjectsData" : [
+            {
+                "title" : "TODO app", 
+                "description" : "Basic CRUD app with HTML, CSS, & JavaScript to list action items.", 
+                "date" : "1/23",
+                "orderBy": 123
+            },
+            {
+                "title" : "Office Swear Jar", 
+                "description" : "Deployed Next.js app linked to a Spring Boot backend that allows an office of employees to track who owes money for swearing.", 
+                "date" : "",
+                "orderBy": 0
+            }
+        ], 
+        "ExperiencesData" : [
+            {
+                "title" : "100 Blog Posts", 
+                "description" : "Excepteur sint occaecat cupidatat non proident", 
+                "date" : "5/23",
+                "orderBy": 523
+            },
+            {
+                "title" : "Tech Conference Speaker", 
+                "description" : "Excepteur sint occaecat cupidatat non proident", 
+                "date" : "",
+                "orderBy": 0
+            }
+        ]
     }
 ]
