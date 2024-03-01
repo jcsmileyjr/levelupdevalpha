@@ -1,9 +1,10 @@
 "use client"
 import {useState} from 'react';
 import { useRouter } from 'next/navigation';
+import getAllUserProfiles from '@/libs/api/getAllUserProfiles';
+import {logInUserProfile} from '../../libs/api/logInUserProfile.js';
 import Timeline from '@/components/Timeline/timeline';
 import Link from 'next/link';
-import LoginDummyData from '../../libs/dummyData/loginTestData.json';
 import LoginPromoData from '../../libs/dummyData/loginPromoData.json';
 
 /**
@@ -16,32 +17,17 @@ const LogIn = () => {
     const [email, setEmail] = useState(""); // user entered email address
     const [emailFormatError, setEmailFormatError] = useState(false); // User input validation feedback
     const [invalidLogin, setInvalidLogin] = useState(false); // User login submission validation feedback
-
-    /**
-     * Function to check the API (fake data) for an email. If true, return profile. If false, return negative feedback.
-     * @param {string} email - user input in email format
-     * @returns 
-     */
-    const getUserProfile = (email) => {
-        let submission = LoginDummyData.find( (user) => user.email === email);
-
-        if(submission === undefined) {
-            return false;
-        } else {
-            return true;
-        }
-    }
     
     // Check user input to see if meet email guidlines & submit content to API for true/false return
-    const submitLogInCredential = (event) => {
+    const submitLogInCredential = async (event) => {
         event.preventDefault();
         setInvalidLogin(false);
         if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false) {
             setEmailFormatError(true);
         } else {
             setEmailFormatError(false);
-
-            if(getUserProfile(email)) {
+            const validProfile = await logInUserProfile(email)
+            if(validProfile) {
                 router.push('/Progress')
             } else {
                 setInvalidLogin(true);
