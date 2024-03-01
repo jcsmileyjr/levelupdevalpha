@@ -1,15 +1,13 @@
-
+"use client"
 import Link from 'next/link';
-import SkillsData from '../../../libs/dummyData/skillsTestData.json';
-import ProjectsData from '../../../libs/dummyData/projectsTestData.json';
-import TitlesData from '../../../libs/dummyData/titlesTestData.json';
-import ExperiencesData from '../../../libs/dummyData/experiencesTestData.json';
+import {useState, useEffect} from 'react';
+import getUserProfile from '@/libs/api/getUserProfile';
 
-const getData = (type) => {
-    if(type === 'Skills') return SkillsData;
-    if(type === 'Projects') return ProjectsData;
-    if(type === 'Titles') return TitlesData;
-    if(type === 'Experiences') return ExperiencesData;
+const getData = (type, userData) => {
+    if(type === 'Skills') return userData.SkillsData;
+    if(type === 'Projects') return userData.ProjectsData;
+    if(type === 'Titles') return userData.TitlesData;
+    if(type === 'Experiences') return userData.ExperiencesData;
 }
 
 /**
@@ -18,15 +16,26 @@ const getData = (type) => {
  * @returns http://localhost:3000/Action/skills
  */
 const Action = ({params: {action}}) => {
-    const content = getData(action);
+    const [actionData, setActionData] = useState([]);
+    const [userProfile, setUserProfile] = useState({});
+
+    useEffect(() => {
+        let userData = getUserProfile();
+        let data = getData(action, userData);
+
+        console.log("userdata: ", userData);
+        setUserProfile(userData);
+        setActionData(data);     
+    }, [])
+
 
     // Filters the array of objects for any that hasn't been achieved.
-    const wants = content.filter((data) => {
+    const wants = actionData.filter((data) => {
         if(data.date === "") return data
     })
 
     // Filter the array of objects for any that has been acheived.
-    const acheived = content.filter((data) => {
+    const acheived = actionData.filter((data) => {
         if(data.date.length > 0) return data;
     })
     
@@ -34,7 +43,7 @@ const Action = ({params: {action}}) => {
         <main className="flex min-h-screen flex-col p-4">
             <section className="flex justify-between items-center mb-6">
                 {/*navigation */}
-                <Link className='font-bold underline text-primaryGreen text-base' href="/Progress">Go to Progress Page</Link>
+                <Link className='font-bold underline text-primaryGreen text-base' href="/Progress">Go to Progress Page - {userProfile.name}&#39;s {action}</Link>
                 <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreen font-bold text-base bg-white rounded-lg' href="/">Sign out</Link>
             </section>
             <div className='flex flex-col lg:flex-row gap-6'>
