@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import Timeline from '@/components/Timeline/timeline';
 import Link from 'next/link';
 import LoginPromoData from '../../libs/dummyData/loginPromoData.json';
+import { signUpUserProfile } from '@/libs/api/signUpUserProfile';
 
 // Page to create a user profile and save it
 const SignUp = () => {
@@ -11,11 +12,12 @@ const SignUp = () => {
 
     const [email, setEmail] = useState(""); // user entered email address
     const [name, setName] = useState("") // user enter first name
-    const [emailFormatError, setEmailFormatError] = useState(false); // User input validation feedback
+    const [emailFormatError, setEmailFormatError] = useState(false); // User email validation feedback
     const [nameFormatError, setNameFormatError] = useState(false) // User name validation feedback
+    const [duplicateEmailError, setDuplicateEmailError] = useState(false) // Unique email validation feedback
 
     // Function to create a user Profile and save it to local storage/database
-    const createUserProfile = (event) => {
+    const createUserProfile = async (event) => {
         let pass = true;
         event.preventDefault();
 
@@ -25,6 +27,7 @@ const SignUp = () => {
             pass = false;
         } else {
             setEmailFormatError(false);
+            setDuplicateEmailError(false);
         }
 
         // Test the name input field
@@ -35,9 +38,16 @@ const SignUp = () => {
             setNameFormatError(false);
         }
 
+        // If both email and name input validation pass, check for duplicate email. If good, proceed. If bad, throw error
         if (pass) {
             console.log(`User Profile: ${email} for ${name}`)
-            router.push('/Progress');
+            let isUniqueEmail = await signUpUserProfile(email, name);
+            console.log("isUniqueEmail() ", isUniqueEmail);
+            if (!isUniqueEmail) {
+                setDuplicateEmailError(true);
+            } else {
+                router.push('/Progress');
+            }
         } else {
             console.log("Errors")
         }        
@@ -54,7 +64,7 @@ const SignUp = () => {
                 <form className="flex flex-col flex-1 w-full m-auto lg:m-0 sm:w-2/4 lg:w-1/3 lg-6 lg:mt-0 bg-babygreen rounded-lg min-h-64 h-2/3 p-4 lg:p-8 pb-8">
                     {/* Email input field and error message */}
                     <label htmlFor='inputEmail' className='font-bold text-gray-700 text-2xl my-2'>Email address</label>
-                    <input id="inputEmail" onChange={(e) => setEmail(e.target.value)} name="inputEmail"  className="p-2 border border-primaryGreen bg-white text-xl rounded-lg" type="email"></input>
+                    <input id="inputEmail" onChange={(e) => setEmail(e.target.value)} value={email} name="inputEmail"  className="p-2 border border-primaryGreen bg-white text-xl rounded-lg" type="email"></input>
                     <p className={`${emailFormatError ? 'hidden':'block'} my-4`}></p>
                     <p className={`${emailFormatError?'block' : 'hidden'} my-2 text-sm text-red-700`}>Not a valid email format</p>
 
@@ -65,7 +75,8 @@ const SignUp = () => {
                     <p className={`${nameFormatError ?'block' : 'hidden'} my-2 text-sm text-red-700`}>Please enter a name</p>                 
 
                     {/*Submit button */}
-                    <button disabled={false} aria-label='Click to submit email and name to create an account.' type="submit" onClick={(e) => createUserProfile(e)} className="p-2 mt-6 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" >Sign Up</button>                    
+                    <button disabled={false} aria-label='Click to submit email and name to create an account.' type="submit" onClick={(e) => createUserProfile(e)} className="p-2 mt-6 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" >Sign Up</button> 
+                    <p className={`${duplicateEmailError ?'block' : 'hidden'} my-2 text-sm text-red-700`}>Duplicate Email, please use a different email address!</p>                   
                 </form >
 
                 {/* Presentation Timeline Display */}
