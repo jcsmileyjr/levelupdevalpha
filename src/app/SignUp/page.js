@@ -40,16 +40,12 @@ const SignUp = () => {
 
         // If both email and name input validation pass, check for duplicate email. If good, proceed. If bad, throw error
         if (pass) {
-            console.log(`User Profile: ${email} for ${name}`)
             let isUniqueEmail = await signUpUserProfile(email, name);
-            console.log("isUniqueEmail() ", isUniqueEmail);
             if (!isUniqueEmail) {
                 setDuplicateEmailError(true);
             } else {
                 router.push('/Progress');
             }
-        } else {
-            console.log("Errors")
         }        
     }
 
