@@ -10,9 +10,8 @@ const Progress = () => {
     const [acheivementData, setAcheivementData] = useState([]);
 
     useEffect(() => {
-        let userData = getUserProfile();
-        let acheivements = getTimeLineData(userData);
-        console.log("userdata: ", userData);
+        let userData = getUserProfile(); // Get user profile from local storage
+        let acheivements = getTimeLineData(userData); // Use that user profile to extact event data
         setUserProfile(userData);
         setAcheivementData(acheivements);      
     }, [])
@@ -24,7 +23,6 @@ const Progress = () => {
         const combinedRawData = userData.SkillsData.concat(userData.ProjectsData, userData.TitlesData, userData.ExperiencesData);
         const acheivedProgressData = combinedRawData.filter((progress) => {return progress.orderBy > 0});
         const sortedProgressData = acheivedProgressData.sort((a, b) => {return a.orderBy - b.orderBy});
-        console.log("combinedRawData: ", combinedRawData);
         return sortedProgressData
     }
 
