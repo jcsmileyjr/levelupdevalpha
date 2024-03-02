@@ -41,7 +41,7 @@ const Competency = ({title, content}) => {
 
                 {/* Display the "Achieved" section */}
                 <div className='flex flex-col flex-1 border-l-2 border-solid border-black pl-4 '>
-                    <p className='underline text-xl  text-gray-700 font-bold text-center my-4'>List of your Achievements</p>
+                    <p className='underline text-xl  text-gray-700 font-bold text-center my-4'>List of Achievements</p>
                     <div className='flex flex-row flex-wrap'>
                         {
                             acheived.map( (item, index) => (

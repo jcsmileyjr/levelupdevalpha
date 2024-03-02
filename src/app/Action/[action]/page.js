@@ -82,7 +82,7 @@ const Action = ({params: {action}}) => {
                 {/* Adding new skills to the Wants category */}
                 <section className='flex-1 flex flex-col gap-6'>
                     <form id="createAction" className='flex flex-col sm:items-center bg-babygreen rounded-lg px-12 sm:pl-0 pb-6 px-4'>
-                        <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Decide what SKILL you want to have</h1>
+                        <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Decide what {action} you want to have</h1>
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputTitle'>Title</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <input id="inputTitle" onChange={(e) => setActiontitle(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></input>
@@ -112,9 +112,9 @@ const Action = ({params: {action}}) => {
                 {/* Confirm that a skill has been acomplishsed */}
                 <section className='flex-1 flex flex-col gap-6 justify-between'>
                     <form className='flex flex-col sm:items-center bg-babygreen rounded-lg px-12 sm:pl-0 pb-6 px-4 flex-1'>
-                        <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Confirmed Skilled Learned</h1>
+                        <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Confirmed {action} Learned</h1>
 
-                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectReason'>Find Skill</label>
+                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectReason'>Find {action}</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <select value={selectedAction} onChange={(e) => setSelectedAction(e.target.value)} name="selectReason" id="selectReason" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'>
                                 {
