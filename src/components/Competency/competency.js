@@ -24,11 +24,11 @@ const Competency = ({title, content}) => {
             {/* Displays title of the Competency */}
             <div className='flex flex-row justify-between items-center mb-2'>
                 <h2 className='text-2xl font-bold text-primaryGreen'>{title}</h2>
-                <Link className='underline text-base text-gray-700 font-bold' href={`/Action/${title}`}>Go to the {title} Page</Link>
+                <Link className='underline text-base text-gray-700 font-bold' href={`/Action/${title}`}>Go to {title} Page</Link>
             </div>
-            <div className='bg-babygreen rounded-lg flex flex-row pb-4 px-4'>
+            <div className='bg-babygreen rounded-lg flex flex-col sm:flex-row pb-4 py-4 px-4 sm:py-0'>
                 {/* Display the "Want" section */}
-                <div className='flex-1 border-r-2 border-solid border-black pr-4 '>
+                <div className='flex-1 border-b-2 sm:border-r-2 sm:border-b-0 border-solid border-black pr-4 '>
                     <p className='underline text-xl text-gray-700 font-bold text-center my-4'>List of {title} You want</p>
                     <div className='flex flex-row flex-wrap'>
                         {
@@ -40,7 +40,7 @@ const Competency = ({title, content}) => {
                 </div>
 
                 {/* Display the "Achieved" section */}
-                <div className='flex flex-col flex-1 border-l-2 border-solid border-black pl-4 '>
+                <div className='flex flex-col flex-1 border-t-2 sm:border-l-2 sm:border-t-0 border-solid border-black pl-4 '>
                     <p className='underline text-xl  text-gray-700 font-bold text-center my-4'>List of Achievements</p>
                     <div className='flex flex-row flex-wrap'>
                         {
