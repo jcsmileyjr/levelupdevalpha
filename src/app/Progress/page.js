@@ -31,7 +31,7 @@ const Progress = () => {
             <section className="flex justify-between items-center">
                 {/*Landing page links */}
                 <Link className='font-bold underline text-primaryGreen text-base' href="/">Level Up Dev - {userProfile.name}&#39;s Progress</Link>
-                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreen font-bold text-base bg-white rounded-lg' href="/">Sign out</Link>
+                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreen font-bold text-base bg-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>
             <div className='flex flex-col xl:flex-row gap-16'>
                 <div className='w-full mt-6 sm:self-center xl:self-auto md:w-11/12 xl:mt-0 xl:w-2/4'>
