@@ -86,7 +86,7 @@ const Action = ({params: {action}}) => {
                 <Link className='font-bold underline text-primaryGreen text-base' href="/Progress">Go to Progress Page - {userProfile.name}&#39;s {action}</Link>
                 <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreen font-bold text-base bg-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>
-            <div className='flex flex-col lg:flex-row gap-6'>
+            <div className='flex flex-col lg:flex-row gap-6 justify-between'>
                 {/* Adding new skills to the Wants category */}
                 <section className='flex-1 flex flex-col gap-6'>
                     <form id="createAction" className='flex flex-col sm:items-center bg-babygreen rounded-lg px-12 sm:pl-0 pb-6 px-4'>
@@ -103,7 +103,7 @@ const Action = ({params: {action}}) => {
                             <p>40 character count limit</p>
                             <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 20 words or less, why do you want to learn this skill? How will it impact your career journey?</p>
                         </div>
-                        <button type="submit" onClick={(e) => createAction(e, action)} className='p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
+                        <button type="submit" onClick={(e) => createAction(e, action)} className='p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
                     </form>
                     <div className=' bg-babygreen rounded-lg min-h-40'>
                         <h2 className='text-center font-bold underline text-2xl text-primaryGreen my-6'>List  of skills You Want </h2>
@@ -132,7 +132,7 @@ const Action = ({params: {action}}) => {
                                     ))
                                 }
                             </select>
-                            <p className='w-full mt-2'><span className='font-bold'>Definition:</span> Ready to place on your resume, competency to develop production-ready software, and have built something that can be used by others with it.</p>
+                            <p className='w-full mt-2'><span className='font-bold'>Definition:</span> Ready to place on your resume and be known for it.</p>
                         </div>
                         {/* Pick month completed */}
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectMonth'>Month {action} was completed</label>
@@ -150,10 +150,10 @@ const Action = ({params: {action}}) => {
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectYear'>Year {action} was completed</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <input  maxLength={2} onChange={(e) => setSelectedYear(e.target.value)} type="text" value={selectedYear} id="selectedYear" name="selectedYear" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'/>
-                            <p className='text-gray-700 text-base'>2 character count limit. Examples: 07, 14, 20, 22, 23</p>
+                            <p className='text-gray-700 text-base'>Examples: 07, 14, 20, 22, 23</p>
                         </div>                        
 
-                        <button type="submit" onClick={(e) => updateAction(e)} className='p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
+                        <button type="submit" onClick={(e) => updateAction(e)} className='p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
                     </form>                
                     <div className=' bg-babygreen rounded-lg min-h-40'>
                         <h2 className='text-center font-bold underline text-2xl text-primaryGreen my-6'>List of your Achievements</h2>
