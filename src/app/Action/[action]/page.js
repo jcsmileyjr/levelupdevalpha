@@ -23,6 +23,10 @@ const Action = ({params: {action}}) => {
     const [actionTitle, setActiontitle] = useState("");
     const [actionDescription, setActionDescription] = useState("");
     const [selectedAction, setSelectedAction] = useState("");
+    const [selectedMonth, setSelectedMonth] = useState("");
+    const [selectedYear, setSelectedYear] = useState("");
+
+    const monthArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 
     useEffect(() => {
         let userData = getUserProfile();
@@ -49,10 +53,11 @@ const Action = ({params: {action}}) => {
 
     const updateAction = (event) => {
         event.preventDefault();
+        const date = selectedMonth.concat(selectedYear);
         setActionData(actionData.map( (actionItem) => {
             if (actionItem.title === selectedAction) {
-                actionItem.date = "3/24";
-                actionItem.orderBy = 324;
+                actionItem.date = date;
+                actionItem.orderBy = Number(date);
                 updateEventUserProfile(actionItem, action);
                 return actionItem;
             } else {
@@ -60,6 +65,8 @@ const Action = ({params: {action}}) => {
             }    
             })
         );
+        setSelectedMonth("");
+        setSelectedYear("");
     }
 
     // Filters the array of objects for any that hasn't been achieved.
@@ -118,7 +125,7 @@ const Action = ({params: {action}}) => {
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectReason'>Find {action}</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <select value={selectedAction} onChange={(e) => setSelectedAction(e.target.value)} name="selectReason" id="selectReason" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'>
-                                <option value="" key="defaul-option-1"></option>
+                                <option value="" key="default-option-1"></option>
                                 {
                                     wants.map((item, index) => (
                                         <option value={item.title} key={`${item}-${index}`}>{item.title}</option>
@@ -127,6 +134,25 @@ const Action = ({params: {action}}) => {
                             </select>
                             <p className='w-full mt-2'><span className='font-bold'>Definition:</span> Ready to place on your resume, competency to develop production-ready software, and have built something that can be used by others with it.</p>
                         </div>
+                        {/* Pick month completed */}
+                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectMonth'>Month {action} was completed</label>
+                        <div className='mb-6 w-full sm:w-2/4'>
+                            <select value={selectedMonth} onChange={(e) => setSelectedMonth(e.target.value)} name="selectMonth" id="selectMonth" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'>
+                                <option value="" key="default-month-option-1"></option>
+                                {
+                                    monthArray.map( (month, index) => (
+                                        <option value={month} key={`${month}${index}`}>{month}</option>
+                                    ))
+                                }
+                            </select>
+                        </div>
+                        {/* Pick year completed */}
+                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectYear'>Year {action} was completed</label>
+                        <div className='mb-6 w-full sm:w-2/4'>
+                            <input  maxLength={2} onChange={(e) => setSelectedYear(e.target.value)} type="text" value={selectedYear} id="selectedYear" name="selectedYear" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'/>
+                            <p className='text-gray-700 text-base'>2 character count limit. Examples: 07, 14, 20, 22, 23</p>
+                        </div>                        
+
                         <button type="submit" onClick={(e) => updateAction(e)} className='p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
                     </form>                
                     <div className=' bg-babygreen rounded-lg min-h-40'>
