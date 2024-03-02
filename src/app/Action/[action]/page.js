@@ -43,6 +43,8 @@ const Action = ({params: {action}}) => {
 
         setActionData([...actionData, actionItem])
         addEventUserProfile(actionItem, type);
+        setActiontitle("");
+        setActionDescription("");
     }
 
     const updateAction = (event) => {
@@ -84,13 +86,13 @@ const Action = ({params: {action}}) => {
                         <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Decide what {action} you want to have</h1>
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputTitle'>Title</label>
                         <div className='mb-6 w-full sm:w-2/4'>
-                            <input id="inputTitle" onChange={(e) => setActiontitle(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></input>
+                            <input value={actionTitle} id="inputTitle" onChange={(e) => setActiontitle(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></input>
                             <p className='text-gray-700 text-base'>20 character count limit</p>
                         </div>
 
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputReason'>Reason</label>
                         <div className='mb-6 w-full sm:w-2/4'>
-                            <textarea id="inputReason" onChange={(e) => setActionDescription(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></textarea>
+                            <textarea value={actionDescription} id="inputReason" onChange={(e) => setActionDescription(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></textarea>
                             <p>40 character count limit</p>
                             <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 20 words or less, why do you want to learn this skill? How will it impact your career journey?</p>
                         </div>
