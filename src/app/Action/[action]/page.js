@@ -13,7 +13,7 @@ const getData = (type, userData) => {
 }
 
 /**
- * 
+ * TODO: Remaining bug of mobile view seen on desktop not selecting an item in the select element
  * @param {string} action - slug use to call the page 
  * @returns http://localhost:3000/Action/skills
  */
@@ -59,12 +59,6 @@ const Action = ({params: {action}}) => {
             })
         );
     }
-
-    // Remaining bug of mobile view seen on desktop not selecting an item in the select element
-    const updateAcheivementList = (e) => {
-        setSelectedAction(e.target.value);
-    }
-
 
     // Filters the array of objects for any that hasn't been achieved.
     const wants = actionData.filter((data) => {
@@ -121,7 +115,7 @@ const Action = ({params: {action}}) => {
 
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectReason'>Find {action}</label>
                         <div className='mb-6 w-full sm:w-2/4'>
-                            <select value={selectedAction} onChange={(e) => updateAcheivementList(e)} name="selectReason" id="selectReason" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'>
+                            <select value={selectedAction} onChange={(e) => setSelectedAction(e.target.value)} name="selectReason" id="selectReason" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'>
                                 <option value="" key="defaul-option-1"></option>
                                 {
                                     wants.map((item, index) => (
