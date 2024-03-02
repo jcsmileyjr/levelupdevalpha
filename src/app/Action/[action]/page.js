@@ -1,6 +1,7 @@
 "use client"
 import Link from 'next/link';
 import {useState, useEffect} from 'react';
+import { addEventUserProfile } from '@/libs/api/addEventUserProfile';
 import getUserProfile from '@/libs/api/getUserProfile';
 
 const getData = (type, userData) => {
@@ -48,6 +49,7 @@ const Action = ({params: {action}}) => {
         setActionData([...actionData, actionItem])
         
         console.log(actionData);
+        addEventUserProfile(actionItem, type);
     }
 
 
