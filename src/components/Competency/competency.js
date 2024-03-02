@@ -28,7 +28,7 @@ const Competency = ({title, content}) => {
             </div>
             <div className='bg-babygreen rounded-lg flex flex-row pb-4 px-4'>
                 {/* Display the "Want" section */}
-                <div className='flex-1 border-r-2 border-solid border-black '>
+                <div className='flex-1 border-r-2 border-solid border-black pr-4 '>
                     <p className='underline text-xl text-gray-700 font-bold text-center my-4'>List of {title} You want</p>
                     <div className='flex flex-row flex-wrap'>
                         {
