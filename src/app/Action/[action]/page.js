@@ -60,6 +60,11 @@ const Action = ({params: {action}}) => {
         );
     }
 
+    // Remaining bug of mobile view seen on desktop not selecting an item in the select element
+    const updateAcheivementList = (e) => {
+        setSelectedAction(e.target.value);
+    }
+
 
     // Filters the array of objects for any that hasn't been achieved.
     const wants = actionData.filter((data) => {
@@ -116,14 +121,14 @@ const Action = ({params: {action}}) => {
 
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectReason'>Find {action}</label>
                         <div className='mb-6 w-full sm:w-2/4'>
-                            <select value={selectedAction} onChange={(e) => setSelectedAction(e.target.value)} name="selectReason" id="selectReason" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'>
+                            <select value={selectedAction} onChange={(e) => updateAcheivementList(e)} name="selectReason" id="selectReason" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'>
+                                <option value="" key="defaul-option-1"></option>
                                 {
                                     wants.map((item, index) => (
                                         <option value={item.title} key={`${item}-${index}`}>{item.title}</option>
                                     ))
                                 }
                             </select>
-                            <p>40 character count limit</p>
                             <p className='w-full mt-2'><span className='font-bold'>Definition:</span> Ready to place on your resume, competency to develop production-ready software, and have built something that can be used by others with it.</p>
                         </div>
                         <button type="submit" onClick={(e) => updateAction(e)} className='p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
