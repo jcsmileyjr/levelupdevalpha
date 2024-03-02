@@ -100,7 +100,7 @@ const Action = ({params: {action}}) => {
                     </form>
                     <div className=' bg-babygreen rounded-lg min-h-40'>
                         <h2 className='text-center font-bold underline text-2xl text-primaryGreen my-6'>List  of skills You Want </h2>
-                        <div className='flex flex-row flex-wrap px-12 sm:px-6'>
+                        <div className='flex flex-row flex-wrap px-8 sm:px-6'>
                             {
                                 wants.map( (item, index) => (
                                     <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12'>{item.title}</p>
@@ -131,7 +131,7 @@ const Action = ({params: {action}}) => {
                     </form>                
                     <div className=' bg-babygreen rounded-lg min-h-40'>
                         <h2 className='text-center font-bold underline text-2xl text-primaryGreen my-6'>List of your Achievements</h2>
-                        <div className='flex flex-row flex-wrap px-12 sm:px-6'>
+                        <div className='flex flex-row flex-wrap px-8 sm:px-6'>
                             {
                                 acheived.map( (item, index) => (
                                     <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12'>{item.title}</p>
