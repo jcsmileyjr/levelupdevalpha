@@ -51,7 +51,7 @@ const SignUp = () => {
 
     return (
         <main className="flex min-h-screen flex-col p-4">
-            <section className='flex flex-row justify-between'>
+            <section className='flex flex-row justify-between gap-4'>
                 {/*Landing page link */}
                 <Link className='font-bold underline text-primaryGreen' href="/">Level Up Dev - Sign Up</Link>
                 <Link className='font-bold underline text-primaryGreen' href="/">Go back to Landing Page</Link>
