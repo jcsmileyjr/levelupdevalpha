@@ -18,6 +18,8 @@ const getData = (type, userData) => {
 const Action = ({params: {action}}) => {
     const [actionData, setActionData] = useState([]);
     const [userProfile, setUserProfile] = useState({});
+    const [actionTitle, setActiontitle] = useState("");
+    const [actionDescription, setActionDescription] = useState("");
 
     useEffect(() => {
         let userData = getUserProfile();
@@ -27,6 +29,26 @@ const Action = ({params: {action}}) => {
         setUserProfile(userData);
         setActionData(data);     
     }, [])
+
+    /**
+     * TODO - Create an action object
+     * TODO - Add the action object to the actionData 
+     * TODO - Update the user profile data
+     * TODO - Update userProfile and then re-run getData and then update actionData
+     */
+    const createAction = (event, type) => {
+        event.preventDefault();
+        let actionItem =     {
+            "title" : actionTitle, 
+            "description" : actionDescription ,
+            "date" : "",
+            "orderBy": 0
+        };
+
+        setActionData([...actionData, actionItem])
+        
+        console.log(actionData);
+    }
 
 
     // Filters the array of objects for any that hasn't been achieved.
@@ -53,17 +75,17 @@ const Action = ({params: {action}}) => {
                         <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Decide what SKILL you want to have</h1>
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputTitle'>Title</label>
                         <div className='mb-6 w-full sm:w-2/4'>
-                            <input id="inputTitle" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></input>
+                            <input id="inputTitle" onChange={(e) => setActiontitle(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></input>
                             <p className='text-gray-700 text-base'>20 character count limit</p>
                         </div>
 
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputReason'>Reason</label>
                         <div className='mb-6 w-full sm:w-2/4'>
-                            <textarea id="inputReason" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></textarea>
+                            <textarea id="inputReason" onChange={(e) => setActionDescription(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></textarea>
                             <p>40 character count limit</p>
                             <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 20 words or less, why do you want to learn this skill? How will it impact your career journey?</p>
                         </div>
-                        <button type="submit" className='p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
+                        <button type="submit" onClick={(e) => createAction(e, action)} className='p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
                     </form>
                     <div className=' bg-babygreen rounded-lg min-h-40'>
                         <h2 className='text-center font-bold underline text-2xl text-primaryGreen my-6'>List  of skills You Want </h2>
