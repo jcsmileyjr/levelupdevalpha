@@ -53,11 +53,12 @@ const Action = ({params: {action}}) => {
 
     const updateAction = (event) => {
         event.preventDefault();
+        const orderBy = selectedMonth.concat(selectedYear);
         const date = selectedMonth.concat(`/${selectedYear}`);
         setActionData(actionData.map( (actionItem) => {
             if (actionItem.title === selectedAction) {
                 actionItem.date = date;
-                actionItem.orderBy = Number(date);
+                actionItem.orderBy = Number(orderBy);
                 updateEventUserProfile(actionItem, action);
                 return actionItem;
             } else {
