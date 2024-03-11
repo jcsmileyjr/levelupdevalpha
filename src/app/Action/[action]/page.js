@@ -30,7 +30,7 @@ const Action = ({params: {action}}) => {
 
     useEffect(() => {
         let userData = getUserProfile();
-        let data = getData(action, userData);
+        let data = getData(action, userData); // Get the array of content from user data based on the page type
         setUserProfile(userData);
         setActionData(data);     
     }, [])
@@ -53,7 +53,7 @@ const Action = ({params: {action}}) => {
 
     const updateAction = (event) => {
         event.preventDefault();
-        const date = selectedMonth.concat(selectedYear);
+        const date = selectedMonth.concat(`/${selectedYear}`);
         setActionData(actionData.map( (actionItem) => {
             if (actionItem.title === selectedAction) {
                 actionItem.date = date;
@@ -149,8 +149,8 @@ const Action = ({params: {action}}) => {
                         {/* Pick year completed */}
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectYear'>Year -  {action} was completed</label>
                         <div className='mb-6 w-full sm:w-2/4'>
-                            <input  maxLength={2} onChange={(e) => setSelectedYear(e.target.value)} type="text" value={selectedYear} id="selectedYear" name="selectedYear" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'/>
-                            <p className='text-gray-700 text-base'>Examples: 07, 14, 20, 22, 23</p>
+                            <input  maxLength={4} onChange={(e) => setSelectedYear(e.target.value)} type="text" value={selectedYear} id="selectedYear" name="selectedYear" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'/>
+                            <p className='text-gray-700 text-base'>Examples: 2007, 2014, 2023</p>
                         </div>                        
 
                         <button type="submit" onClick={(e) => updateAction(e)} className='p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
