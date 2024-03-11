@@ -1,12 +1,3 @@
-//Notes
-// localStorage.setItem("Elder-data", JSON.stringify(parseData[foundIndex]));
-// let previousSavedData = localStorage.getItem("Elder-data");
-// let activityID = JSON.parse(localStorage.getItem("Elder-edit-entry"));
-import TitlesData from '../dummyData/titlesTestData.json';
-import SkillsData from '../dummyData/skillsTestData.json';
-import ProjectsData from '../dummyData/projectsTestData.json';
-import ExperiencesData from '../dummyData/experiencesTestData.json';
-
 import getAllUserProfiles from './getAllUserProfiles';
 /**
  * Function that takes in an email and check to see if its a duplicate. 
@@ -28,10 +19,10 @@ const signUpUserProfile = async (userEmail, name) => {
         const newUserProfile = {
             "email" : userEmail, 
             "name" : name, 
-            "TitlesData" : TitlesData,
-            "SkillsData" : SkillsData, 
-            "ProjectsData" : ProjectsData, 
-            "ExperiencesData" : ExperiencesData, 
+            "TitlesData" : [],
+            "SkillsData" : [], 
+            "ProjectsData" : [], 
+            "ExperiencesData" : [], 
         };
         
         localStorage.setItem("levelupdev-profile", JSON.stringify(newUserProfile));
