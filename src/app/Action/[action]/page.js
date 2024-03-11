@@ -89,8 +89,8 @@ const Action = ({params: {action}}) => {
             </section>
             <div className='flex flex-col lg:flex-row gap-6 justify-between'>
                 {/* Adding new skills to the Wants category */}
-                <section className='flex-1 flex flex-col gap-6'>
-                    <form id="createAction" className='flex flex-col sm:items-center bg-babygreen rounded-lg px-12 sm:pl-0 pb-6 px-4'>
+                <section className='flex-1 flex flex-col gap-6 justify-between'>
+                    <form id="createAction" className='flex flex-col sm:items-center bg-babygreen rounded-lg px-12 sm:pl-0 pb-6 sm:pb-20 px-4'>
                         <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Decide what {action} you want to have</h1>
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputTitle'>Title</label>
                         <div className='mb-6 w-full sm:w-2/4'>
