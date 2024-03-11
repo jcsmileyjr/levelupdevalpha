@@ -64,7 +64,7 @@ const LogIn = () => {
                     {/*Submit button */}
                     <button disabled={enableSubmission()} aria-label='Click to submit email for log in submission' type="submit" onClick={(e) => submitLogInCredential(e)} className="p-2 mt-0 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" >Log In</button>
                     
-                    <p className={` text-center text-gray-700 mt-4 text-sm`}>Psst!!! Work in Progress, use abc@gmail.com as a dummy account or Sign Up for an account.</p>
+                    <p className={` text-center text-gray-700 mt-4 text-sm`}>Psst!!! Work in Progress, either Sign Up for an account or use abc@gmail.com as a dummy account (has test data).</p>
 
                     {/*Sign up link */}
                     <Link href={"/SignUp"} className='text-center text-base text-primaryGreen mt-8 font-bold'>Sign Up</Link>

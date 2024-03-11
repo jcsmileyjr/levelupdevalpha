@@ -13,7 +13,7 @@ const Progress = () => {
         let userData = getUserProfile(); // Get user profile from local storage
         let acheivements = getTimeLineData(userData); // Use that user profile to extact event data
         setUserProfile(userData);
-        setAcheivementData(acheivements);      
+        setAcheivementData(acheivements);
     }, [])
 
     /**

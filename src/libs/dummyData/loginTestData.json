@@ -6,8 +6,8 @@
             {
                 "title" : "Multiple Tech Talk Speaker", 
                 "description" : "Give tech talks at Memphis Technical Foundation and Code Connector events", 
-                "date" : "5/23",
-                "orderBy": 523
+                "date" : "5/2023",
+                "orderBy": 52023
             },
             {
                 "title" : "Brand Ambassador for React", 
@@ -20,8 +20,8 @@
             {
                 "title" : "TailwindCSS", 
                 "description" : "Allowed me to quickly style  the Tic Tac Toe project. Prepartion for Chingu.", 
-                "date" : "2/23",
-                "orderBy": 223
+                "date" : "2/2023",
+                "orderBy": 22023
             },
             {
                 "title" : "Java", 
@@ -34,8 +34,8 @@
             {
                 "title" : "TODO app", 
                 "description" : "Basic CRUD app with HTML, CSS, & JavaScript to list action items.", 
-                "date" : "1/23",
-                "orderBy": 123
+                "date" : "1/2023",
+                "orderBy": 12023
             },
             {
                 "title" : "Office Swear Jar", 
@@ -48,8 +48,8 @@
             {
                 "title" : "100 Blog Posts", 
                 "description" : "Excepteur sint occaecat cupidatat non proident", 
-                "date" : "5/23",
-                "orderBy": 523
+                "date" : "5/2023",
+                "orderBy": 52023
             },
             {
                 "title" : "Tech Conference Speaker", 

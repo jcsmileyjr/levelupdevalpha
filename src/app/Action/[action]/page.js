@@ -30,7 +30,7 @@ const Action = ({params: {action}}) => {
 
     useEffect(() => {
         let userData = getUserProfile();
-        let data = getData(action, userData);
+        let data = getData(action, userData); // Get the array of content from user data based on the page type
         setUserProfile(userData);
         setActionData(data);     
     }, [])
@@ -53,11 +53,12 @@ const Action = ({params: {action}}) => {
 
     const updateAction = (event) => {
         event.preventDefault();
-        const date = selectedMonth.concat(selectedYear);
+        const orderBy = selectedMonth.concat(selectedYear);
+        const date = selectedMonth.concat(`/${selectedYear}`);
         setActionData(actionData.map( (actionItem) => {
             if (actionItem.title === selectedAction) {
                 actionItem.date = date;
-                actionItem.orderBy = Number(date);
+                actionItem.orderBy = Number(orderBy);
                 updateEventUserProfile(actionItem, action);
                 return actionItem;
             } else {
@@ -88,8 +89,8 @@ const Action = ({params: {action}}) => {
             </section>
             <div className='flex flex-col lg:flex-row gap-6 justify-between'>
                 {/* Adding new skills to the Wants category */}
-                <section className='flex-1 flex flex-col gap-6'>
-                    <form id="createAction" className='flex flex-col sm:items-center bg-babygreen rounded-lg px-12 sm:pl-0 pb-6 px-4'>
+                <section className='flex-1 flex flex-col gap-6 justify-between'>
+                    <form id="createAction" className='flex flex-col sm:items-center bg-babygreen rounded-lg px-12 sm:pl-0 pb-6 sm:pb-20 px-4'>
                         <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Decide what {action} you want to have</h1>
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputTitle'>Title</label>
                         <div className='mb-6 w-full sm:w-2/4'>
@@ -135,7 +136,7 @@ const Action = ({params: {action}}) => {
                             <p className='w-full mt-2'><span className='font-bold'>Definition:</span> Ready to place on your resume and be known for it.</p>
                         </div>
                         {/* Pick month completed */}
-                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectMonth'>Month {action} was completed</label>
+                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectMonth'>Month - {action} was completed</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <select value={selectedMonth} onChange={(e) => setSelectedMonth(e.target.value)} name="selectMonth" id="selectMonth" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'>
                                 <option value="" key="default-month-option-1"></option>
@@ -147,10 +148,10 @@ const Action = ({params: {action}}) => {
                             </select>
                         </div>
                         {/* Pick year completed */}
-                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectYear'>Year {action} was completed</label>
+                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectYear'>Year -  {action} was completed</label>
                         <div className='mb-6 w-full sm:w-2/4'>
-                            <input  maxLength={2} onChange={(e) => setSelectedYear(e.target.value)} type="text" value={selectedYear} id="selectedYear" name="selectedYear" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'/>
-                            <p className='text-gray-700 text-base'>Examples: 07, 14, 20, 22, 23</p>
+                            <input  maxLength={4} onChange={(e) => setSelectedYear(e.target.value)} type="text" value={selectedYear} id="selectedYear" name="selectedYear" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'/>
+                            <p className='text-gray-700 text-base'>Examples: 2007, 2014, 2023</p>
                         </div>                        
 
                         <button type="submit" onClick={(e) => updateAction(e)} className='p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
