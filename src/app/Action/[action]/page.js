@@ -135,7 +135,7 @@ const Action = ({params: {action}}) => {
                             <p className='w-full mt-2'><span className='font-bold'>Definition:</span> Ready to place on your resume and be known for it.</p>
                         </div>
                         {/* Pick month completed */}
-                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectMonth'>Month {action} was completed</label>
+                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectMonth'>Month - {action} was completed</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <select value={selectedMonth} onChange={(e) => setSelectedMonth(e.target.value)} name="selectMonth" id="selectMonth" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'>
                                 <option value="" key="default-month-option-1"></option>
@@ -147,7 +147,7 @@ const Action = ({params: {action}}) => {
                             </select>
                         </div>
                         {/* Pick year completed */}
-                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectYear'>Year {action} was completed</label>
+                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectYear'>Year -  {action} was completed</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <input  maxLength={2} onChange={(e) => setSelectedYear(e.target.value)} type="text" value={selectedYear} id="selectedYear" name="selectedYear" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'/>
                             <p className='text-gray-700 text-base'>Examples: 07, 14, 20, 22, 23</p>
