@@ -42,6 +42,7 @@ const Progress = () => {
             denyButtonText: `Cancel`
         }).then((result) => {
             if (result.isConfirmed) {
+                localStorage.removeItem("levelupdev-profile");
                 router.push('/');
                 Swal.fire({
                     icon: "success",
