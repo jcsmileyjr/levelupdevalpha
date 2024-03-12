@@ -5,6 +5,7 @@ import Competency from '@/components/Competency/competency';
 import getUserProfile from '@/libs/api/getUserProfile';
 import Image from 'next/image';
 import GarbageCan from '../../images/recycle-bin-icon-red.png';
+import Swal from 'sweetalert2'
 import {useState, useEffect} from 'react';
 
 const Progress = () => {    
@@ -41,19 +42,23 @@ const Progress = () => {
                     {userProfile.ProjectsData && <Competency title='Projects' content={userProfile.ProjectsData} />}                    
                     {userProfile.TitlesData && <Competency title='Titles' content={userProfile.TitlesData} />}                    
                     {userProfile.ExperiencesData && <Competency title='Experiences' content={userProfile.ExperiencesData} />}
-                    <div className='sm:flex flex-row items-center ml-6 hidden gap-2'>
+                    
+                    {/* Delete account button */}
+                    <button className='font-bold text-gray-700 p-2 mt-0 border border-rose-600 bg-red-50 font-bold text-sm bg-white rounded-lg min-w-24 xl:flex flex-row items-center ml-6 hidden gap-2'>
                         <Image priority={false} src={GarbageCan} width={25} height={15} alt="Clickable garbage can icon to delete account and sign out of app" />
-                        <p className='text-base text-gray-700'>Click to delete account &#40;removes all data&#41;</p>
-                    </div>
+                        <p className='text-sm text-gray-700'>Click to delete account &#40;removes all data&#41;</p>
+                    </button>
                 </div>
-                {/* Presentation Timeline Display */}
+                {/* Presentation Timeline Display - Displayed on larger devices */}
                 <section className="w-full order-last mt-6 lg:mt-0 xl:w-2/4">
                     <h2 className="text-center text-2xl text-primaryGreen font-bold">Timeline of achievements</h2>
                     <Timeline data={acheivementData} />
-                    <div className='flex flex-row items-center ml-6 sm:hidden gap-2'>
+
+                    {/* Delete account button - Displayed on smaller devices */}
+                    <button className='font-bold text-gray-700 p-2 mt-4 border border-rose-600 bg-red-50 font-bold text-sm bg-white rounded-lg w-full sm:w-1/2 sm:m-auto flex flex-row items-center justify-center xl:hidden gap-2'>
                         <Image priority={false} src={GarbageCan} width={25} height={15} alt="Clickable garbage can icon to delete account and sign out of app" />
-                        <p className='text-base text-gray-700'>Click to delete account &#40;removes all data&#41;</p>
-                    </div>                    
+                        <p className='text-sm text-gray-700'>Click to delete account</p>
+                    </button>                    
                 </section>
             </div>
         </main>
