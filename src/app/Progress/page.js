@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Timeline from '@/components/Timeline/timeline';
 import Competency from '@/components/Competency/competency';
 import getUserProfile from '@/libs/api/getUserProfile';
+import Image from 'next/image';
+import GarbageCan from '../../images/recycle-bin-icon-red.png';
 import {useState, useEffect} from 'react';
 
 const Progress = () => {    
@@ -33,17 +35,25 @@ const Progress = () => {
                 <Link className='font-bold underline text-primaryGreen text-base' href="/">Level Up Dev - {userProfile.name}&#39;s Progress</Link>
                 <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreen font-bold text-base bg-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>
-            <div className='flex flex-col xl:flex-row gap-16'>
+            <div className='flex flex-col xl:flex-row gap-4 sm:gap-16'>
                 <div className='w-full mt-6 sm:self-center xl:self-auto md:w-11/12 xl:mt-0 xl:w-2/4'>
                     {userProfile.SkillsData && <Competency title='Skills' content={userProfile.SkillsData} />}
                     {userProfile.ProjectsData && <Competency title='Projects' content={userProfile.ProjectsData} />}                    
                     {userProfile.TitlesData && <Competency title='Titles' content={userProfile.TitlesData} />}                    
                     {userProfile.ExperiencesData && <Competency title='Experiences' content={userProfile.ExperiencesData} />}
+                    <div className='sm:flex flex-row items-center ml-6 hidden gap-2'>
+                        <Image priority={false} src={GarbageCan} width={25} height={15} alt="Clickable garbage can icon to delete account and sign out of app" />
+                        <p className='text-base text-gray-700'>Click to delete account &#40;removes all data&#41;</p>
+                    </div>
                 </div>
                 {/* Presentation Timeline Display */}
                 <section className="w-full order-last mt-6 lg:mt-0 xl:w-2/4">
                     <h2 className="text-center text-2xl text-primaryGreen font-bold">Timeline of achievements</h2>
                     <Timeline data={acheivementData} />
+                    <div className='flex flex-row items-center ml-6 sm:hidden gap-2'>
+                        <Image priority={false} src={GarbageCan} width={25} height={15} alt="Clickable garbage can icon to delete account and sign out of app" />
+                        <p className='text-base text-gray-700'>Click to delete account &#40;removes all data&#41;</p>
+                    </div>                    
                 </section>
             </div>
         </main>
