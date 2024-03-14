@@ -25,7 +25,17 @@ const Action = ({params: {action}}) => {
     const [selectedAction, setSelectedAction] = useState("");
     const [selectedMonth, setSelectedMonth] = useState("");
     const [selectedYear, setSelectedYear] = useState("");
+    
+    // Format error handling for item creation
+    const [actionTitleFormatError, setActionTitleFormatError] = useState(false);
+    const [actionDescriptionFormatError, setActionDescriptionFormatError] = useState(false);
 
+    // Format error handling for item update
+    const [selectedActionFormatError, setSelectedActionFormatError] = useState(false);
+    const [selectedMonthFormatError, setSelectedMonthFormatError] = useState(false);
+    const [selectedYearFormatError, setSelectedYearFormatError] = useState(false);
+    
+    // Content for the month select element
     const monthArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 
     useEffect(() => {
@@ -37,7 +47,25 @@ const Action = ({params: {action}}) => {
 
     // function to create an action that the user wants to accomplish later
     const createAction = (event, type) => {
+        let error = false;
         event.preventDefault();
+
+        if (actionTitle === "") {
+            error = true;
+            setActionTitleFormatError(true);
+        } else {
+            setActionTitleFormatError(false);
+        }
+
+        if (actionDescription === "") {
+            error = true;
+            setActionDescriptionFormatError(true);
+        } else {
+            setActionDescriptionFormatError(false);
+        }
+ 
+        if (error) return;
+
         let actionItem =     {
             "title" : actionTitle, 
             "description" : actionDescription ,
@@ -52,7 +80,33 @@ const Action = ({params: {action}}) => {
     }
 
     const updateAction = (event) => {
+        let error = false;
+        
         event.preventDefault();
+
+        if (selectedAction === "") {
+            error = true;
+            setSelectedActionFormatError(true);
+        } else {
+            setSelectedActionFormatError(false);
+        }
+
+        if (selectedMonth === "") {
+            error = true;
+            setSelectedMonthFormatError(true);
+        } else {
+            setSelectedMonthFormatError(false);
+        }
+
+        if (selectedYear === "") {
+            error = true;
+            setSelectedYearFormatError(true);
+        } else {
+            setSelectedYearFormatError(false);
+        }
+
+        if (error) return;
+
         const orderBy = selectedMonth.concat(selectedYear);
         const date = selectedMonth.concat(`/${selectedYear}`);
         setActionData(actionData.map( (actionItem) => {
@@ -95,13 +149,16 @@ const Action = ({params: {action}}) => {
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputTitle'>Title</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <input value={actionTitle} id="inputTitle" onChange={(e) => setActiontitle(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></input>
-                            <p className='text-gray-700 text-base'>20 character count limit</p>
+                            <p className={`${actionTitleFormatError ? 'hidden':'block'} my-2 text-gray-700 text-base`}>20 character count limit</p>
+                            <p className={`${actionTitleFormatError ? 'block' : 'hidden'} my-2 text-base text-red-700`}>Missing</p>
                         </div>
 
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputReason'>Reason</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <textarea value={actionDescription} id="inputReason" onChange={(e) => setActionDescription(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></textarea>
-                            <p>40 character count limit</p>
+                            {/*Error messages */}
+                            <p className={`${actionDescriptionFormatError ? 'hidden':'block'} my-2 text-gray-700 text-base`}>40 character count limit</p>
+                            <p className={`${actionDescriptionFormatError ? 'block' : 'hidden'} my-2 text-base text-red-700`}>Missing</p>
                             <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 20 words or less, why do you want to learn this skill? How will it impact your career journey?</p>
                         </div>
                         <button type="submit" onClick={(e) => createAction(e, action)} className='p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
@@ -133,8 +190,10 @@ const Action = ({params: {action}}) => {
                                     ))
                                 }
                             </select>
-                            <p className='w-full mt-2'><span className='font-bold'>Definition:</span> Ready to place on your resume and be known for it.</p>
+                            <p className={`${selectedActionFormatError ? 'hidden':'block'} w-full mt-2`}><span className='font-bold'>Definition:</span> Ready to place on your resume and be known for it.</p>
+                            <p className={`${selectedActionFormatError ? 'block' : 'hidden'} mt-2 text-base text-red-700`}>Missing</p>
                         </div>
+
                         {/* Pick month completed */}
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectMonth'>Month - {action} was completed</label>
                         <div className='mb-6 w-full sm:w-2/4'>
@@ -146,12 +205,15 @@ const Action = ({params: {action}}) => {
                                     ))
                                 }
                             </select>
+                            <p className={`${selectedMonthFormatError ? 'block' : 'hidden'} mt-2 text-base text-red-700`}>Missing</p>
                         </div>
+
                         {/* Pick year completed */}
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectYear'>Year -  {action} was completed</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <input  maxLength={4} onChange={(e) => setSelectedYear(e.target.value)} type="text" value={selectedYear} id="selectedYear" name="selectedYear" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'/>
-                            <p className='text-gray-700 text-base'>Examples: 2007, 2014, 2023</p>
+                            <p className={`${selectedYearFormatError ? 'hidden':'block'} text-gray-700 text-base`}>Examples: 2007, 2014, 2023</p>
+                            <p className={`${selectedYearFormatError ? 'block' : 'hidden'} mt-2 text-base text-red-700`}>Missing</p>
                         </div>                        
 
                         <button type="submit" onClick={(e) => updateAction(e)} className='p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
