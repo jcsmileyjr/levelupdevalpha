@@ -21,7 +21,9 @@ const Action = ({params: {action}}) => {
     const [actionData, setActionData] = useState([]); // The data related to the page action type (skills, projects, ...) for the active user profile
     const [userProfile, setUserProfile] = useState({}); // Use to intitially get actionData and display user name
     const [actionTitle, setActiontitle] = useState("");
+    const [actionTitleFormatError, setActionTitleFormatError] = useState(false);
     const [actionDescription, setActionDescription] = useState("");
+    const [actionDescriptionFormatError, setActionDescriptionFormatError] = useState(false);
     const [selectedAction, setSelectedAction] = useState("");
     const [selectedMonth, setSelectedMonth] = useState("");
     const [selectedYear, setSelectedYear] = useState("");
@@ -37,7 +39,25 @@ const Action = ({params: {action}}) => {
 
     // function to create an action that the user wants to accomplish later
     const createAction = (event, type) => {
+        let error = false;
         event.preventDefault();
+
+        if (actionTitle === "") {
+            error = true;
+            setActionTitleFormatError(true);
+        } else {
+            setActionTitleFormatError(false);
+        }
+
+        if (actionDescription === "") {
+            error = true;
+            setActionDescriptionFormatError(true);
+        } else {
+            setActionDescriptionFormatError(false);
+        }
+ 
+        if (error) return;
+
         let actionItem =     {
             "title" : actionTitle, 
             "description" : actionDescription ,
@@ -95,13 +115,16 @@ const Action = ({params: {action}}) => {
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputTitle'>Title</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <input value={actionTitle} id="inputTitle" onChange={(e) => setActiontitle(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></input>
-                            <p className='text-gray-700 text-base'>20 character count limit</p>
+                            <p className={`${actionTitleFormatError ? 'hidden':'block'} my-2 text-gray-700 text-base`}>20 character count limit</p>
+                            <p className={`${actionTitleFormatError ? 'block' : 'hidden'} my-2 text-base text-red-700`}>Missing</p>
                         </div>
 
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputReason'>Reason</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <textarea value={actionDescription} id="inputReason" onChange={(e) => setActionDescription(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></textarea>
-                            <p>40 character count limit</p>
+                            {/*Error messages */}
+                            <p className={`${actionDescriptionFormatError ? 'hidden':'block'} my-2 text-gray-700 text-base`}>40 character count limit</p>
+                            <p className={`${actionDescriptionFormatError ? 'block' : 'hidden'} my-2 text-base text-red-700`}>Missing</p>
                             <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 20 words or less, why do you want to learn this skill? How will it impact your career journey?</p>
                         </div>
                         <button type="submit" onClick={(e) => createAction(e, action)} className='p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
