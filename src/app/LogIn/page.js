@@ -47,8 +47,8 @@ const LogIn = () => {
         <main className="flex min-h-screen flex-col p-4">
             <section className='flex flex-row justify-between gap-4'>
                 {/*Landing page link */}
-                <p className='font-bold text-primaryGreen'>Level Up Dev</p>
-                <Link className='font-bold underline text-primaryGreen' href="/">Go back to Landing Page</Link>
+                <p className='font-bold text-primaryGreenDarker'>Level Up Dev</p>
+                <Link className='font-bold underline text-primaryGreenDarker' href="/">Go back to Landing Page</Link>
             </section>
             <div className="flex flex-col lg:flex-row mt-8 gap-6">
                 <form className="flex flex-col flex-1 w-full m-auto lg:m-0 sm:w-2/4 lg:w-1/3 lg-6 lg:mt-0 bg-babygreen rounded-lg min-h-64 h-2/3 p-4 lg:p-8 pb-8">
@@ -67,7 +67,7 @@ const LogIn = () => {
                     <p className={` text-center text-gray-700 mt-4 text-sm`}>Psst!!! Work in Progress, either Sign Up for an account or use abc@gmail.com as a dummy account (has test data).</p>
 
                     {/*Sign up link */}
-                    <Link href={"/SignUp"} className='text-center text-base text-primaryGreen mt-8 font-bold'>Sign Up</Link>
+                    <Link href={"/SignUp"} className='text-center text-base mt-8 font-bold'><span className='font-normal text-sm'>No account, </span>Sign Up</Link>
                 </form >
 
                 {/* Presentation Timeline Display */}

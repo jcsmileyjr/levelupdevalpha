@@ -17,6 +17,7 @@ module.exports = {
         'babyblue' :  'rgba(0, 95, 153, .10)',
         'babyorange' : 'rgba(255, 190, 79, .10)',
         'primaryGreen' : '#0081A7',
+        'primaryGreenDarker' : '#0080A7',
       }
     },
   },

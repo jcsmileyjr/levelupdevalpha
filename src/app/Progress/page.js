@@ -97,8 +97,8 @@ const Progress = () => {
         <main className="flex min-h-screen flex-col p-4">
             <section className="flex justify-between items-center">
                 {/*Landing page links */}
-                <p className='font-bold text-primaryGreen text-base'>Level Up Dev - {userProfile.name}</p>
-                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreen font-bold text-base bg-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
+                <p className='font-bold text-primaryGreenDarker text-base'>Level Up Dev - {userProfile.name}</p>
+                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>
             <div className='flex flex-col xl:flex-row gap-4 sm:gap-16'>
                 <div className='w-full mt-6 sm:self-center xl:self-auto md:w-11/12 xl:mt-0 xl:w-2/4'>
