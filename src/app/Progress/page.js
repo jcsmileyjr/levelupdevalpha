@@ -44,7 +44,7 @@ const Progress = () => {
                     if (result.isConfirmed) {
                         Swal.fire({
                             title: 'How to Use - Part 3',
-                            text: 'The Timeline ofAchievements displays each item that you have completed.',
+                            text: 'The Timeline of Achievements displays each item that you have completed.',
                             confirmButtonText: 'Done'
                         })
                     } 
