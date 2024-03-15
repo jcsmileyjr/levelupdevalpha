@@ -97,7 +97,7 @@ const Progress = () => {
         <main className="flex min-h-screen flex-col p-4">
             <section className="flex justify-between items-center">
                 {/*Landing page links */}
-                <Link className='font-bold underline text-primaryGreen text-base' href="/">Level Up Dev - {userProfile.name}&#39;s Progress</Link>
+                <p className='font-bold text-primaryGreen text-base'>Level Up Dev - {userProfile.name}</p>
                 <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreen font-bold text-base bg-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>
             <div className='flex flex-col xl:flex-row gap-4 sm:gap-16'>

@@ -53,7 +53,7 @@ const SignUp = () => {
         <main className="flex min-h-screen flex-col p-4">
             <section className='flex flex-row justify-between gap-4'>
                 {/*Landing page link */}
-                <Link className='font-bold underline text-primaryGreen' href="/">Level Up Dev - Sign Up</Link>
+                <p className='font-bold text-primaryGreen' href="/">Level Up Dev</p>
                 <Link className='font-bold underline text-primaryGreen' href="/">Go back to Landing Page</Link>
             </section>
             <div className="flex flex-col lg:flex-row mt-8 gap-6">
