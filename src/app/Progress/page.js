@@ -20,7 +20,41 @@ const Progress = () => {
         let acheivements = getTimeLineData(userData); // Use that user profile to extact event data
         setUserProfile(userData);
         setAcheivementData(acheivements);
+
+        // Display pop-up "How to use" for the Progress page and then disable it.
+        const profileSetting = JSON.parse(localStorage.getItem("levelupdev-settings"));
+        if (profileSetting === null) {
+            howToUse();
+        }
     }, [])
+
+    // Function to display initial "how to use" pop-up and then disable it. 
+    const howToUse = () => {
+        Swal.fire({
+            title: "How to Use - Part 1",
+            html: "<h1>In each competency area, there are two sections:<h1></br><ol><li>1. The list of something you want</li><li>2. The list of your achievements</li></ol>",
+            confirmButtonText: 'Continue'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'How to Use - Part 2',
+                    html: '<p>Take a moment to determine, within each competency area, what you want to accomplish in the future. Click the <b> "go to" links </b> to add what you want to the list via the action wizard. </p>',
+                    confirmButtonText: 'One more, I promise'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: 'How to Use - Part 3',
+                            text: 'The Timeline ofAchievements displays each item that you have completed.',
+                            confirmButtonText: 'Done'
+                        })
+                    } 
+                });
+            } 
+          })
+
+        let profileSetting = {disableHowToUseProgress : true};
+        localStorage.setItem("levelupdev-settings", JSON.stringify(profileSetting));
+    }
 
     /**
      *  Function to combine, filter, and sort raw data into a timeline
@@ -32,6 +66,9 @@ const Progress = () => {
         return sortedProgressData
     }
 
+    /**
+     * Function to delete the account when the delete button is clicked. 
+     */
     const deleteAccount = () => {
         Swal.fire({
             title: "Are you Sure",

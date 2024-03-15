@@ -45,6 +45,10 @@ const Action = ({params: {action}}) => {
         setActionData(data);     
     }, [])
 
+    const getConvertActionWord = () => {
+        return action.slice(0, action.length - 1); 
+    }
+
     // function to create an action that the user wants to accomplish later
     const createAction = (event, type) => {
         let error = false;
@@ -79,6 +83,7 @@ const Action = ({params: {action}}) => {
         setActionDescription("");
     }
 
+    // Function to update an action
     const updateAction = (event) => {
         let error = false;
         
@@ -159,7 +164,7 @@ const Action = ({params: {action}}) => {
                             {/*Error messages */}
                             <p className={`${actionDescriptionFormatError ? 'hidden':'block'} my-2 text-gray-700 text-base`}>40 character count limit</p>
                             <p className={`${actionDescriptionFormatError ? 'block' : 'hidden'} my-2 text-base text-red-700`}>Missing</p>
-                            <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 20 words or less, why do you want to learn this skill? How will it impact your career journey?</p>
+                            <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 20 words or less, why do you want to learn this {(getConvertActionWord()).toLowerCase()}? How will it impact your career journey?</p>
                         </div>
                         <button type="submit" onClick={(e) => createAction(e, action)} className='p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
                     </form>
@@ -178,7 +183,7 @@ const Action = ({params: {action}}) => {
                 {/* Confirm that a skill has been acomplishsed */}
                 <section className='flex-1 flex flex-col gap-6 justify-between'>
                     <form className='flex flex-col sm:items-center bg-babygreen rounded-lg px-12 sm:pl-0 pb-6 px-4 flex-1'>
-                        <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Confirmed {action} Learned</h1>
+                        <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Confirmed {getConvertActionWord()} Learned</h1>
 
                         <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectReason'>Find {action}</label>
                         <div className='mb-6 w-full sm:w-2/4'>
@@ -195,7 +200,7 @@ const Action = ({params: {action}}) => {
                         </div>
 
                         {/* Pick month completed */}
-                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectMonth'>Month - {action} was completed</label>
+                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectMonth'>Month - {getConvertActionWord()} was completed</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <select value={selectedMonth} onChange={(e) => setSelectedMonth(e.target.value)} name="selectMonth" id="selectMonth" type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'>
                                 <option value="" key="default-month-option-1"></option>
@@ -209,7 +214,7 @@ const Action = ({params: {action}}) => {
                         </div>
 
                         {/* Pick year completed */}
-                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectYear'>Year -  {action} was completed</label>
+                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectYear'>Year - {getConvertActionWord()} was completed</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <input  maxLength={4} onChange={(e) => setSelectedYear(e.target.value)} type="text" value={selectedYear} id="selectedYear" name="selectedYear" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'/>
                             <p className={`${selectedYearFormatError ? 'hidden':'block'} text-gray-700 text-base`}>Examples: 2007, 2014, 2023</p>
