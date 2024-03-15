@@ -9,7 +9,7 @@
 const Acheivement = ({content, colorId, position}) => {
     return (
         <div className={`flex flex-col md:flex-row gap-4 items-center w-full ${position === 'right'? 'justify-start' : 'justify-end '}`}>
-            <div className= {`min-w-64 w-64 min-h-56 p-8 rounded-full flex flex-col items-center mb-8 ${colorId === 1 ? 'bg-babygreen' : 'bg-babyblue'}`} >
+            <div className= {`min-w-64 w-64 min-h-56 p-8 rounded-full flex flex-col items-center mb-8 shadow-md border-2 border-solid ${colorId === 1 ? 'bg-babygreen border-babygreen' : 'bg-babyblue border-babyblue'}`} >
                 <h3 className="font-bold text-xl text-center">{content.title}</h3>
                 <p className="m-2">{content.description}</p>
                 <p className="text-primaryGreen font-bold md:hidden">{content.date} </p>
