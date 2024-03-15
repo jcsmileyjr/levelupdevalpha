@@ -23,9 +23,9 @@ const Progress = () => {
 
         // Display pop-up "How to use" for the Progress page and then disable it.
         const profileSetting = JSON.parse(localStorage.getItem("levelupdev-settings"));
-        // if (profileSetting === null) {
+        if (profileSetting === null) {
             howToUse();
-        // }
+        }
     }, [])
 
     // Function to display initial "how to use" pop-up and then disable it. 
