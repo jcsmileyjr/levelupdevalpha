@@ -40,7 +40,7 @@ const Competency = ({title, content}) => {
                 </div>
 
                 {/* Display the "Achieved" section */}
-                <div className='flex flex-col flex-1 border-t-2 sm:border-l-2 sm:border-t-0 border-solid border-black sm:pl-4 '>
+                <div className='flex flex-col flex-1 border-t-2 sm:border-l-2 sm:border-t-0 border-solid sm:pl-4 '>
                     <p className='underline text-xl  text-gray-700 font-bold text-center my-4'>List of Achievements</p>
                     <div className='flex flex-row flex-wrap'>
                         {
