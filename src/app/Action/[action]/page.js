@@ -214,7 +214,7 @@ const Action = ({params: {action}}) => {
                         </div>
 
                         {/* Pick year completed */}
-                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectYear'>Year - {getConvertActionWord()} was completed</label>
+                        <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='selectedYear'>Year - {getConvertActionWord()} was completed</label>
                         <div className='mb-6 w-full sm:w-2/4'>
                             <input  maxLength={4} onChange={(e) => setSelectedYear(e.target.value)} type="text" value={selectedYear} id="selectedYear" name="selectedYear" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'/>
                             <p className={`${selectedYearFormatError ? 'hidden':'block'} text-gray-700 text-base`}>Examples: 2007, 2014, 2023</p>
