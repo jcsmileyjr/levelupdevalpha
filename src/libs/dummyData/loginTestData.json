@@ -7,13 +7,15 @@
                 "title" : "Multiple Tech Talk Speaker", 
                 "description" : "Give tech talks at Memphis Technical Foundation and Code Connector events", 
                 "date" : "5/2023",
-                "orderBy": 52023
+                "orderBy": 52023,
+                "actionType" : "Titles"
             },
             {
                 "title" : "Brand Ambassador for React", 
                 "description" : "Excepteur sint occaecat cupidatat non proident", 
                 "date" : "",
-                "orderBy": 0
+                "orderBy": 0,
+                "actionType" : "Titles"
             }
         ],
         "SkillsData" : [
@@ -21,13 +23,15 @@
                 "title" : "TailwindCSS", 
                 "description" : "Allowed me to quickly style  the Tic Tac Toe project. Prepartion for Chingu.", 
                 "date" : "2/2023",
-                "orderBy": 22023
+                "orderBy": 22023,
+                "actionType" : "Skills"
             },
             {
                 "title" : "Java", 
                 "description" : "Backend language that will allow me to be a Full Stack developer. ", 
                 "date" : "",
-                "orderBy": 0
+                "orderBy": 0,
+                "actionType" : "Skills"
             }
         ], 
         "ProjectsData" : [
@@ -35,13 +39,15 @@
                 "title" : "TODO app", 
                 "description" : "Basic CRUD app with HTML, CSS, & JavaScript to list action items.", 
                 "date" : "1/2023",
-                "orderBy": 12023
+                "orderBy": 12023,
+                "actionType" : "Projects"
             },
             {
                 "title" : "Office Swear Jar", 
                 "description" : "Deployed Next.js app linked to a Spring Boot backend that allows an office of employees to track who owes money for swearing.", 
                 "date" : "",
-                "orderBy": 0
+                "orderBy": 0,
+                "actionType" : "Projects"
             }
         ], 
         "ExperiencesData" : [
@@ -49,13 +55,15 @@
                 "title" : "100 Blog Posts", 
                 "description" : "Excepteur sint occaecat cupidatat non proident", 
                 "date" : "5/2023",
-                "orderBy": 52023
+                "orderBy": 52023,
+                "actionType" : "Experiences"
             },
             {
                 "title" : "Tech Conference Speaker", 
                 "description" : "Excepteur sint occaecat cupidatat non proident", 
                 "date" : "",
-                "orderBy": 0
+                "orderBy": 0,
+                "actionType" : "Experiences"
             }
         ]
     }

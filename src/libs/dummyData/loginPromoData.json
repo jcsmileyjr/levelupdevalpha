@@ -2,21 +2,25 @@
     {
         "title" : "Chingu Group Project Member", 
         "description" : "Virtual professional project group to build a solution for a non-profit.", 
-        "date" : "2/23"
+        "date" : "2/23",
+        "actionType" : "Titles"
     },
     {
         "title" : "100 Blog Posts", 
         "description" : "Publish 100 blog posts on the dev.to & LinkedIn platforms", 
-        "date" : "3/23"
+        "date" : "3/23",
+        "actionType" : "Titles"
     },
     {
         "title" : "Multiple Tech Talk Speaker", 
         "description" : "Give at least 5 tech talks on React, Node, Express, and MongoDB for the local tech meetup groups ", 
-        "date" : "9/23"
+        "date" : "9/23",
+        "actionType" : "Titles"
     },
     {
         "title" : "Tech Conference Speaker", 
         "description" : "Give a tech talk, Comfortable with Whiteboard Interviews, in front of thousands at a regional tech conference.", 
-        "date" : "11/23"
+        "date" : "11/23",
+        "actionType" : "Titles"
     }
 ]

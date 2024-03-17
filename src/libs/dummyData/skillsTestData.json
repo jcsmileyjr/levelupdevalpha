@@ -3,36 +3,42 @@
         "title" : "TailwindCSS", 
         "description" : "Allowed me to quickly style  the Tic Tac Toe project. Prepartion for Chingu.", 
         "date" : "2/23",
-        "orderBy": 223
+        "orderBy": 223,
+        "actionType" : "Skills"
     },
     {
         "title" : "Java", 
         "description" : "Backend language that will allow me to be a Full Stack developer. ", 
         "date" : "",
-        "orderBy": 0
+        "orderBy": 0,
+        "actionType" : "Skills"
     },
     {
         "title" : "Node", 
         "description" : "Excepteur sint occaecat cupidatat non proident", 
         "date" : "4/23",
-        "orderBy": 423
+        "orderBy": 423,
+        "actionType" : "Skills"
     },
     {
         "title" : "Express", 
         "description" : "Excepteur sint occaecat cupidatat non proident", 
         "date" : "5/23",
-        "orderBy": 523
+        "orderBy": 523,
+        "actionType" : "Skills"
     },
     {
         "title" : "Nextjs", 
         "description" : "Excepteur sint occaecat cupidatat non proident", 
         "date" : "7/23",
-        "orderBy": 723
+        "orderBy": 723,
+        "actionType" : "Skills"
     },
     {
         "title" : "React", 
         "description" : "Excepteur sint occaecat cupidatat non proident", 
         "date" : "6/23",
-        "orderBy": 623
+        "orderBy": 623,
+        "actionType" : "Skills"
     }
 ]
