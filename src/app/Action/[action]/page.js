@@ -1,9 +1,11 @@
 "use client"
 import Link from 'next/link';
+import Image from 'next/image';
 import {useState, useEffect} from 'react';
 import { addEventUserProfile } from '@/libs/api/addEventUserProfile';
 import { updateEventUserProfile } from '@/libs/api/updateEventUserProfile';
 import getUserProfile from '@/libs/api/getUserProfile';
+import Star from '../../../images/star-icon-orange.png';
 
 const getData = (type, userData) => {
     if(type === 'Skills') return userData.SkillsData;
@@ -182,7 +184,10 @@ const Action = ({params: {action}}) => {
                         <div className='flex flex-row flex-wrap px-8 sm:px-6'>
                             {
                                 wants.map( (item, index) => (
-                                    <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12'>{item.title}</p>
+                                    <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12 flex flex-row items-center'>
+                                        <Image priority={false} src={Star} width={15} height={15} alt="" className='mr-2' />
+                                        {item.title}
+                                    </p>
                                 ))
                             }
                         </div>
@@ -237,7 +242,10 @@ const Action = ({params: {action}}) => {
                         <div className='flex flex-row flex-wrap px-8 sm:px-6'>
                             {
                                 acheived.map( (item, index) => (
-                                    <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12'>{item.title}</p>
+                                    <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12 flex flex-row items-center'>
+                                        <Image priority={false} src={Star} width={15} height={15} alt="" className='mr-2' />
+                                        {item.title}
+                                    </p>
                                 ))
                             }
                         </div>

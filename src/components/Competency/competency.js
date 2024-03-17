@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import Star from '../../images/star-icon-orange.png';
 
 /**
  * Component that displays the title of data via a wanted or achieved section
@@ -33,7 +35,10 @@ const Competency = ({title, content}) => {
                     <div className='flex flex-row flex-wrap'>
                         {
                             wants.map( (item, index) => (
-                                <p key={`item-${index}`} className='mb-2 basis-3/6'>{item.title}</p>
+                                <p key={`item-${index}`} className='mb-2 basis-3/6 flex flex-row items-center'>
+                                    <Image priority={false} src={Star} width={10} height={10} alt="" className='mr-2' />
+                                    {item.title}
+                                </p>
                             ))
                         }
                     </div>
@@ -45,7 +50,10 @@ const Competency = ({title, content}) => {
                     <div className='flex flex-row flex-wrap'>
                         {
                             acheived.map( (item, index) => (
-                                <p key={`item-${index}`} className='mb-2 basis-3/6'>{item.title}</p>
+                                <p key={`item-${index}`} className='mb-2 basis-3/6 flex flex-row items-center'>
+                                    <Image priority={false} src={Star} width={10} height={10} alt="" className='mr-2' />
+                                    {item.title}
+                                </p>
                             ))
                         }
                     </div>
