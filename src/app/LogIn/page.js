@@ -51,7 +51,6 @@ const LogIn = () => {
                 <Link className='font-bold underline text-primaryGreenDarker' href="/">Go back to Landing Page</Link>
             </section>
 
-                      
             <div className="flex flex-col lg:flex-row mt-8 gap-6">
                 {/* Presentation Timeline Display */}
                 <section className="w-full order-last mt-6 lg:mt-0 lg:order-first lg:w-2/3">
