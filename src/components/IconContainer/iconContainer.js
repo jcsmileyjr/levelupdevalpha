@@ -5,7 +5,6 @@ import Briefcase from '../../images/briefcase-icon-orange.png';
 import Cap from '../../images/graduation-cap-icon-orange.png';
 
 const IconContainer = ({type}) => {
-    console.log("IconContainer: ", type)
     return (
         <div className='flex justify-end w-full my-2'>
             {type === "Skills" &&
