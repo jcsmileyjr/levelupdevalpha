@@ -2,21 +2,25 @@
     {
         "title" : "TailwindCSS", 
         "description" : "Allowed me to quickly style  the Tic Tac Toe project. Prepartion for Chingu.", 
-        "date" : "2/23"
+        "date" : "2/23",
+        "actionType" : "Skills"
     },
     {
         "title" : "Chingu Virtual Team Project", 
         "description" : "6 week virtual team project where I styled the website.", 
-        "date" : "3/23"
+        "date" : "3/23",
+        "actionType" : "Experiences"
     },
     {
         "title" : "Java", 
         "description" : "Backend language that will allow me to be a Full Stack developer. ", 
-        "date" : "5/23"
+        "date" : "5/23",
+        "actionType" : "Skills"
     },
     {
         "title" : "1st Job: Full Stack Java Developer", 
         "description" : "Party Party Party", 
-        "date" : "11/23"
+        "date" : "11/23",
+        "actionType" : "Titles"
     }
 ]

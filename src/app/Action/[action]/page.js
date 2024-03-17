@@ -73,6 +73,7 @@ const Action = ({params: {action}}) => {
         let actionItem =     {
             "title" : actionTitle, 
             "description" : actionDescription ,
+            "actionType" : type,
             "date" : "",
             "orderBy": 0
         };
