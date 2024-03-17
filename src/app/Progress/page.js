@@ -5,6 +5,7 @@ import Competency from '@/components/Competency/competency';
 import getUserProfile from '@/libs/api/getUserProfile';
 import Image from 'next/image';
 import GarbageCan from '../../images/recycle-bin-icon-red.png';
+import Goto from '../../images/goto-screenshot.png';
 import Swal from 'sweetalert2'
 import { useRouter } from 'next/navigation';
 import {useState, useEffect} from 'react';
@@ -31,19 +32,19 @@ const Progress = () => {
     // Function to display initial "how to use" pop-up and then disable it. 
     const howToUse = () => {
         Swal.fire({
-            title: "How to Use - Part 1",
+            title: "How to Use - Part 1/3",
             html: "<h1>In each competency area, there are two sections:<h1></br><ol><li>1. The list of something you want</li><li>2. The list of your achievements</li></ol>",
             confirmButtonText: 'Continue'
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire({
-                    title: 'How to Use - Part 2',
-                    html: '<p>Take a moment to determine, within each competency area, what you want to accomplish in the future. Click the <b> "go to" links </b> to add what you want to the list via the action wizard. </p>',
+                    title: 'How to Use - Part 2/3',
+                    html: '<p>Take a moment to determine, within each competency area, what you want to accomplish in the future. Click the <b> "go to" links </b> to open each individual section to add new goals </p>',
                     confirmButtonText: 'One more, I promise'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         Swal.fire({
-                            title: 'How to Use - Part 3',
+                            title: 'How to Use - Part 3/3',
                             text: 'The Timeline of Achievements displays each item that you have completed.',
                             confirmButtonText: 'Done'
                         })
@@ -80,6 +81,7 @@ const Progress = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 localStorage.removeItem("levelupdev-profile");
+                localStorage.removeItem("levelupdev-settings");
                 router.push('/');
                 Swal.fire({
                     icon: "success",
