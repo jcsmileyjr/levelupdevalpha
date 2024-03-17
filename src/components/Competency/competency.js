@@ -36,7 +36,7 @@ const Competency = ({title, content}) => {
                         {
                             wants.map( (item, index) => (
                                 <p key={`item-${index}`} className='mb-2 basis-3/6 flex flex-row items-center'>
-                                    <Image priority={false} src={Star} width={15} height={15} alt="" className='mr-2' />
+                                    <Image priority={false} src={Star} width={10} height={10} alt="" className='mr-2' />
                                     {item.title}
                                 </p>
                             ))
@@ -51,7 +51,7 @@ const Competency = ({title, content}) => {
                         {
                             acheived.map( (item, index) => (
                                 <p key={`item-${index}`} className='mb-2 basis-3/6 flex flex-row items-center'>
-                                    <Image priority={false} src={Star} width={15} height={15} alt="" className='mr-2' />
+                                    <Image priority={false} src={Star} width={10} height={10} alt="" className='mr-2' />
                                     {item.title}
                                 </p>
                             ))
