@@ -5,7 +5,6 @@ import Competency from '@/components/Competency/competency';
 import getUserProfile from '@/libs/api/getUserProfile';
 import Image from 'next/image';
 import GarbageCan from '../../images/recycle-bin-icon-red.png';
-import Goto from '../../images/goto-screenshot.png';
 import Swal from 'sweetalert2'
 import { useRouter } from 'next/navigation';
 import {useState, useEffect} from 'react';
