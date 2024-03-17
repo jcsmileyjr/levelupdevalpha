@@ -76,7 +76,7 @@ const SignUp = () => {
                 </form >
 
                 {/* Presentation Timeline Display */}
-                <section className="w-full order-last mt-6 lg:mt-0 lg:w-2/3">
+                <section className="w-full order-last mt-6 lg:mt-0 lg:order-first lg:w-2/3">
                     <h2 className="text-center text-2xl text-primaryGreen font-bold">Visual see all your Acheivements</h2>
                     <Timeline data={LoginPromoData} />
                 </section>

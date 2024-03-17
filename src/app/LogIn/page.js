@@ -50,7 +50,16 @@ const LogIn = () => {
                 <p className='font-bold text-primaryGreenDarker'>Level Up Dev</p>
                 <Link className='font-bold underline text-primaryGreenDarker' href="/">Go back to Landing Page</Link>
             </section>
+
+                      
             <div className="flex flex-col lg:flex-row mt-8 gap-6">
+                {/* Presentation Timeline Display */}
+                <section className="w-full order-last mt-6 lg:mt-0 lg:order-first lg:w-2/3">
+                    <h2 className="text-center text-2xl text-primaryGreen font-bold">Visual see all your Acheivements</h2>
+                    <Timeline data={LoginPromoData} />
+                </section>  
+
+                {/* Login Section */}
                 <form className="flex flex-col flex-1 w-full m-auto lg:m-0 sm:w-2/4 lg:w-1/3 lg-6 lg:mt-0 bg-babygreen rounded-lg min-h-64 h-2/3 p-4 lg:p-8 pb-8">
                     {/* Email input field */}
                     <label htmlFor='loginInputField' className="font-bold text-gray-700 text-2xl my-2">Email</label>
@@ -69,12 +78,6 @@ const LogIn = () => {
                     {/*Sign up link */}
                     <Link href={"/SignUp"} className='text-center text-base mt-8 font-bold'><span className='font-normal text-sm'>No account, </span>Sign Up</Link>
                 </form >
-
-                {/* Presentation Timeline Display */}
-                <section className="w-full order-last mt-6 lg:mt-0 lg:w-2/3">
-                    <h2 className="text-center text-2xl text-primaryGreen font-bold">Visual see all your Acheivements</h2>
-                    <Timeline data={LoginPromoData} />
-                </section>
             </div>
         </main>
     )
