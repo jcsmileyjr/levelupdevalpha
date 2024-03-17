@@ -142,9 +142,17 @@ const Action = ({params: {action}}) => {
     
     return (
         <main className="flex min-h-screen flex-col p-4">
-            <section className="flex justify-between items-center mb-6">
+            <section className="sm:flex hidden justify-between items-center mb-6">
                 {/*navigation */}
                 <Link className='font-bold underline text-primaryGreenDarker text-base' href="/Progress">Go to Progress Page - {userProfile.name}</Link>
+                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
+            </section>
+            <section className="flex sm:hidden gap-4 justify-between items-center mb-6">
+                {/*navigation */}
+                <div>
+                    <Link className='font-bold underline text-primaryGreenDarker text-base' href="/Progress">Go to Progress Page</Link>
+                    <p className='font-bold text-primaryGreenDarker text-base'>{userProfile.name}</p>
+                </div>
                 <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>
             <div className='flex flex-col lg:flex-row gap-6 justify-between'>
