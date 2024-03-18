@@ -84,7 +84,7 @@ const Action = ({params: {action}}) => {
             "orderBy": 0,
             "actionID" : uuidv4()
         };
-console.log("testing: ", actionItem);
+
         setActionData([...actionData, actionItem])
         addEventUserProfile(actionItem, type);
         setActiontitle("");
