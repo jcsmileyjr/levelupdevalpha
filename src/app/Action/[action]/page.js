@@ -8,6 +8,7 @@ import getUserProfile from '@/libs/api/getUserProfile';
 // import Star from '../../../images/star-icon-orange.png';
 import Plus from '../../../images/plus-icon-orange.png';
 import Star from '../../../images/star-icon-black.png';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const getData = (type, userData) => {
@@ -80,9 +81,10 @@ const Action = ({params: {action}}) => {
             "description" : actionDescription ,
             "actionType" : type,
             "date" : "",
-            "orderBy": 0
+            "orderBy": 0,
+            "actionID" : uuidv4()
         };
-
+console.log("testing: ", actionItem);
         setActionData([...actionData, actionItem])
         addEventUserProfile(actionItem, type);
         setActiontitle("");
