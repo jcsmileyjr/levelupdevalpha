@@ -5,8 +5,10 @@ import {useState, useEffect} from 'react';
 import { addEventUserProfile } from '@/libs/api/addEventUserProfile';
 import { updateEventUserProfile } from '@/libs/api/updateEventUserProfile';
 import getUserProfile from '@/libs/api/getUserProfile';
-import Star from '../../../images/star-icon-orange.png';
+// import Star from '../../../images/star-icon-orange.png';
 import Plus from '../../../images/plus-icon-orange.png';
+import Star from '../../../images/star-icon-black.png';
+
 
 const getData = (type, userData) => {
     if(type === 'Skills') return userData.SkillsData;
