@@ -5,7 +5,10 @@ import {useState, useEffect} from 'react';
 import { addEventUserProfile } from '@/libs/api/addEventUserProfile';
 import { updateEventUserProfile } from '@/libs/api/updateEventUserProfile';
 import getUserProfile from '@/libs/api/getUserProfile';
-import Star from '../../../images/star-icon-orange.png';
+// import Star from '../../../images/star-icon-orange.png';
+import Plus from '../../../images/plus-icon-orange.png';
+import Star from '../../../images/star-icon-black.png';
+
 
 const getData = (type, userData) => {
     if(type === 'Skills') return userData.SkillsData;
@@ -115,7 +118,7 @@ const Action = ({params: {action}}) => {
 
         if (error) return;
 
-        const orderBy = selectedMonth.concat(selectedYear);
+        const orderBy = selectedYear.concat(selectedMonth);
         const date = selectedMonth.concat(`/${selectedYear}`);
         setActionData(actionData.map( (actionItem) => {
             if (actionItem.title === selectedAction) {
@@ -177,7 +180,10 @@ const Action = ({params: {action}}) => {
                             <p className={`${actionDescriptionFormatError ? 'block' : 'hidden'} my-2 text-base text-red-700`}>Missing</p>
                             <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 20 words or less, why do you want to learn this {(getConvertActionWord()).toLowerCase()}? How will it impact your career journey?</p>
                         </div>
-                        <button type="submit" onClick={(e) => createAction(e, action)} className='p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
+                        <button type="submit" onClick={(e) => createAction(e, action)} className='flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>
+                            <Image priority={false} src={Plus} width={20} height={20} alt="" className='mr-2' />
+                            ADD
+                        </button>
                     </form>
                     <div className=' bg-babygreen rounded-lg min-h-40'>
                         <h2 className='text-center font-bold underline text-2xl text-primaryGreen my-6'>List  of skills You Want </h2>
@@ -235,7 +241,10 @@ const Action = ({params: {action}}) => {
                             <p className={`${selectedYearFormatError ? 'block' : 'hidden'} mt-2 text-base text-red-700`}>Missing</p>
                         </div>                        
 
-                        <button type="submit" onClick={(e) => updateAction(e)} className='p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>ADD</button>
+                        <button type="submit" onClick={(e) => updateAction(e)} className='flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>
+                            <Image priority={false} src={Plus} width={20} height={20} alt="" className='mr-2' />
+                            ADD
+                        </button>
                     </form>                
                     <div className=' bg-babygreen rounded-lg min-h-40'>
                         <h2 className='text-center font-bold underline text-2xl text-primaryGreen my-6'>List of your Achievements</h2>
