@@ -115,7 +115,7 @@ const Action = ({params: {action}}) => {
 
         if (error) return;
 
-        const orderBy = selectedMonth.concat(selectedYear);
+        const orderBy = selectedYear.concat(selectedMonth);
         const date = selectedMonth.concat(`/${selectedYear}`);
         setActionData(actionData.map( (actionItem) => {
             if (actionItem.title === selectedAction) {

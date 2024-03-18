@@ -7,7 +7,7 @@
                 "title" : "Multiple Tech Talk Speaker", 
                 "description" : "Give tech talks at Memphis Technical Foundation and Code Connector events", 
                 "date" : "5/2023",
-                "orderBy": 52023,
+                "orderBy": 20235,
                 "actionType" : "Titles"
             },
             {
@@ -23,7 +23,7 @@
                 "title" : "TailwindCSS", 
                 "description" : "Allowed me to quickly style  the Tic Tac Toe project. Prepartion for Chingu.", 
                 "date" : "2/2023",
-                "orderBy": 22023,
+                "orderBy": 20232,
                 "actionType" : "Skills"
             },
             {
@@ -39,7 +39,7 @@
                 "title" : "TODO app", 
                 "description" : "Basic CRUD app with HTML, CSS, & JavaScript to list action items.", 
                 "date" : "1/2023",
-                "orderBy": 12023,
+                "orderBy": 20231,
                 "actionType" : "Projects"
             },
             {
@@ -55,7 +55,7 @@
                 "title" : "100 Blog Posts", 
                 "description" : "Excepteur sint occaecat cupidatat non proident", 
                 "date" : "5/2023",
-                "orderBy": 52023,
+                "orderBy": 520235,
                 "actionType" : "Experiences"
             },
             {
