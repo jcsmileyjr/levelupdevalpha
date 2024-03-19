@@ -37,7 +37,7 @@ const Edit = ({params: {actionID}}) => {
         <main className="flex min-h-screen flex-col p-4">
             <section className="sm:flex hidden justify-between items-center mb-6">
                 {/*navigation */}
-                <Link className='font-bold underline text-primaryGreenDarker text-base' href="/Progress">Go Back - {userProfile.name}</Link>
+                <button role="link" type="button" onClick={() => router.back()}  className='font-bold underline text-primaryGreenDarker text-base'>Go Back - {userProfile.name}</button>
                 <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>
             <section className="flex sm:hidden gap-4 justify-between items-center mb-6">
