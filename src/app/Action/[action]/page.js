@@ -193,7 +193,7 @@ const Action = ({params: {action}}) => {
                         <div className='flex flex-row flex-wrap px-8 sm:px-6'>
                             {
                                 wants.map( (item, index) => (
-                                    <Link href={`/Edit/${encodeURIComponent(item.actionID)}`}  key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12 flex flex-row items-center'>
+                                    <Link href={`/Edit/${encodeURIComponent(action)}/${encodeURIComponent(item.actionID)}`}  key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12 flex flex-row items-center'>
                                         <Image priority={false} src={EditPen} width={15} height={15} alt="" className='mr-2' />
                                         {item.title}
                                     </Link>

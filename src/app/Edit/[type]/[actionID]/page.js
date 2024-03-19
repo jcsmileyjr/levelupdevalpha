@@ -2,39 +2,40 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import getUserProfile from '@/libs/api/getUserProfile';
+import { getActionItem } from '@/libs/utils/getActionItem';
 import {useState, useEffect} from 'react';
 import { useRouter } from 'next/navigation';
-import EditPen from '../../../images/edit-pen-icon.png';
+import EditPen from '../../../../images/edit-pen-icon.png'
 
-const Edit = ({params: {actionID}}) => {
+const Edit = ({params: {type, actionID}}) => {
     const router = useRouter();
-    
     const [userProfile, setUserProfile] = useState({}); // Use to intitially get actionData and display user name
-    const [actionTitle, setActiontitle] = useState("");
+    const [actionTitle, setActionTitle] = useState("");
     const [actionDescription, setActionDescription] = useState("");
     const [selectedMonth, setSelectedMonth] = useState("");
     const [selectedYear, setSelectedYear] = useState("");
-
+    
     // Format error handling for item creation
     const [actionTitleFormatError, setActionTitleFormatError] = useState(false);
     const [actionDescriptionFormatError, setActionDescriptionFormatError] = useState(false);
-
+    
     // Format error handling for item update
     const [selectedMonthFormatError, setSelectedMonthFormatError] = useState(false);
     const [selectedYearFormatError, setSelectedYearFormatError] = useState(false);    
-
+    
     // Content for the month select element
     const monthArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];    
-
-
+    
     useEffect(() => {
         let userData = getUserProfile();
+        const actionItem = getActionItem(type, actionID, userData);      
+        setActionTitle(actionItem.title);
+        setActionDescription(actionItem.description);
         setUserProfile(userData);    
     }, [])
 
     /**
      * TODO: Get the action item based on the actionID
-     * TODO: Get the TYPE and assign it
      * @param {} e 
      */
     const updateAction = (e) => {
@@ -113,7 +114,7 @@ const Edit = ({params: {actionID}}) => {
                 {/* Update the Title*/}
                 <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputTitle'>Title</label>
                 <div className='mb-6 w-full '>
-                    <input value={actionTitle} id="inputTitle" onChange={(e) => setActiontitle(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></input>
+                    <input value={actionTitle} id="inputTitle" value={actionTitle} onChange={(e) => setActionTitle(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></input>
                     <p className={`${actionTitleFormatError ? 'hidden':'block'} my-2 text-gray-700 text-base`}>20 character count limit</p>
                     <p className={`${actionTitleFormatError ? 'block' : 'hidden'} my-2 text-base text-red-700`}>Missing</p>
                 </div>
