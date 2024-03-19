@@ -8,6 +8,7 @@ import getUserProfile from '@/libs/api/getUserProfile';
 // import Star from '../../../images/star-icon-orange.png';
 import Plus from '../../../images/plus-icon-orange.png';
 import Star from '../../../images/star-icon-black.png';
+import EditPen from '../../../images/edit-pen-icon.png';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -193,7 +194,7 @@ const Action = ({params: {action}}) => {
                             {
                                 wants.map( (item, index) => (
                                     <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12 flex flex-row items-center'>
-                                        <Image priority={false} src={Star} width={15} height={15} alt="" className='mr-2' />
+                                        <Image priority={false} src={EditPen} width={15} height={15} alt="" className='mr-2' />
                                         {item.title}
                                     </p>
                                 ))
@@ -254,7 +255,7 @@ const Action = ({params: {action}}) => {
                             {
                                 acheived.map( (item, index) => (
                                     <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12 flex flex-row items-center'>
-                                        <Image priority={false} src={Star} width={15} height={15} alt="" className='mr-2' />
+                                        <Image priority={false} src={EditPen} width={15} height={15} alt="" className='mr-2' />
                                         {item.title}
                                     </p>
                                 ))
