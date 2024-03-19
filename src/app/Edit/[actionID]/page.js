@@ -32,6 +32,65 @@ const Edit = ({params: {actionID}}) => {
         setUserProfile(userData);    
     }, [])
 
+    /**
+     * TODO: Get the action item based on the actionID
+     * TODO: Get the TYPE and assign it
+     * @param {} e 
+     */
+    const updateAction = (e) => {
+        let error = false;
+        
+        e.preventDefault();
+
+        if (actionTitle === "") {
+            error = true;
+            setActionTitleFormatError(true);
+        } else {
+            setActionTitleFormatError(false);
+        }
+
+        if (actionDescription === "") {
+            error = true;
+            setActionDescriptionFormatError(true);
+        } else {
+            setActionDescriptionFormatError(false);
+        }
+
+        if (selectedMonth === "") {
+            error = true;
+            setSelectedMonthFormatError(true);
+        } else {
+            setSelectedMonthFormatError(false);
+        }
+
+        if (selectedYear === "") {
+            error = true;
+            setSelectedYearFormatError(true);
+        } else {
+            setSelectedYearFormatError(false);
+        }
+        
+        const orderBy = selectedYear.concat(selectedMonth);
+        const date = selectedMonth.concat(`/${selectedYear}`);
+
+        let actionItem = {
+            "title" : actionTitle, 
+            "description" : actionDescription ,
+            "actionType" : type,
+            "date" : date,
+            "orderBy": Number(orderBy),
+            "actionID" : uuidv4()
+        };        
+
+        updateEventUserProfile(actionItem, type);
+        setActiontitle("");
+        setActionDescription("");    
+        setSelectedMonth("");
+        setSelectedYear("");    
+
+        router.back();
+    }
+
 
     return (
         <main className="flex min-h-screen flex-col p-4">
@@ -49,7 +108,7 @@ const Edit = ({params: {actionID}}) => {
                 <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>
             <section className='flex flex-col sm:w-2/5 xl:w-1/4 sm:m-auto'>
-                <h1>Edit Item</h1>
+                <h1 className='font-bold underline text-2xl text-primaryGreen my-6 text-center'>Edit Item</h1>
 
                 {/* Update the Title*/}
                 <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputTitle'>Title</label>
