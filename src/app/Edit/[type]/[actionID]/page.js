@@ -35,7 +35,7 @@ const Edit = ({params: {type, actionID}}) => {
         setActionDescription(actionItem.description);
         getDate(actionItem.date);
         setUserProfile(userData);    
-    }, [])
+    }, [type, actionID])
 
     const getDate = (date) => {
         if(date !== "") {
@@ -129,7 +129,7 @@ const Edit = ({params: {type, actionID}}) => {
                 {/* Update the Title*/}
                 <label className='text-xl text-gray-700 font-bold mb-2' htmlFor='inputTitle'>Title</label>
                 <div className='mb-6 w-full '>
-                    <input value={actionTitle} id="inputTitle" value={actionTitle} onChange={(e) => setActionTitle(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></input>
+                    <input value={actionTitle} id="inputTitle" onChange={(e) => setActionTitle(e.target.value)} type="text" className='w-full p-2 border border-primaryGreen bg-white text-xl rounded-lg'></input>
                     <p className={`${actionTitleFormatError ? 'hidden':'block'} my-2 text-gray-700 text-base`}>20 character count limit</p>
                     <p className={`${actionTitleFormatError ? 'block' : 'hidden'} my-2 text-base text-red-700`}>Missing</p>
                 </div>
