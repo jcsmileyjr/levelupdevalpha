@@ -61,6 +61,7 @@ const Action = ({params: {action}}) => {
         let error = false;
         event.preventDefault();
 
+        // UI Validation
         if (actionTitle === "") {
             error = true;
             setActionTitleFormatError(true);
@@ -98,6 +99,7 @@ const Action = ({params: {action}}) => {
         
         event.preventDefault();
 
+        // UI Validation
         if (selectedAction === "") {
             error = true;
             setSelectedActionFormatError(true);
@@ -123,10 +125,12 @@ const Action = ({params: {action}}) => {
 
         const orderBy = selectedYear.concat(selectedMonth);
         const date = selectedMonth.concat(`/${selectedYear}`);
+        
         setActionData(actionData.map( (actionItem) => {
             if (actionItem.title === selectedAction) {
                 actionItem.date = date;
                 actionItem.orderBy = Number(orderBy);
+                actionItem.actionID = Number(actionItem.actionID);
                 updateEventUserProfile(actionItem, action);
                 return actionItem;
             } else {

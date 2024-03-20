@@ -45,15 +45,13 @@ const Edit = ({params: {type, actionID}}) => {
         }
     }
 
-    /**
-     * TODO: Get the action item based on the actionID
-     * @param {} e 
-     */
+    // Function to update the item
     const updateAction = (e) => {
         let error = false;
         
         e.preventDefault();
 
+        // UI Validation
         if (actionTitle === "") {
             error = true;
             setActionTitleFormatError(true);
@@ -90,9 +88,10 @@ const Edit = ({params: {type, actionID}}) => {
             "actionType" : type,
             "date" : "",
             "orderBy": 0,
-            "actionID" : actionID
+            "actionID" : Number(actionID)
         }; 
 
+        // UI Validation that triggers if either one is empty and the other has content
         if (selectedMonth !== "" && selectedYear !== "") {
             actionItem.orderBy = selectedYear.concat(selectedMonth);
             actionItem.date = selectedMonth.concat(`/${selectedYear}`);
