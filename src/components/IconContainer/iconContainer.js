@@ -1,13 +1,8 @@
 import Image from 'next/image';
-// import Book from '../../images/book-messy-orange.png';
-// import Hammer from '../../images/hammer-icon-orange.png';
-// import Briefcase from '../../images/briefcase-icon-orange.png';
-// import Cap from '../../images/graduation-cap-icon-orange.png';
-
-import Book from '../../images/book-messy-black.png';
-import Hammer from '../../images/hammer-icon-black.png';
-import Briefcase from '../../images/briefcase-icon-black.png';
-import Cap from '../../images/graduation-cap-icon-black.png';
+import Book from '../../images/book-messy-orange.png';
+import Hammer from '../../images/hammer-icon-orange.png';
+import Briefcase from '../../images/briefcase-icon-orange.png';
+import Cap from '../../images/graduation-cap-icon-orange.png';
 
 const IconContainer = ({type}) => {
     return (
