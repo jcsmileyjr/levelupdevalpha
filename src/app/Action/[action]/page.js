@@ -8,6 +8,8 @@ import getUserProfile from '@/libs/api/getUserProfile';
 // import Star from '../../../images/star-icon-orange.png';
 import Plus from '../../../images/plus-icon-orange.png';
 import Star from '../../../images/star-icon-black.png';
+import EditPen from '../../../images/edit-pen-icon.png';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const getData = (type, userData) => {
@@ -59,6 +61,7 @@ const Action = ({params: {action}}) => {
         let error = false;
         event.preventDefault();
 
+        // UI Validation
         if (actionTitle === "") {
             error = true;
             setActionTitleFormatError(true);
@@ -80,7 +83,8 @@ const Action = ({params: {action}}) => {
             "description" : actionDescription ,
             "actionType" : type,
             "date" : "",
-            "orderBy": 0
+            "orderBy": 0,
+            "actionID" : uuidv4()
         };
 
         setActionData([...actionData, actionItem])
@@ -95,6 +99,7 @@ const Action = ({params: {action}}) => {
         
         event.preventDefault();
 
+        // UI Validation
         if (selectedAction === "") {
             error = true;
             setSelectedActionFormatError(true);
@@ -120,10 +125,12 @@ const Action = ({params: {action}}) => {
 
         const orderBy = selectedYear.concat(selectedMonth);
         const date = selectedMonth.concat(`/${selectedYear}`);
+        
         setActionData(actionData.map( (actionItem) => {
             if (actionItem.title === selectedAction) {
                 actionItem.date = date;
                 actionItem.orderBy = Number(orderBy);
+                actionItem.actionID = Number(actionItem.actionID);
                 updateEventUserProfile(actionItem, action);
                 return actionItem;
             } else {
@@ -190,10 +197,10 @@ const Action = ({params: {action}}) => {
                         <div className='flex flex-row flex-wrap px-8 sm:px-6'>
                             {
                                 wants.map( (item, index) => (
-                                    <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12 flex flex-row items-center'>
-                                        <Image priority={false} src={Star} width={15} height={15} alt="" className='mr-2' />
+                                    <Link href={`/Edit/${encodeURIComponent(action)}/${encodeURIComponent(item.actionID)}`}  key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12 flex flex-row items-center'>
+                                        <Image priority={false} src={EditPen} width={15} height={15} alt="" className='mr-2' />
                                         {item.title}
-                                    </p>
+                                    </Link>
                                 ))
                             }
                         </div>
@@ -251,10 +258,10 @@ const Action = ({params: {action}}) => {
                         <div className='flex flex-row flex-wrap px-8 sm:px-6'>
                             {
                                 acheived.map( (item, index) => (
-                                    <p key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12 flex flex-row items-center'>
-                                        <Image priority={false} src={Star} width={15} height={15} alt="" className='mr-2' />
+                                    <Link href={`/Edit/${encodeURIComponent(action)}/${encodeURIComponent(item.actionID)}`}key={`item-${index}`} className='mb-2 basis-6/12 sm:basis-3/12 flex flex-row items-center'>
+                                        <Image priority={false} src={EditPen} width={15} height={15} alt="" className='mr-2' />
                                         {item.title}
-                                    </p>
+                                    </Link>
                                 ))
                             }
                         </div>
