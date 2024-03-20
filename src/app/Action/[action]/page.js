@@ -11,14 +11,6 @@ import Star from '../../../images/star-icon-black.png';
 import EditPen from '../../../images/edit-pen-icon.png';
 import { v4 as uuidv4 } from 'uuid';
 
-
-const getData = (type, userData) => {
-    if(type === 'Skills') return userData.SkillsData;
-    if(type === 'Projects') return userData.ProjectsData;
-    if(type === 'Titles') return userData.TitlesData;
-    if(type === 'Experiences') return userData.ExperiencesData;
-}
-
 /**
  * TODO: Remaining bug of mobile view seen on desktop not selecting an item in the select element
  * @param {string} action - slug use to call the page 
@@ -46,6 +38,13 @@ const Action = ({params: {action}}) => {
     const monthArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 
     useEffect(() => {
+        const getData = (type, userData) => {
+            if(type === 'Skills') return userData.SkillsData;
+            if(type === 'Projects') return userData.ProjectsData;
+            if(type === 'Titles') return userData.TitlesData;
+            if(type === 'Experiences') return userData.ExperiencesData;
+        }
+        
         let userData = getUserProfile();
         let data = getData(action, userData); // Get the array of content from user data based on the page type
         setUserProfile(userData);
