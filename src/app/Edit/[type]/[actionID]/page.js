@@ -3,9 +3,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import getUserProfile from '@/libs/api/getUserProfile';
 import { getActionItem } from '@/libs/utils/getActionItem';
+import { updateEventUserProfile } from '@/libs/api/updateEventUserProfile';
 import {useState, useEffect} from 'react';
 import { useRouter } from 'next/navigation';
 import EditPen from '../../../../images/edit-pen-icon.png'
+import { v4 as uuidv4 } from 'uuid';
 
 const Edit = ({params: {type, actionID}}) => {
     const router = useRouter();
@@ -31,8 +33,17 @@ const Edit = ({params: {type, actionID}}) => {
         const actionItem = getActionItem(type, actionID, userData);      
         setActionTitle(actionItem.title);
         setActionDescription(actionItem.description);
+        getDate(actionItem.date);
         setUserProfile(userData);    
     }, [])
+
+    const getDate = (date) => {
+        if(date !== "") {
+            let stringArray = date.split("/");
+            setSelectedMonth(stringArray[0]);
+            setSelectedYear(stringArray[1]);
+        }
+    }
 
     /**
      * TODO: Get the action item based on the actionID
@@ -57,34 +68,39 @@ const Edit = ({params: {type, actionID}}) => {
             setActionDescriptionFormatError(false);
         }
 
-        if (selectedMonth === "") {
+        if (selectedMonth === "" && selectedYear !== "") {
             error = true;
             setSelectedMonthFormatError(true);
         } else {
             setSelectedMonthFormatError(false);
         }
 
-        if (selectedYear === "") {
+        if (selectedYear === "" && selectedMonth !== "") {
             error = true;
             setSelectedYearFormatError(true);
         } else {
             setSelectedYearFormatError(false);
         }
-        
-        const orderBy = selectedYear.concat(selectedMonth);
-        const date = selectedMonth.concat(`/${selectedYear}`);
 
+        if (error) return;
+        
         let actionItem = {
             "title" : actionTitle, 
             "description" : actionDescription ,
             "actionType" : type,
-            "date" : date,
-            "orderBy": Number(orderBy),
-            "actionID" : uuidv4()
-        };        
+            "date" : "",
+            "orderBy": 0,
+            "actionID" : actionID
+        }; 
+
+        if (selectedMonth !== "" && selectedYear !== "") {
+            actionItem.orderBy = selectedYear.concat(selectedMonth);
+            actionItem.date = selectedMonth.concat(`/${selectedYear}`);
+        }
+
 
         updateEventUserProfile(actionItem, type);
-        setActiontitle("");
+        setActionTitle("");
         setActionDescription("");    
         setSelectedMonth("");
         setSelectedYear("");    
