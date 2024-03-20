@@ -35,7 +35,7 @@ const Edit = ({params: {type, actionID}}) => {
         setActionDescription(actionItem.description);
         getDate(actionItem.date);
         setUserProfile(userData);    
-    }, [actionID, type])
+    }, [])
 
     const getDate = (date) => {
         if(date !== "") {
