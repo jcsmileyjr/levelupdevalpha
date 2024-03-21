@@ -185,7 +185,19 @@ const Action = ({params: {action}}) => {
                             {/*Error messages */}
                             <p className={`${actionDescriptionFormatError ? 'hidden':'block'} my-2 text-gray-700 text-base`}>40 character count limit</p>
                             <p className={`${actionDescriptionFormatError ? 'block' : 'hidden'} my-2 text-base text-red-700`}>Missing</p>
-                            <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 20 words or less, why do you want to learn this {(getConvertActionWord()).toLowerCase()}? How will it impact your career journey?</p>
+                            { action === "Skills" &&
+                                <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 40 words or less, why do you want to learn this Skill? How will it impact your career journey?</p>
+                            }
+                           { action === "Projects" &&
+                                <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 40 words or less, describe this Project. List what skills are used. How will it impact your career journey?</p>
+                            }
+                            { action === "Titles" &&
+                                <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 40 words or less, why do you want this Title? How will it impact your career journey?</p>
+                            }
+                           { action === "Experiences" &&
+                                <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 40 words or less, why is this Experience important? How will it impact your career journey?</p>
+                            }                                                         
+                            
                         </div>
                         <button type="submit" onClick={(e) => createAction(e, action)} className='flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>
                             <Image priority={false} src={Plus} width={20} height={20} alt="" className='mr-2' />
