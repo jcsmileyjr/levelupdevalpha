@@ -101,7 +101,7 @@ const Progress = () => {
             <section className="sm:flex justify-between items-center hidden">
                 {/*Landing page links */}
                 <p className='font-bold text-primaryGreenDarker text-base'>Level Up Dev - {userProfile.name}</p>
-                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white hover:bg-primaryGreen hover:text-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
+                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white hover:bg-primaryGreenDarker hover:text-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>
             <section className="flex justify-between items-center sm:hidden gap-4">
                 {/*Landing page links */}
@@ -109,7 +109,7 @@ const Progress = () => {
                     <p className='font-bold text-primaryGreenDarker text-base'>Level Up Dev</p>
                     <p className='font-bold text-primaryGreenDarker text-base'>{userProfile.name}</p>
                 </div>
-                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white hover:bg-primaryGreen hover:text-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
+                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white hover:bg-primaryGreenDarker hover:text-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>            
             <div className='flex flex-col xl:flex-row gap-4 sm:gap-16'>
                 <div className='w-full mt-6 sm:self-center xl:self-auto md:w-11/12 xl:mt-0 xl:w-2/4'>
