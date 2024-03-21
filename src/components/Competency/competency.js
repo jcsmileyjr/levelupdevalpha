@@ -36,7 +36,7 @@ const Competency = ({title, content}) => {
             <div className='bg-babygreen rounded-lg flex flex-col sm:flex-row pb-4 py-4 px-4 sm:py-0'>
                 {/* Display the "Want" section */}
                 <div className='flex-1 border-b-2 sm:border-r-2 sm:border-b-0 border-solid border-black sm:pr-4 '>
-                    <p className='underline text-xl text-gray-700 font-bold text-center my-4'>List of {title} You want</p>
+                    <p className='underline text-xl text-gray-700 font-bold text-center my-4'>List of {title} <span className="whitespace-nowrap">You want</span></p>
                     <div className='flex flex-row flex-wrap'>
                         {
                             wants.map( (item, index) => (
