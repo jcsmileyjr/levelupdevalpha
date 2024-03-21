@@ -7,7 +7,7 @@ import { updateEventUserProfile } from '@/libs/api/updateEventUserProfile';
 import getUserProfile from '@/libs/api/getUserProfile';
 // import Star from '../../../images/star-icon-orange.png';
 import Plus from '../../../images/plus-icon-orange.png';
-import Star from '../../../images/star-icon-black.png';
+import PlusWhite from '../../../images/plus-icon-white.png';
 import EditPen from '../../../images/edit-pen-icon.png';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -199,8 +199,9 @@ const Action = ({params: {action}}) => {
                             }                                                         
                             
                         </div>
-                        <button type="submit" onClick={(e) => createAction(e, action)} className='flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>
-                            <Image priority={false} src={Plus} width={20} height={20} alt="" className='mr-2' />
+                        <button type="submit" onClick={(e) => createAction(e, action)} className='group flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white hover:bg-primaryGreen hover:text-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>
+                            <Image priority={false} src={Plus} width={20} height={20} alt="" className='mr-2 group-hover:hidden' />
+                            <Image priority={false} src={PlusWhite} width={20} height={20} alt="" className='mr-2 hidden group-hover:block' />
                             ADD
                         </button>
                     </form>
@@ -260,8 +261,9 @@ const Action = ({params: {action}}) => {
                             <p className={`${selectedYearFormatError ? 'block' : 'hidden'} mt-2 text-base text-red-700`}>Missing</p>
                         </div>                        
 
-                        <button type="submit" onClick={(e) => updateAction(e)} className='flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>
-                            <Image priority={false} src={Plus} width={20} height={20} alt="" className='mr-2' />
+                        <button type="submit" onClick={(e) => updateAction(e)} className='group flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white hover:bg-primaryGreen hover:text-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>
+                            <Image priority={false} src={Plus} width={20} height={20} alt="" className='mr-2 group-hover:hidden' />
+                            <Image priority={false} src={PlusWhite} width={20} height={20} alt="" className='mr-2 hidden group-hover:block' />
                             ADD
                         </button>
                     </form>                
