@@ -1,16 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
-// import Star from '../../images/star-icon-orange.png';
-// import Globe from '../../images/internet-icon-orange.png';
 import Star from '../../images/star-icon-black.png';
 import Globe from '../../images/internet-icon-black.png';
+import GlobeOrange from '../../images/internet-icon-orange.png';
 
 /**
  * Component that displays the title of data via a wanted or achieved section
  * @param {string} title - Name of the section and name of the wizard page
  * @param {array} content - array of objects
  * @param {string} content.title - title of skill, project, role, experience to be displayed
- * @returns 
  */
 const Competency = ({title, content}) => {
 
@@ -29,9 +27,10 @@ const Competency = ({title, content}) => {
             {/* Displays title of the Competency */}
             <div className='flex flex-row justify-between items-center mb-2'>
                 <h2 className='text-2xl font-bold text-primaryGreen'>{title}</h2>
-                <Link className='flex justify-center items-center underline text-base text-gray-700 font-bold' href={`/Action/${title}`}>
+                <Link className='group flex justify-center items-center underline text-base text-gray-700 hover:text-primaryOrange font-bold' href={`/Action/${title}`}>
                     Go to {title} Page
-                    <Image priority={false} src={Globe} width={15} height={15} alt="" className='ml-2' />
+                    <Image priority={false} src={Globe} width={15} height={15} alt="" className='ml-2 group-hover:hidden' />
+                    <Image priority={false} src={GlobeOrange} width={15} height={15} alt="" className='ml-2 hidden group-hover:block' />
                 </Link>
             </div>
             <div className='bg-babygreen rounded-lg flex flex-col sm:flex-row pb-4 py-4 px-4 sm:py-0'>

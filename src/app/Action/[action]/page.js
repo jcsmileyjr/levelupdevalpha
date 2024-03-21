@@ -7,7 +7,7 @@ import { updateEventUserProfile } from '@/libs/api/updateEventUserProfile';
 import getUserProfile from '@/libs/api/getUserProfile';
 // import Star from '../../../images/star-icon-orange.png';
 import Plus from '../../../images/plus-icon-orange.png';
-import Star from '../../../images/star-icon-black.png';
+import PlusWhite from '../../../images/plus-icon-white.png';
 import EditPen from '../../../images/edit-pen-icon.png';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -157,7 +157,7 @@ const Action = ({params: {action}}) => {
             <section className="sm:flex hidden justify-between items-center mb-6">
                 {/*navigation */}
                 <Link className='font-bold underline text-primaryGreenDarker text-base' href="/Progress">Go to Progress Page - {userProfile.name}</Link>
-                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
+                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white hover:bg-primaryGreen hover:text-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>
             <section className="flex sm:hidden gap-4 justify-between items-center mb-6">
                 {/*navigation */}
@@ -165,7 +165,7 @@ const Action = ({params: {action}}) => {
                     <Link className='font-bold underline text-primaryGreenDarker text-base' href="/Progress">Go to Progress Page</Link>
                     <p className='font-bold text-primaryGreenDarker text-base'>{userProfile.name}</p>
                 </div>
-                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
+                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white hover:bg-primaryGreen hover:text-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>
             <div className='flex flex-col lg:flex-row gap-6 justify-between'>
                 {/* Adding new skills to the Wants category */}
@@ -185,10 +185,23 @@ const Action = ({params: {action}}) => {
                             {/*Error messages */}
                             <p className={`${actionDescriptionFormatError ? 'hidden':'block'} my-2 text-gray-700 text-base`}>40 character count limit</p>
                             <p className={`${actionDescriptionFormatError ? 'block' : 'hidden'} my-2 text-base text-red-700`}>Missing</p>
-                            <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 20 words or less, why do you want to learn this {(getConvertActionWord()).toLowerCase()}? How will it impact your career journey?</p>
+                            { action === "Skills" &&
+                                <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 40 words or less, why do you want to learn this Skill? How will it impact your career journey?</p>
+                            }
+                           { action === "Projects" &&
+                                <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 40 words or less, describe this Project. List what skills are used. How will it impact your career journey?</p>
+                            }
+                            { action === "Titles" &&
+                                <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 40 words or less, why do you want this Title? How will it impact your career journey?</p>
+                            }
+                           { action === "Experiences" &&
+                                <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 40 words or less, why is this Experience important? How will it impact your career journey?</p>
+                            }                                                         
+                            
                         </div>
-                        <button type="submit" onClick={(e) => createAction(e, action)} className='flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>
-                            <Image priority={false} src={Plus} width={20} height={20} alt="" className='mr-2' />
+                        <button type="submit" onClick={(e) => createAction(e, action)} className='group flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white hover:bg-primaryGreen hover:text-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center drop-shadow-md active:drop-shadow-2xl'>
+                            <Image priority={false} src={Plus} width={20} height={20} alt="" className='mr-2 group-hover:hidden' />
+                            <Image priority={false} src={PlusWhite} width={20} height={20} alt="" className='mr-2 hidden group-hover:block' />
                             ADD
                         </button>
                     </form>
@@ -248,8 +261,9 @@ const Action = ({params: {action}}) => {
                             <p className={`${selectedYearFormatError ? 'block' : 'hidden'} mt-2 text-base text-red-700`}>Missing</p>
                         </div>                        
 
-                        <button type="submit" onClick={(e) => updateAction(e)} className='flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center'>
-                            <Image priority={false} src={Plus} width={20} height={20} alt="" className='mr-2' />
+                        <button type="submit" onClick={(e) => updateAction(e)} className='group flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white hover:bg-primaryGreen hover:text-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center drop-shadow-md active:drop-shadow-2xl'>
+                            <Image priority={false} src={Plus} width={20} height={20} alt="" className='mr-2 group-hover:hidden' />
+                            <Image priority={false} src={PlusWhite} width={20} height={20} alt="" className='mr-2 hidden group-hover:block' />
                             ADD
                         </button>
                     </form>                

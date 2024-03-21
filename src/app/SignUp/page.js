@@ -71,7 +71,7 @@ const SignUp = () => {
                     <p className={`${nameFormatError ?'block' : 'hidden'} my-2 text-sm text-red-700`}>Please enter a name</p>                 
 
                     {/*Submit button */}
-                    <button disabled={false} aria-label='Click to submit email and name to create an account.' type="submit" onClick={(e) => createUserProfile(e)} className="p-2 mt-6 border border-primaryGreen font-bold text-2xl bg-white rounded-lg text-primaryGreen" >Sign Up</button> 
+                    <button disabled={false} aria-label='Click to submit email and name to create an account.' type="submit" onClick={(e) => createUserProfile(e)} className="p-2 mt-6 border border-primaryGreen font-bold text-2xl bg-white hover:bg-primaryGreenDarker hover:text-white drop-shadow-md active:drop-shadow-2xl rounded-lg text-primaryGreen" >Sign Up</button> 
                     <p className={`${duplicateEmailError ?'block' : 'hidden'} my-2 text-sm text-red-700`}>Duplicate Email, please use a different email address!</p>                   
                 </form >
 
