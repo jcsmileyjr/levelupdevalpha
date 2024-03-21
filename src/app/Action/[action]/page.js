@@ -157,7 +157,7 @@ const Action = ({params: {action}}) => {
             <section className="sm:flex hidden justify-between items-center mb-6">
                 {/*navigation */}
                 <Link className='font-bold underline text-primaryGreenDarker text-base' href="/Progress">Go to Progress Page - {userProfile.name}</Link>
-                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white hover:bg-primaryGreen hover:text-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
+                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white hover:bg-primaryGreenDarker hover:text-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>
             <section className="flex sm:hidden gap-4 justify-between items-center mb-6">
                 {/*navigation */}
@@ -165,7 +165,7 @@ const Action = ({params: {action}}) => {
                     <Link className='font-bold underline text-primaryGreenDarker text-base' href="/Progress">Go to Progress Page</Link>
                     <p className='font-bold text-primaryGreenDarker text-base'>{userProfile.name}</p>
                 </div>
-                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white hover:bg-primaryGreen hover:text-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
+                <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white hover:bg-primaryGreenDarker hover:text-white rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
             </section>
             <div className='flex flex-col lg:flex-row gap-6 justify-between'>
                 {/* Adding new skills to the Wants category */}
@@ -199,7 +199,7 @@ const Action = ({params: {action}}) => {
                             }                                                         
                             
                         </div>
-                        <button type="submit" onClick={(e) => createAction(e, action)} className='group flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white hover:bg-primaryGreen hover:text-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center drop-shadow-md active:drop-shadow-2xl'>
+                        <button type="submit" onClick={(e) => createAction(e, action)} className='group flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white hover:bg-primaryGreenDarker hover:text-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center drop-shadow-md active:drop-shadow-2xl'>
                             <Image priority={false} src={Plus} width={20} height={20} alt="" className='mr-2 group-hover:hidden' />
                             <Image priority={false} src={PlusWhite} width={20} height={20} alt="" className='mr-2 hidden group-hover:block' />
                             ADD
@@ -261,7 +261,7 @@ const Action = ({params: {action}}) => {
                             <p className={`${selectedYearFormatError ? 'block' : 'hidden'} mt-2 text-base text-red-700`}>Missing</p>
                         </div>                        
 
-                        <button type="submit" onClick={(e) => updateAction(e)} className='group flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white hover:bg-primaryGreen hover:text-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center drop-shadow-md active:drop-shadow-2xl'>
+                        <button type="submit" onClick={(e) => updateAction(e)} className='group flex justify-center items-center p-2 mt-0 border border-primaryGreen font-bold text-xl bg-white hover:bg-primaryGreenDarker hover:text-white rounded-lg text-primaryGreen w-1/2 sm:w-1/4 self-center drop-shadow-md active:drop-shadow-2xl'>
                             <Image priority={false} src={Plus} width={20} height={20} alt="" className='mr-2 group-hover:hidden' />
                             <Image priority={false} src={PlusWhite} width={20} height={20} alt="" className='mr-2 hidden group-hover:block' />
                             ADD
