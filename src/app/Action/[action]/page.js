@@ -48,8 +48,7 @@ const Action = ({params: {action}}) => {
         let userData = getUserProfile();
         let data = getData(action, userData); // Get the array of content from user data based on the page type
         setUserProfile(userData);
-        setActionData(data);
-        console.log("Action page - useEffect(): ", data);     
+        setActionData(data);   
     }, [action])
 
     const getConvertActionWord = () => {
@@ -129,8 +128,7 @@ const Action = ({params: {action}}) => {
             if (actionItem.title === selectedAction) {
                 actionItem.date = date;
                 actionItem.orderBy = Number(orderBy);
-                actionItem.actionID = actionItem.actionID;
-                console.log("Pre update - action: ", actionItem)        
+                actionItem.actionID = actionItem.actionID;     
                 updateEventUserProfile(actionItem, action);
                 return actionItem;
             } else {

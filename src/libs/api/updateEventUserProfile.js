@@ -3,7 +3,7 @@ import getUserProfile from "./getUserProfile"
 const updateEventUserProfile = async (actionItem, type) => {
     const userProfile = getUserProfile();
     let foundIndex;
-console.log("updateEventUserProfile() action: ", actionItem);
+
     if (type === "Skills") {
         foundIndex = userProfile.SkillsData.findIndex( item => actionItem.actionID === item.actionID);
         userProfile.SkillsData[foundIndex] = actionItem;
