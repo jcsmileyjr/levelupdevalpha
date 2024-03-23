@@ -88,7 +88,7 @@ const Edit = ({params: {type, actionID}}) => {
             "actionType" : type,
             "date" : "",
             "orderBy": 0,
-            "actionID" : Number(actionID)
+            "actionID" : actionID
         }; 
 
         // UI Validation that triggers if either one is empty and the other has content
