@@ -20,7 +20,6 @@ const getData = (type, userData) => {
 }
 
 /**
- * TODO: Remaining bug of mobile view seen on desktop not selecting an item in the select element
  * @param {string} action - slug use to call the page 
  * @returns http://localhost:3000/Action/skills
  */
@@ -49,7 +48,8 @@ const Action = ({params: {action}}) => {
         let userData = getUserProfile();
         let data = getData(action, userData); // Get the array of content from user data based on the page type
         setUserProfile(userData);
-        setActionData(data);     
+        setActionData(data);
+        console.log("Action page - useEffect(): ", data);     
     }, [action])
 
     const getConvertActionWord = () => {
@@ -125,12 +125,12 @@ const Action = ({params: {action}}) => {
 
         const orderBy = selectedYear.concat(selectedMonth);
         const date = selectedMonth.concat(`/${selectedYear}`);
-        
         setActionData(actionData.map( (actionItem) => {
             if (actionItem.title === selectedAction) {
                 actionItem.date = date;
                 actionItem.orderBy = Number(orderBy);
-                actionItem.actionID = Number(actionItem.actionID);
+                actionItem.actionID = actionItem.actionID;
+                console.log("Pre update - action: ", actionItem)        
                 updateEventUserProfile(actionItem, action);
                 return actionItem;
             } else {
