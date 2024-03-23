@@ -65,7 +65,7 @@ const SignUp = () => {
                     <p className={`${emailFormatError?'block' : 'hidden'} my-2 text-sm text-red-700`}>Not a valid email format</p>
 
                     {/* Name input field and error message */}
-                    <label htmlFor='inputName' className='font-bold text-gray-700 text-2xl my-2'>First Name</label>
+                    <label htmlFor='inputName' className='font-bold text-gray-700 text-2xl my-2'>Your Name</label>
                     <input id="inputName" onChange={(e) => setName(e.target.value)} name="inputName"  className="p-2 border border-primaryGreen bg-white text-xl rounded-lg" type="text"></input>
                     <p className={`${nameFormatError ? 'hidden':'block'} my-4`}></p>
                     <p className={`${nameFormatError ?'block' : 'hidden'} my-2 text-sm text-red-700`}>Please enter a name</p>                 
