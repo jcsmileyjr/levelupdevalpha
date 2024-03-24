@@ -22,7 +22,6 @@ const Progress = () => {
         let acheivements = getTimeLineData(userData); // Use that user profile to extact event data
         setUserProfile(userData);
         setAcheivementData(acheivements);
-console.log(Object.keys(userData).length)
         // Display pop-up "How to use" for the Progress page and then disable it.
         const profileSetting = JSON.parse(localStorage.getItem("levelupdev-settings"));
         if (profileSetting === null) {
