@@ -126,7 +126,8 @@ const Progress = () => {
                             {userProfile.ProjectsData && <Competency title='Projects' content={userProfile.ProjectsData} />}                    
                             {userProfile.TitlesData && <Competency title='Titles' content={userProfile.TitlesData} />}                    
                             {userProfile.ExperiencesData && <Competency title='Experiences' content={userProfile.ExperiencesData} />}
-                            
+                            <p className='ml-8 mb-8 text-gray-700 text-base xl:flex hidden'>Version: {userProfile.version}</p>
+
                             {/* Delete account button */}
                             <button onClick={() => deleteAccount()} className='font-bold text-gray-700 p-2 mt-0 border border-rose-600 bg-red-50 font-bold text-sm bg-white rounded-lg min-w-24 xl:flex flex-row items-center ml-6 hidden gap-2'>
                                 <Image priority={false} src={GarbageCan} width={25} height={15} alt="Clickable garbage can icon to delete account and sign out of app" />
@@ -142,7 +143,8 @@ const Progress = () => {
                             <button onClick={() => deleteAccount()} className='font-bold text-gray-700 p-2 mt-4 border border-rose-600 bg-red-50 font-bold text-sm bg-white rounded-lg w-full sm:w-1/2 sm:m-auto flex flex-row items-center justify-center xl:hidden gap-2'>
                                 <Image priority={false} src={GarbageCan} width={25} height={15} alt="Clickable garbage can icon to delete account and sign out of app" />
                                 <p className='text-sm text-gray-700'>Click to delete account</p>
-                            </button>                    
+                            </button>
+                            <p className='mt-8 text-gray-700 text-base flex  xl:hidden items-center justify-center'>Version: {userProfile.version}</p>                    
                         </section>
                     </div>
                 

@@ -23,6 +23,7 @@ const signUpUserProfile = async (userEmail, name) => {
             "SkillsData" : [], 
             "ProjectsData" : [], 
             "ExperiencesData" : [], 
+            "version" : 1
         };
         
         localStorage.setItem("levelupdev-profile", JSON.stringify(newUserProfile));
