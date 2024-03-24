@@ -25,7 +25,7 @@ const Competency = ({title, content}) => {
     return (
         <section className='mb-8 sm:m-auto sm:mb-8 sm:w-11/12'>
             {/* Displays title of the Competency */}
-            <div className='flex flex-row justify-between items-center mb-2'>
+            <div className='flex flex-col items-start sm:flex-row sm:justify-between sm:items-center mb-2'>
                 <h2 className='text-2xl font-bold text-primaryGreen'>{title}</h2>
                 <Link className='group flex justify-center items-center underline text-base text-gray-700 hover:text-primaryOrange font-bold' href={`/Action/${title}`}>
                     Go to {title} Page
