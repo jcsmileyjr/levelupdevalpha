@@ -5,12 +5,11 @@ import LoginTestData from '../dummyData/loginTestData.json';
 // TODO: Real Database, just grab the database data.
 const getAllUserProfiles = async () => {
     const localData= JSON.parse(localStorage.getItem("levelupdev-profile"));
-
     if(localData === null) {
         return LoginTestData;
     } else {
-        LoginTestData.push(localData);
-        return LoginTestData;
+        let profiles = [localData]
+        return profiles;
     }
 }
 

@@ -190,10 +190,10 @@ const Action = ({params: {action}}) => {
                                 <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 40 words or less, describe this Project. List what skills are used. How will it impact your career journey?</p>
                             }
                             { action === "Titles" &&
-                                <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 40 words or less, why do you want this Title? How will it impact your career journey?</p>
+                                <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 40 words or less, why do you want this Title? How will you earn this? How will it impact your career journey?</p>
                             }
                            { action === "Experiences" &&
-                                <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 40 words or less, why is this Experience important? How will it impact your career journey?</p>
+                                <p className='w-full mt-2'><span className='font-bold'>Definition:</span> In 40 words or less, why is this Experience important? What is the experience. How will it impact your career journey?</p>
                             }                                                         
                             
                         </div>
