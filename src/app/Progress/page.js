@@ -56,7 +56,7 @@ const Progress = () => {
             } 
           })
 
-        let profileSetting = {disableHowToUseProgress : true};
+        let profileSetting = {disableHowToUseProgress : true, version: 1};
         localStorage.setItem("levelupdev-settings", JSON.stringify(profileSetting));
     }
 
@@ -126,7 +126,7 @@ const Progress = () => {
                             {userProfile.ProjectsData && <Competency title='Projects' content={userProfile.ProjectsData} />}                    
                             {userProfile.TitlesData && <Competency title='Titles' content={userProfile.TitlesData} />}                    
                             {userProfile.ExperiencesData && <Competency title='Experiences' content={userProfile.ExperiencesData} />}
-                            
+                            <p>V</p>
                             {/* Delete account button */}
                             <button onClick={() => deleteAccount()} className='font-bold text-gray-700 p-2 mt-0 border border-rose-600 bg-red-50 font-bold text-sm bg-white rounded-lg min-w-24 xl:flex flex-row items-center ml-6 hidden gap-2'>
                                 <Image priority={false} src={GarbageCan} width={25} height={15} alt="Clickable garbage can icon to delete account and sign out of app" />
