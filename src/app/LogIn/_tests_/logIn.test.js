@@ -1,6 +1,6 @@
 import {render, screen} from '@testing-library/react';
 import LogIn from '../page';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'; // Because the testing will break because without this
 
 jest.mock('next/navigation', () => ({
     useRouter: jest.fn()
