@@ -46,10 +46,22 @@ const Action = ({params: {action}}) => {
 
     useEffect(() => {
         let userData = getUserProfile();
+        if (userData === null) userData = nullUserProfile; // if getUserProfile() returns blank. Mainly affects testing
         let data = getData(action, userData); // Get the array of content from user data based on the page type
         setUserProfile(userData);
         setActionData(data);   
     }, [action])
+
+    // Default user profile. Mainly used for testing
+    const nullUserProfile = {
+        "email" : "default.test.com", 
+        "name" : "default", 
+        "TitlesData" : [],
+        "SkillsData" : [], 
+        "ProjectsData" : [], 
+        "ExperiencesData" : [], 
+        "version" : 0
+    };
 
     const getConvertActionWord = () => {
         return action.slice(0, action.length - 1); 
