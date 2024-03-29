@@ -41,4 +41,22 @@ describe('Progress page', () =>  {
         const monthSelected = screen.getByRole("combobox", {name: 'Month - Skill was completed'});
         expect(monthSelected).toBeInTheDocument();        
     })
+
+    it('should render input field to state the Year completed', () => {
+        render(<Action params={{action: 'Skills'}} />)
+        const input = screen.getByRole("textbox", {name: 'Year - Skill was completed'});
+        expect(input).toBeInTheDocument();      
+    })
+
+    it('should render a section title, List of skills You Want', () => {
+        render(<Action params={{action: 'Skills'}} />)
+        const header = screen.getByRole("heading", {name: "List of skills You Want"});
+        expect(header).toBeInTheDocument()
+    })
+
+    it('should render a section title, List of your Achievements', () => {
+        render(<Action params={{action: 'Skills'}} />)
+        const header = screen.getByRole("heading", {name: "List of your Achievements"});
+        expect(header).toBeInTheDocument()
+    })
 });
