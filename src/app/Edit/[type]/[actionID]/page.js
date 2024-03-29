@@ -30,12 +30,33 @@ const Edit = ({params: {type, actionID}}) => {
     
     useEffect(() => {
         let userData = getUserProfile();
-        const actionItem = getActionItem(type, actionID, userData);      
+        if (userData === null) userData = nullUserProfile; // if getUserProfile() returns blank. Mainly affects testing
+        const actionItem = getActionItem(type, actionID, userData);   
         setActionTitle(actionItem.title);
         setActionDescription(actionItem.description);
         getDate(actionItem.date);
         setUserProfile(userData);    
     }, [type, actionID])
+
+    // Default user profile and action item. Mainly used for testing
+    const nullUserProfile = {
+        "email" : "default.test.com", 
+        "name" : "default", 
+        "TitlesData" : [],
+        "SkillsData" : [], 
+        "ProjectsData" : [
+            {
+                "title" : "TODO app", 
+                "description" : "Basic CRUD app with HTML, CSS, & JavaScript to list action items.", 
+                "date" : "1/2023",
+                "orderBy": 20231,
+                "actionType" : "Projects",
+                "actionID" : "5"
+            }
+        ], 
+        "ExperiencesData" : [], 
+        "version" : 0
+    };
 
     const getDate = (date) => {
         if(date !== "") {
