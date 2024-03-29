@@ -13,7 +13,7 @@ const Acheivement = ({content, colorId, position}) => {
         <article className={`flex flex-col md:flex-row gap-4 items-center w-full ${position === 'right'? 'justify-start' : 'justify-end '}`}>
             <div className= {`min-w-64 w-72 p-8 pt-0 rounded-lg flex flex-col items-start mb-8 shadow-md border-2 border-solid ${colorId === 1 ? 'bg-babygreen border-babygreen' : 'bg-babyblue border-babyblue'}`} >
                 <IconContainer type={content.actionType} />
-                <h3 className="font-bold text-xl">{content.title}</h3>
+                <h2 className="font-bold text-xl">{content.title}</h2>
                 <p className="my-2">{content.description}</p>
                 <p className="font-bold md:hidden">{content.date} </p>
             </div>
