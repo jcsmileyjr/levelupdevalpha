@@ -147,7 +147,7 @@ const Progress = () => {
                         </div>
                         {/* Presentation Timeline Display - Displayed on larger devices */}
                         <section className="w-full order-last mt-6 lg:mt-0 xl:w-2/4">
-                            <h2 className="text-center text-2xl text-primaryGreen font-bold">Timeline of achievements</h2>
+                            <h1 className="text-center text-2xl text-primaryGreen font-bold">Timeline of achievements</h1>
                             <Timeline data={acheivementData} />
 
                             {/* Delete account button - Displayed on smaller devices */}
