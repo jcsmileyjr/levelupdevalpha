@@ -19,6 +19,7 @@ const Progress = () => {
 
     useEffect(() => {
         let userData = getUserProfile(); // Get user profile from local storage
+        if (userData === null) userData = nullUserProfile; // if getUserProfile() returns blank. Mainly affects testing
         let acheivements = getTimeLineData(userData); // Use that user profile to extact event data
         setUserProfile(userData);
         setAcheivementData(acheivements);
@@ -59,6 +60,16 @@ const Progress = () => {
         let profileSetting = {disableHowToUseProgress : true};
         localStorage.setItem("levelupdev-settings", JSON.stringify(profileSetting));
     }
+
+    const nullUserProfile = {
+        "email" : "default.test.com", 
+        "name" : "default", 
+        "TitlesData" : [],
+        "SkillsData" : [], 
+        "ProjectsData" : [], 
+        "ExperiencesData" : [], 
+        "version" : 0
+    };
 
     /**
      *  Function to combine, filter, and sort raw data into a timeline
@@ -109,14 +120,14 @@ const Progress = () => {
                 <>
                     <section className="sm:flex justify-between items-center hidden">
                         {/*Landing page links */}
-                        <p className='font-bold text-primaryGreenDarker text-base'>Level Up Dev - {userProfile.name}</p>
+                        <p className='font-bold text-primaryGreenDarker text-base'>Level Up Dev - {userProfile && userProfile.name}</p>
                         <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white hover:bg-primaryGreenDarker hover:text-white drop-shadow-md active:drop-shadow-2xl rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
                     </section>
                     <section className="flex justify-between items-center sm:hidden gap-4">
                         {/*Landing page links */}
                         <div>
                             <p className='font-bold text-primaryGreenDarker text-base'>Level Up Dev</p>
-                            <p className='font-bold text-primaryGreenDarker text-base'>{userProfile.name}</p>
+                            <p className='font-bold text-primaryGreenDarker text-base'>{userProfile && userProfile.name}</p>
                         </div>
                         <Link className='font-bold text-gray-700 p-2 mt-0 border border-primaryGreenDarker font-bold text-base bg-white hover:bg-primaryGreenDarker hover:text-white drop-shadow-md active:drop-shadow-2xl rounded-lg min-w-24 flex justify-center items-center' href="/">Sign out</Link>
                     </section>            

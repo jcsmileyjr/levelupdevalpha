@@ -27,7 +27,7 @@ const Competency = ({title, content}) => {
             {/* Displays title of the Competency */}
             <div className='flex flex-col items-start sm:flex-row sm:justify-between sm:items-center mb-2'>
                 <h2 className='text-2xl font-bold text-primaryGreen'>{title}</h2>
-                <Link className='group flex justify-center items-center underline text-base text-gray-700 hover:text-primaryOrange font-bold' href={`/Action/${title}`}>
+                <Link role='link' className='group flex justify-center items-center underline text-base text-gray-700 hover:text-primaryOrange font-bold' href={`/Action/${title}`}>
                     Go to {title} Page
                     <Image priority={false} src={Globe} width={15} height={15} alt="" className='ml-2 group-hover:hidden' />
                     <Image priority={false} src={GlobeOrange} width={15} height={15} alt="" className='ml-2 hidden group-hover:block' />
