@@ -50,7 +50,7 @@ describe('Action page', () =>  {
 
     it('should render a section title, List of skills You Want', () => {
         render(<Action params={{action: 'Skills'}} />)
-        const header = screen.getByRole("heading", {name: "List of skills You Want"});
+        const header = screen.getByRole("heading", {name: "List of Skills you want"});
         expect(header).toBeInTheDocument()
     })
 
