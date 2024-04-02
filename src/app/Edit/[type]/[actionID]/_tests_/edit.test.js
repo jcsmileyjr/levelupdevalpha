@@ -3,9 +3,18 @@ import userEvent from '@testing-library/user-event';
 import Edit from '../page';
 import { useRouter } from 'next/navigation';
 
-jest.mock('next/navigation', () => ({
-    useRouter: jest.fn()
-}))
+jest.mock('next/navigation', () => {
+    const router = {
+      push: jest.fn(),
+      query: {},
+      pathname: '/Action/Projects',
+      route: '/Action/Projects',
+      back: jest.fn()
+    }
+    return {
+      useRouter: jest.fn().mockReturnValue(router)
+    }
+})
 
 describe('Edit page', () =>  {
     it('should render a page title, Edit Item', () => {
@@ -53,11 +62,11 @@ describe('Edit page', () =>  {
         await userEvent.type(inputTitle, "Yardwork TODO APP");
         expect(inputTitle).toHaveValue("Yardwork TODO APP");
 
-        /**
-         * The code below don't work as in not able to navigate pages within testing framework
-         */
-        // const button = screen.getByRole("button", {name: "Update"});
-        // await userEvent.click(button);
+        const button = screen.getByRole("button", {name: "Update"});
+        await userEvent.click(button);
+        expect(useRouter().back).toHaveBeenCalledTimes(1); // Ensure button is clicked and navigate back.
+
+        //expect(useRouter().route).toHaveBeenCalledWith('/Action/Projects')
         // const updatedActionItem = await screen.findByText("Yardwork TODO APP");
         // expect(updatedActionItem).toBeInTheDocument();
 
