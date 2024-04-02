@@ -1,8 +1,20 @@
 import getUserProfile from "./getUserProfile"
 
+// Default user profile. Mainly used for testing
+const nullUserProfile = {
+    "email" : "default.test.com", 
+    "name" : "default", 
+    "TitlesData" : [],
+    "SkillsData" : [], 
+    "ProjectsData" : [], 
+    "ExperiencesData" : [], 
+    "version" : 0
+};
+
 // Mocks Netlify function with local storage to save new skills, projects, etc.
 const addEventUserProfile = async (actionItem, type) => {
-    const userProfile = getUserProfile();
+    let userProfile = getUserProfile();
+    if (userProfile === null) userProfile = nullUserProfile; // if getUserProfile() returns blank. Mainly affects testing
 
     if (type === "Skills") {
         userProfile.SkillsData.push(actionItem);
