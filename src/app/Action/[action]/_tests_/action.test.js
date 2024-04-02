@@ -1,4 +1,5 @@
-import {getByRole, render, screen} from '@testing-library/react';
+import {getByRole ,render, screen} from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
 import Action from '../page';
 
 describe('Action page', () =>  {
@@ -28,6 +29,25 @@ describe('Action page', () =>  {
         render(<Action params={{action: 'Skills'}} />)
         const addButtons = screen.queryAllByRole("button", {name: "ADD"});
         expect(addButtons).toHaveLength(2);
+    })
+
+    it('should add a new skill, Responsive Design', async () => {
+        render(<Action params={{action: 'Skills'}} />)
+
+        const inputTitle = screen.getByRole("textbox", {name: 'Title'});
+        await userEvent.type(inputTitle, 'Responsive Design');
+        expect(inputTitle).toHaveValue('Responsive Design');
+
+        const inputReason = screen.getByRole("textbox", {name: 'Reason'});
+        await userEvent.type(inputReason, "Ensure UI works on all devices");
+        expect(inputReason).toHaveValue("Ensure UI works on all devices");
+
+        const addButton = screen.getByTestId('addActionItem');
+        expect(addButton).toBeInTheDocument();
+
+        await userEvent.click(addButton);
+        const newActionItems = await screen.queryAllByText("Responsive Design");
+        expect(newActionItems[0]).toBeInTheDocument()
     })
 
     it('should render select field to Find Skills', () => {
