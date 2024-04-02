@@ -31,7 +31,7 @@ const Edit = ({params: {type, actionID}}) => {
     useEffect(() => {
         let userData = getUserProfile();
         if (userData === null) userData = nullUserProfile; // if getUserProfile() returns blank. Mainly affects testing
-        const actionItem = getActionItem(type, actionID, userData);   
+        const actionItem = getActionItem(type, actionID, userData);
         setActionTitle(actionItem.title);
         setActionDescription(actionItem.description);
         getDate(actionItem.date);
