@@ -68,6 +68,37 @@ describe('Action page', () =>  {
         expect(input).toBeInTheDocument();      
     })
 
+    it('should list a new skill, Nodejs, as completed.', async () => {
+        render(<Action params={{action: 'Skills'}} />)
+
+        const inputTitle = screen.getByRole("textbox", {name: 'Title'});
+        await userEvent.type(inputTitle, 'Nodejs');
+
+        const inputReason = screen.getByRole("textbox", {name: 'Reason'});
+        await userEvent.type(inputReason, "Basic backend for JS apps");
+
+        const addButton = screen.getByTestId('addActionItem');
+        await userEvent.click(addButton);
+
+        const skillSelected = screen.getByRole("combobox", {name: 'Find Skills'});
+        await userEvent.selectOptions(skillSelected, "Nodejs");
+        expect(skillSelected).toHaveValue("Nodejs");
+
+        const monthSelected = screen.getByRole("combobox", {name: 'Month - Skill was completed'});
+        await userEvent.selectOptions(monthSelected, "2");
+        expect(monthSelected).toHaveValue("2");
+
+        const input = screen.getByRole("textbox", {name: 'Year - Skill was completed'});
+        await userEvent.type(input, "2024");
+        expect(input).toHaveValue("2024");
+
+        const completeButton = screen.getByTestId('completeActionItem');
+        await userEvent.click(completeButton);
+        const completedActionItem = await screen.findByText("Nodejs");
+        expect(completedActionItem).toBeInTheDocument()
+
+    });
+
     it('should render a section title, List of skills You Want', () => {
         render(<Action params={{action: 'Skills'}} />)
         const header = screen.getByRole("heading", {name: "List of Skills you want"});
