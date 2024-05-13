@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Level Up Dev
 
-## Getting Started
+An app that helps developers visually track their technical skill and career progression.
 
-First, run the development server:
+[Click to view: Level Up Dev on a hosted site.](https://levelupdev.netlify.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![GIF of the app](./src/images/levelupdev-demo-1.gif)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## About
+Introducing a simple and intuitive user interface that empowers you to proudly describe a skill, project, title, or experience and truly feel the impact it has had on your career journey. With just a few clicks, add it to your personalized list and watch as your achievements come to life on a visual graph, illustrating every step of your path to the present moment.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+And the best part? You have full control to add, delete, or update any data point at any time, allowing you to constantly reflect and grow on your professional journey. Let your career story shine brighter than ever before with this incredible tool.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Built with
+- **Next.js** is a frontend JavaScript framework, based on React but with server components/actions, used for displaying the user interface. 
+- **TailwindCSS** is a CSS library utilized to quickly style the application. 
+- **Jest** serves as a component testing framework. 
+- **Netlify** is the hosting platform employed for hosting the application.
+- **Sanity.io** is a backend as a service platform used for data retrieval and storage.
 
-## Learn More
+## Get Started
+1. Clone the repo.
+2. In the terminal for levelupdevalpha, type "npm install" to install the libraries.
+3. In the terminal, type "npm run dev" to run the program and view the site locally on http://localhost:3000
+4. In a seperate terminal, typ "npm run test" to run the Jest test runner.   
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Author
+- Website - [JC Smiley](https://www.jcsmileyjr.com)
+- Twitter - [@JCSmiley4](https://twitter.com/JCSmiley4)
+- LinkedIn - [jcsmileyjr](https://www.linkedin.com/in/jcsmileyjr/)
